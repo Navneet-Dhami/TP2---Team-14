@@ -18,4 +18,11 @@
     } else if (localData == "night-theme") {
         document.body.classList.add("moon");
     }
+
+    const dropButton = document.getElementsByClassName('dropdown')[0]
+    const navigationLinks = document.getElementsByClassName('navigation-links')[0]
+
+    dropButton.addEventListener('click', () => {
+        navigationLinks.classList.toggle('active')
+    })
     
