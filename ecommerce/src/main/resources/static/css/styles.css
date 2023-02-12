@@ -1,7 +1,33 @@
-*{
+
+.nav h1{
+    color: var(--s-colour);
     text-align: center;
 }
 
-.nav h1{
-    color: blueviolet;
+body{
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--p-colour);
+}
+
+
+#darkmode{
+    color: var(--s-colour);
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%, -50%);
+    }
+    
+    
+:root{
+    --p-colour: #ffffff;
+    --s-colour: blueviolet;   
+}
+
+.moon{
+    --p-colour: #1f1d1d;
+    --s-colour: #eaf0fd; 
 }
