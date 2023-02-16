@@ -1,0 +1,127 @@
+
+.nav h1{
+    color: var(--s-colour);
+    text-align: center;
+}
+
+body{
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--p-colour);
+    color: var(--s-colour);
+}
+
+/* Navigation */
+.navigation{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--p2-colour);
+    height: 7vh;
+}
+
+.logo{
+    font-size: x-large;
+    margin: 0.5rem;
+}
+
+.navigation-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+.navigation-links li{
+    list-style: none;
+}
+
+.navigation-links li a{
+    text-decoration: none;
+    color: var(--s-colour);
+    padding: 1rem;
+    display: block;
+}
+
+.navigation-links li:hover{
+    background-color: var(--p-colour);
+}
+
+.dropdown{
+    position: absolute;
+    top: 0.80rem;
+    right: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 35px;
+}
+
+.dropdown .list{
+    height: 4px;
+    width: 100%;
+    background-color: var(--p-colour);
+    border-radius: 15px;
+}
+
+@media (max-width: 600px) {
+    .dropdown{
+        display: flex;
+    }
+
+    .navigation-links{
+        display: none;
+        width: 100%;
+    }
+
+    .navigation{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation-links ul{
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .navigation-links li{
+        text-align: center;
+    }
+
+    .navigation-links li a{
+        padding: 0.5rem, 1rem;
+    }
+
+    .navigation-links.active {
+        display: flex;
+    }
+
+}
+
+/*Dark Mode */
+
+#darkmode{
+    color: var(--s-colour);
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%, -50%);
+    }
+    
+    
+:root{
+    --p-colour: #ffffff;
+    --s-colour: #1f1d1d;
+    --p2-colour: purple;   
+}
+
+.moon{
+    --p-colour: #1f1d1d;
+    --s-colour: #eaf0fd; 
+    --p2-colour: grey;   
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title> Login Form </title>
+        <link rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+        <header id="header"> 
+            <label> Not a registered user?, <a th:href="@{/userRegistration}"> Sign up now </a> </label>
+        </header>
+
+        <h3> Login Form </h3>
+        <form th:action="@{login}" method="post"> 
+            <input type="email" name="email"  placeholder="Email Address" required/>
+            <br><br>
+            <input type="password" name="password" placeholder="Password" required/> 
+            <br><br>
+            <input type="submit" name="submit" value="Login"/>
+            <input type="hidden" name="submitted" value="true"/>
+
+        </form>
+    </body>
+</html>
