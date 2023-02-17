@@ -74,16 +74,14 @@ CREATE TABLE `reviews` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `username` varchar(30) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `admin` tinyint(1) NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `join_date` date NOT NULL,
-  `fname` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `lname` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+CREATE TABLE users (
+  id int(11) NOT NULL,
+  email varchar(255) DEFAULT NULL,
+  name varchar(255) DEFAULT NULL,
+  password varchar(255) DEFAULT NULL,
+  surname varchar(255) DEFAULT NULL,
+  username varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
