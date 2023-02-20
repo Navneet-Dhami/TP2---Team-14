@@ -1,24 +1,81 @@
+@@ -0,0 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
-    <head> 
-        <meta charset="UFT-8">
-        <title> Register </title>
-    </head>
-    <body> 
-        <label> <a th:href="@{/userLogin}"> Sign In </a> </label>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="/js/script.js" defer></script>
+    <title>Registration Page</title>
 
-        <h2> Registration Form </h2>
-        
-        <form th:action="@{/registerUser}" th:object="${user}" method="post">
-            <label> Please fill in the details below: </label> <br><br>
-            <input type="text" name="firstname" placeholder="First Name" required/> 
-            <input type="text" name="surname" placeholder="Surname" required/> 
-            <input type="text" name="username" placeholder="Username" required/> 
-            <br><br>
-            <input type="email" name="email" placeholder="Email Address" required/> 
-            <input type="password" name="password" placeholder="Password" required/> 
-            <br><br>
-            <input type="submit" name="submit" value="Register!"/>
-        </form>
+</head>
+<body>
+    <nav class="navigation">
+      <div class="logo">Soundwaves</div>
+      <a href="#" class="dropdown">
+        <span class="list"></span>
+        <span class="list"></span>
+        <span class="list"></span>
+        <span class="list"></span>
+      </a>
+      <div class="navigation-links">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="Register">
+    <h1>Register</h1>
+
+    <form method="post">
+
+        <div class="register_text">
+          <input type="text" required>
+          <span></span>
+          <label>First Name</label>
+        </div>
+
+        <div class="register_text">
+            <input type="text" required>
+            <span></span>
+            <label>Last Name</label>
+          </div>
+
+          <div class="register_text">
+            <input type="text" required>
+            <span></span>
+            <label>UserName</label>
+          </div>
+
+          <div class="register_text">
+            <input type="email" required>
+            <span></span>
+            <label>Email </label>
+          </div>
+
+          <div class="register_text">
+            <input type="password" required>
+            <span></span>
+            <label>Password</label>
+          </div>
+
+          <div class="register_text">
+            <input type="password" required>
+            <span></span>
+            <label>Confirm Password</label>
+          </div>
+
+
+  
+        <input type="submit" value="Sign Up">
+        <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+
     </body>
-</html>
+    </html>
+  

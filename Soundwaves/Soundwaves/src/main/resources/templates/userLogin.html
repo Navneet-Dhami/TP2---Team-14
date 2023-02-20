@@ -1,25 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title> Login Form </title>
-        <link rel="stylesheet" type="text/css"/>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="/js/script.js" defer></script>
+    <title>Login Page</title>
 
-    <body>
-        <header id="header"> 
-            <label> Not a registered user?, <a th:href="@{/userRegistration}"> Sign up now </a> </label>
-        </header>
+</head>
+<body>
+    <nav class="navigation">
+      <div class="logo">Soundwaves</div>
+      <a href="#" class="dropdown">
+        <span class="list"></span>
+        <span class="list"></span>
+        <span class="list"></span>
+        <span class="list"></span>
+      </a>
+      <div class="navigation-links">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </nav>
 
-        <h3> Login Form </h3>
-        <form th:action="@{login}" method="post"> 
-            <input type="email" name="email"  placeholder="Email Address" required/>
-            <br><br>
-            <input type="password" name="password" placeholder="Password" required/> 
-            <br><br>
-            <input type="submit" name="submit" value="Login"/>
-            <input type="hidden" name="submitted" value="true"/>
+    <div class="Login">
+    <h1>Login Here</h1>
 
-        </form>
-    </body>
+    <form method="post">
+        
+      <div class="email_password">
+        <input type="email" required>
+        <span></span>
+        <label>Email</label>
+      </div>
+
+      <div class="email_password">
+        <input type="password" required>
+        <span></span>
+        <label>Password</label>
+      </div>
+
+      <input type="submit" value="Login">
+
+      <div class="register">
+        Don't have a login? <a href="register.html">Click here</a> to register!
+      </div>
+    </form>
+    </div>
+    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+
+</body>
 </html>
