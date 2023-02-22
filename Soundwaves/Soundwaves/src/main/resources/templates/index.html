@@ -33,22 +33,20 @@
             <h1>Hey There</h1>
         </div>
 
-        <table class="table">
-            <thead class="thead-light">
-            <tr>
-                <th scope="col">Category Number</th>
-                <th scope="col">Category Name</th>
-               
-            </tr>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Image</th>
+              </tr>
             </thead>
             <tbody>
-    
-            <tr th:each="category, iStat : ${categories}">
-                <th scope="row" th:text="${iStat.index + 1}">1</th>
-                <td th:text="${category.categoryName}">Larry</td>
-            </tr>
+              <tr th:each="category : ${categories}">
+                <td><a th:href="@{/categories/{id}(id=${category.id})}" th:text="${category.name}"></a></td>
+                <td><a th:href="@{/categories/{id}(id=${category.id})}"><img th:src="ecommerce\src\main\resources\static\Cart\1.jpg" /></a></td>
+              </tr>
             </tbody>
-        </table>
+          </table>
 
         <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
 
