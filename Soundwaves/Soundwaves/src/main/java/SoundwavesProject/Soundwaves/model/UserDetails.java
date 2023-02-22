@@ -1,4 +1,4 @@
-package SoundwavesProject.Soundwaves;
+package SoundwavesProject.Soundwaves.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

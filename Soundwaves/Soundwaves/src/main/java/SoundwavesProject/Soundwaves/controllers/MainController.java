@@ -3,12 +3,14 @@ package SoundwavesProject.Soundwaves.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import SoundwavesProject.Soundwaves.UserDetails;
-import SoundwavesProject.Soundwaves.UserRepository;
+import SoundwavesProject.Soundwaves.model.UserDetails;
+import SoundwavesProject.Soundwaves.repository.UserRepository;
+import SoundwavesProject.Soundwaves.service.categoriesService;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -16,6 +18,9 @@ public class MainController {
     
     @Autowired
     private UserRepository customerRepo;
+
+    @Autowired
+    private categoriesService categoriesService;
     
     @GetMapping("/")
     public String home() { 
@@ -23,9 +28,11 @@ public class MainController {
     }
 
     @GetMapping("/index")
-    public String index() { 
-        return "index";
+    public String getCategories(Model model){
+        model.addAttribute("categories", categoriesService.getAllCategory());
+        return "index.html";
     }
+
 
     @GetMapping("/contact")
     public String contact() { 

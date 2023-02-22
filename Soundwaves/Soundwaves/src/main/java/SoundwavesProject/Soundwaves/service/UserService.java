@@ -1,4 +1,4 @@
-package SoundwavesProject.Soundwaves.controllers;
+package SoundwavesProject.Soundwaves.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
