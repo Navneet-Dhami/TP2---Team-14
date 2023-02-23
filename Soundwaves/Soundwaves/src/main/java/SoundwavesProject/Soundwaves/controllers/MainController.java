@@ -60,7 +60,7 @@ public class MainController {
     }
 
     @PostMapping("/registerUser")
-    public String register(@ModelAttribute UserDetails c, HttpSession session) {      
+    public String register(@ModelAttribute User c, HttpSession session) {      
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPass = encoder.encode(c.getPassword());
         c.setPassword(encodedPass);
