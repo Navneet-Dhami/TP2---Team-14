@@ -44,19 +44,19 @@ public class MainController {
         return "products";
     }
 
-    @GetMapping("/user")
-    public String user() { 
-        return "user";
+    @GetMapping("/success")
+    public String success() {
+        return "success";
     }
 
-    @GetMapping("/userLogin")
-    public String userLogin() { 
-        return "userLogin";
+    @GetMapping("/login")
+    public String login() { 
+        return "login";
     }
 
-    @GetMapping("/userRegistration")
-    public String userRegistration() { 
-        return "userRegistration";
+    @GetMapping("/register")
+    public String register() { 
+        return "register";
     }
 
     @PostMapping("/registerUser")
