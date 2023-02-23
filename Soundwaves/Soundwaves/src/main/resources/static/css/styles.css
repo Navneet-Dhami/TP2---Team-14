@@ -356,6 +356,27 @@ input[type="submit"]:hover {
     justify-content: center;
 }
 
+/* Admin CSS */
+
+.table {
+    width: 100%;
+}
+
+.form-group{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.row{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
 /*Dark Mode */
 
 #darkmode{
