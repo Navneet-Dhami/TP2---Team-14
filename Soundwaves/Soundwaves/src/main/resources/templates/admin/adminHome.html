@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
-        <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
-        <title> Admin Home </title>
-    </head>
 
-    <body>
-        <div class="nav">
-            <h1>Admin Home</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+    <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
+    <title> Adminpage </title>
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="logo">Soundwaves</div>
+        <a href="#" class="dropdown">
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+        </a>
+        <div class="navigation-links">
+            <ul>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/contact}">Contact us</a></li>
+                <li><a th:href="@{/user}">Login</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <form th:action="@{/logout}" method="post"> 
-            <input type="submit" value="Logout!"/>
-        </form>
+    <div class="nav">
+        <h1>Admin Home</h1>
+    </div>
 
-        <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout!" />
+    </form>
 
-    </body>
+
+    <div class="card-body">
+        <h4 class="card-title">Products</h4>
+        <p class="card-text">Modify products here</p>
+        <a href="#" th:href="@{/admin/products}" class="card-link btn btn-primary">Modify</a>
+
+    </div>
+
+    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+
+</body>
+
 </html>

@@ -69,8 +69,5 @@ public class MainController {
         return "redirect:/login";
     }
 
-    @GetMapping("/admin/adminHome") 
-    public String adminHomePage() { 
-        return "admin/adminHome";
-    }
+    
 }

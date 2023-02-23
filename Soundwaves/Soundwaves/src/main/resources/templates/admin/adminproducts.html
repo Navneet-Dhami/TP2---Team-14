@@ -1,14 +1,16 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
-        <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
-        <title> Adminpage </title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+    <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
+    <title> Adminpage </title>
+</head>
+
 <body>
     <nav class="navigation">
         <div class="logo">Soundwaves</div>
@@ -28,9 +30,9 @@
         </div>
     </nav>
 
-    
 
-    <a th:href="@{/admin/products/addproduct}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
+
+    <a th:href="@{/admin/addproduct}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
     <table class="table">
         <tr>
             <th scope="col">No.</th>
@@ -41,7 +43,7 @@
             <th scope="col">Preview</th>
             <th scope="col">Remove</th>
         </tr>
-       
+
 
         <tr th:each="product, iStat : ${products}">
             <th scope="row" th:text="${iStat.index + 1}"></th>
@@ -49,15 +51,16 @@
             <td th:text="${product.category.categoryName}"></td>
             <td th:text="${product.description}"></td>
             <td th:text="${product.stock}"></td>
-            <td><img src="" height="100px" width="100px"  th:src="@{${'/media/' + product.img}}"></td>
+            <td><img src="" height="100px" width="100px" th:src="@{${'/media/' + product.img}}"></td>
             <td><a href="" th:href="@{/admin/product/remove/{id}(id=${product.id})}"> Remove </a></td>
         </tr>
-        
+
     </table>
 
-      <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
 
 
 
 </body>
+
 </html>

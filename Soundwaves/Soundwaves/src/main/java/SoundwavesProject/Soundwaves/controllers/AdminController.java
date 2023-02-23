@@ -34,26 +34,26 @@ public class AdminController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/admin")
-    public String adminHome(){
-        return "admin.html";
+    @GetMapping("/admin/adminHome") 
+    public String adminHome() { 
+        return "admin/adminHome";
     }
 
     @GetMapping("/admin/products")
     public String products(Model model){
         model.addAttribute("products", productService.getProduct());
-        return "adminproducts.html";
+        return "admin/adminproducts";
     }
 
 
-    @GetMapping("/admin/products/addproduct")
+    @GetMapping("/admin/addproduct")
     public String addProduct(Model model){
         model.addAttribute("productDTO", new ProductDTO());
         model.addAttribute("categories", categoriesService.getAllCategory());
-        return "adminaddproduct.html";
+        return "admin/adminaddproduct";
     }
     
-    @PostMapping("/admin/products/addproduct")
+    @PostMapping("/admin/addproduct")
     public String addProductPost(@ModelAttribute("productDTO") ProductDTO productDTO, 
     @RequestParam("media") MultipartFile file, 
     @RequestParam("imgName") String imgName) throws IOException {
