@@ -6,6 +6,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import SoundwavesProject.Soundwaves.model.SoundWavesUserDetails;
+import SoundwavesProject.Soundwaves.model.User;
+import SoundwavesProject.Soundwaves.repository.UserRepository;
+
 @Service
 public class UserService implements UserDetailsService {
     
