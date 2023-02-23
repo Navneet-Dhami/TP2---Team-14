@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{css/styles.css}" />
 </head>
 
 <body>
+    <nav class="navigation">
+        <div class="logo">Soundwaves</div>
+        <a href="#" class="dropdown">
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+        </a>
+        <div class="navigation-links">
+            <ul>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/contact}">Contact us</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="contactus">
         <div class="title">
             <h1>Contact Us</h1>
@@ -32,7 +51,7 @@
         <div class="ourinfo">
             <div class="bottom">
                 <div class="address">
-                    <img src="addresspointer.png" alt="address" style="width: 35px">
+                    <img th:src="@{/media/addresspointer.png}" alt="address" style="width: 35px"/>
                     <div class="topic">Address</div>
                     <div class="info">Aston St, Birmingham B4 7ET</div>
                 </div>
@@ -44,7 +63,7 @@
         <div class="ourinfo">
             <div class="bottom">
                 <div class="phonenumber">
-                    <img src="phoneicon.png" alt="phone" style="width: 35px">
+                    <img th:src="@{/media/phoneicon.png}" alt="phone" style="width: 35px"/>
                     <div class="topic">Phone Number</div>
                     <div class="info">0121 204 3000</div>
                 </div>
@@ -55,7 +74,7 @@
             <div class="ourinfo">
                 <div class="bottom">
                     <div class="email">
-                        <img src="emailicon.png" alt="email" style="width: 35px">
+                        <img th:src="@{/media/emailicon.png}" alt="email" style="width: 35px"/>
                         <div class="topic">Email</div>
                         <div class="info">hello@aston.ac.uk</div>
                     </div>

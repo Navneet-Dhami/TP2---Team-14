@@ -356,6 +356,73 @@ input[type="submit"]:hover {
     justify-content: center;
 }
 
+/* About Us CSS */
+
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.about-us{
+    background-color: #d3b7ff;
+    text-align: center;
+}
+
+.header{
+    width: 100%;
+    height: 10vh;
+    color: black;
+}
+
+.header2{
+    width: 100%;
+    height: 10vh;
+}
+
+.container1{
+    padding-top: 150px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    background: #d3b7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.team{
+    margin: 10px;
+    padding: 22px;
+    max-width: 30%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.team img{
+    width: 150px;
+    height: 150px;
+    background: transparent;
+}
+
+.body{
+    background: transparent;
+}
+
+.name{
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.role{
+    color: white;
+}
+
 /* Admin CSS */
 
 .table {

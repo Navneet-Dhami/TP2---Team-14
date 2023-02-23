@@ -1,5 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{css/styles.css}" />
+    <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
+    <title> Homepage </title>
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="logo">Soundwaves</div>
+        <a href="#" class="dropdown">
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+        </a>
+        <div class="navigation-links">
+            <ul>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/contact}">Contact us</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+            </ul>
+        </div>
+    </nav>
 
 <head>
     <link rel="stylesheet" href="styles.css">
@@ -10,84 +39,79 @@
     <div class="about-us">
         <div class="header">
             <h1>About Us!</h1>
-            <p>We are a group of 10 university students who have come together to make this e-commerce website!</p>
+            <p>We are a group of 10 university students who have come together to make this e-commerce website!
+                <br>This website has been made for those who love music! We offer products such as
+                <br>headphones, speakers and much more.
+            </p>
         </div>
 
         <div class="container1">
             <div class="header2">
                 <h2>Meet the team</h2>
             </div>
-
-            <div class="container2">
-                <div class="team">
-                    <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                    <div class="name">Navneet</div>
-                    <div class="role">Backend Developer</div>
-
-                    <div class="team">
-                        <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                        <div class="name">Feysal</div>
-                        <div class="role">Backend Developer</div>
-
-                        <div class="team">
-                            <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                            <div class="name">Mohamed</div>
-                            <div class="role">Backend Developer</div>
-
-                            <div class="team">
-                                <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                                <div class="name">Billy</div>
-                                <div class="role">Backend Developer</div>
-
-                                <div class="team">
-                                    <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                                    <div class="name">Ishika</div>
-                                    <div class="role">Backend Developer</div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+           
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Navneet</div>
+                <div class="role">Backend Developer</div>
             </div>
-        </div>
 
-        <div class="container3">
-            <div class="team1">
-                <img src="aboutusblank.jpg" alt="" style="width: 75px">
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Feysal</div>
+                <div class="role">Backend Developer</div>
+            </div>
+
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Mohamed</div>
+                <div class="role">Backend Developer</div>
+            </div>
+
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Ishika</div>
+                <div class="role">Backend Developer</div>
+            </div>
+
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Billy</div>
+                <div class="role">Backend Developer</div>
+            </div>
+
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
                 <div class="name">Alexander</div>
                 <div class="role">Frontend Developer</div>
+            </div>
 
-                <div class="team1">
-                    <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                    <div class="name">Ayub</div>
-                    <div class="role">Frontend Developer</div>
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Ayub</div>
+                <div class="role">Frontend Developer</div>
+            </div>
 
-                    <div class="team1">
-                        <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                        <div class="name">Sufyaan</div>
-                        <div class="role">Frontend Developer</div>
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Josh</div>
+                <div class="role">Frontend Developer</div>
+            </div>
 
-                        <div class="team1">
-                            <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                            <div class="name">Josh</div>
-                            <div class="role">Frontend Developer</div>
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Ravjot</div>
+                <div class="role">Frontend Developer</div>
+            </div>
 
-                            <div class="team1">
-                                <img src="aboutusblank.jpg" alt="" style="width: 75px">
-                                <div class="name">Nav</div>
-                                <div class="role">Frontend Developer</div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="team">
+                <img th:src="@{/media/aboutusblank.png}" alt="">
+                <div class="name">Sufyaan</div>
+                <div class="role">Frontend Developer</div>
+            </div>
+            
             </div>
         </div>
-    </div>
-    </div>
 
 
 
