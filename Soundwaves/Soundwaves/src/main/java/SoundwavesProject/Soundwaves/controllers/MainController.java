@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpSession;
 public class MainController {
     
     @Autowired
-    private UserRepository customerRepo;
+    private UserRepository userRepository;
 
     @Autowired
     private categoriesService categoriesService;
@@ -60,12 +60,12 @@ public class MainController {
     }
 
     @PostMapping("/registerUser")
-    public String register(@ModelAttribute User c, HttpSession session) {      
+    public String register(@ModelAttribute User u, HttpSession session) {      
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedPass = encoder.encode(c.getPassword());
-        c.setPassword(encodedPass);
-    
-        customerRepo.save(c);
+        String encodedPass = encoder.encode(u.getPassword());
+        u.setPassword(encodedPass);
+        u.setRole("USER");
+        userRepository.save(u);
         return "redirect:/login";
     }
 }
