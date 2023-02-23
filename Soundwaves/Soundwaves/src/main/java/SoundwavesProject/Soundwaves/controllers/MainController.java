@@ -68,4 +68,9 @@ public class MainController {
         userRepository.save(u);
         return "redirect:/login";
     }
+
+    @GetMapping("/admin/adminHome") 
+    public String adminHomePage() { 
+        return "admin/adminHome";
+    }
 }
