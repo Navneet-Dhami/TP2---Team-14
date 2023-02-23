@@ -66,6 +66,6 @@ public class MainController {
         c.setPassword(encodedPass);
     
         customerRepo.save(c);
-        return "redirect:/userLogin";
+        return "redirect:/login";
     }
 }
