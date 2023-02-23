@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,14 +46,14 @@ public class AdminController {
     }
 
 
-    @GetMapping("/admin/products/add")
+    @GetMapping("/admin/products/addproduct")
     public String addProduct(Model model){
         model.addAttribute("productDTO", new ProductDTO());
         model.addAttribute("categories", categoriesService.getAllCategory());
         return "adminaddproduct.html";
     }
     
-    @PostMapping("/admin/products/add")
+    @PostMapping("/admin/products/addproduct")
     public String addProductPost(@ModelAttribute("productDTO") ProductDTO productDTO, 
     @RequestParam("media") MultipartFile file, 
     @RequestParam("imgName") String imgName) throws IOException {
@@ -64,25 +65,36 @@ public class AdminController {
        product.setPrice(productDTO.getPrice());
        product.setStock(productDTO.getStock());
        product.setDescription(productDTO.getDescription());
-       String uuidDir;
+
+
+       //Unique identifiter for image = uuidNme
+       //Directory is linked to findDir, in which the Path 'filePathName' takes in the value of the image name (the uuid) and the directory (findDir) to write operation
+
+       String uuidNme;
 
        if(!file.isEmpty())
        {
-        uuidDir = file.getOriginalFilename();
-        Path fileNameAndPath = Paths.get(findDir, uuidDir);
-        Files.write(fileNameAndPath, file.getBytes());
+        uuidNme = file.getOriginalFilename();
+        Path filePathName = Paths.get(findDir, uuidNme);
+        Files.write(filePathName, file.getBytes());
        } else {
 
-        uuidDir = imgName;
+        uuidNme = imgName;
 
        }
 
-       product.setImg(uuidDir);
+       product.setImg(uuidNme);
        productService.addProduct(product);
 
 
 
         return "redirect:/admin/products";
+    }
+
+    @GetMapping("/admin/product/remove/{id}") public String removeProduct(@PathVariable long id)
+    {
+      productService.rmvProduct(id);
+      return "redirect:/admin/products";
     }
 
     
