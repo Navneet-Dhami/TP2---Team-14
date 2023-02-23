@@ -37,7 +37,7 @@ public class SecurityConfig{
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception { 
         http
             .authorizeHttpRequests()
-            .requestMatchers( "/Media/**").permitAll() 
+            .requestMatchers( "/media/**").permitAll() 
             .requestMatchers( "/css/styles.css", "/js/script.js").permitAll()  
             .requestMatchers("/", "/index", "/contact", "/products").permitAll()
             .requestMatchers( "/register", "/registerUser").permitAll()    
