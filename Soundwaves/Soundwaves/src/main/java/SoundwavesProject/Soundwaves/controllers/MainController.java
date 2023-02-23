@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import SoundwavesProject.Soundwaves.model.UserDetails;
+import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
 import SoundwavesProject.Soundwaves.service.categoriesService;
 import jakarta.servlet.http.HttpSession;
