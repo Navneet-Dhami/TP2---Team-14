@@ -68,9 +68,10 @@ body{
 }
 
 @media (max-width: 600px) {
-    .dropdown{
-        display: flex;
+    .product-card {
+      flex: 1 46%;
     }
+  }
 
     .navigation-links{
         display: none;
@@ -299,6 +300,7 @@ input[type="submit"]:hover {
 
 }
 
+
 .button {
     background: #d3b7ff;
     text-align: center;
@@ -399,6 +401,51 @@ input[type="submit"]:hover {
     --p-colour: #1f1d1d;
     --s-colour: #eaf0fd; 
     --p2-colour: grey;   
+}
+
+/*Products Page stuff */
+.price-sort{
+    margin: 1;
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+.productsTitle h1{
+    display: flex;
+}
+
+.productsTitle {
+    flex-grow: 1;
+    
+}
+
+.productCard{
+    
+    flex-grow: 1;
+    flex-basis: 16%;
+    display: flex;
+    flex: 1 16%;
+    
+}
+
+.productImage{
+ max-width: 100%;
+}
+
+.productInfo{
+    margin-top: auto;
+    text-align: center;
+    
+}
+
+.products{
+    display: flex;
+  flex-wrap: wrap;
+}
+
+.sorting{
+    display: flex;
 }
 
 

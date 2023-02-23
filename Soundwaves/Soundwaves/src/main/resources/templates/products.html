@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="css/styles.css" th:href="@{css/styles.css}" />
+        <link rel="stylesheet" type="text/css" href="/Users/sufyaantanveer/frgdfg/TP2---Team-14/Soundwaves/Soundwaves/src/main/resources/static/css/styles.css"/>
         <script type="text/javascript" th:src="@{/js/script.js}" defer></script> 
         <title> Products </title>
     </head>
@@ -28,13 +28,80 @@
                 </ul>
             </div>
         </nav>
-
-        <div class="nav">
-        <h1>Products</h1>
-        </div>
-        <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
-
-    </body>
+        <nav class="productsTitle">
+            <h1>Products</h1>
+          
+          <div class="sorting">
+          
+            <div class="price-sort">
+              <label>Sort by:</label>
+              <select>
+                <option value="/">Featured</option>
+                <option value="/">Alphabetical Order</option>
+                <option value="/">Price (Lowest)</option>
+                <option value="/">Price (Highest)</option>
+              </select>
+            </div>
+          </div>
+          </nav>
+          
+          <section class="products">
+          <div class="productCard">
+          <div class="productImage">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Yeezus_album_cover.png">
+          </div>
+          
+          <div class="productInfo">
+          <h5>song</h5>
+          <h6>£99.99</h6>
+          </div>
+          </div>
+          
+          <div class="productCard">
+          <div class="productImage">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Yeezus_album_cover.png">
+          </div>
+          
+          <div class="productInfo">
+          <h5>song</h5>
+          <h6>£99.99</h6>
+          </div>
+          </div>
+          
+          <div class="productCard">
+          <div class="productImage">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Yeezus_album_cover.png">
+          </div>
+          
+          <div class="productInfo">
+          <h5>song</h5>
+          <h6>£99.99</h6>
+          </div>
+          </div>
+          
+          <div class="productCard">
+          <div class="productImage">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Yeezus_album_cover.png">
+          </div>
+          
+          <div class="productInfo">
+          <h5>song</h5>
+          <h6>£99.99</h6>
+          </div>
+          </div>
+          
+          <div class="productCard">
+          <div class="productImage">
+          <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Yeezus_album_cover.png">
+          </div>
+          
+          <div class="productInfo">
+          <h5>song</h5>
+          <h6>£99.99</h6>
+          </div>
+          </div>
+          
+          </section>
 
 </html>
 
