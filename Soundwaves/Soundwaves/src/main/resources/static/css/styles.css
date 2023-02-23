@@ -261,15 +261,11 @@ input[type="submit"]:hover {
     transition: .7s;
 }
 
-.header {
-    text-align: center;
-}
-
-
 .contactus{
+    
     width: 250px;
     padding: 50px;
-    margin: 100px auto;
+    margin: 100px;
     border-radius: 30px;
     background: #c0a3ff ;
 }
@@ -307,54 +303,42 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-
-
-
-.container {
-    display: flex;
-    flex-direction: row;
-    padding-left: 225px;
-}
-
-.ourinfo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.container2 {
-    display: flex;
-    flex-direction: row;
-    padding-left: 225px;
-}
-
-.team {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.header2 {
-    padding-top: 150px;
+.container{
+    max-width: 1200px;
+    margin: 125px;
     text-align: center;
-
-}
-
-.container3 {
+    background: white;
     display: flex;
-    flex-direction: row;
-    padding-left: 225px;
-}
-
-.team1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
+
+.info{
+    margin: 20px;
+    padding: 22px;
+    max-width: 30%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.info1{
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: black
+}
+
+.info2{
+    color: black;
+}
+
+.info img{
+    width: 25px;
+    height: 25px;
+}
+
 
 /* About Us CSS */
 
