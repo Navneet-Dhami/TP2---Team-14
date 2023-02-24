@@ -53,7 +53,9 @@ public class MainController {
     }
 
     @GetMapping("/products")
-    public String products() { 
+    public String products(Model model) { 
+        model.addAttribute("categories", categoriesService.getAllCategory());
+        model.addAttribute("products", productService.getProduct());
         return "products";
     }
 
