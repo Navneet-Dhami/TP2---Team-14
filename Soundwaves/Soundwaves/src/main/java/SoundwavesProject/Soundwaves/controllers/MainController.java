@@ -39,6 +39,11 @@ public class MainController {
         return "contact";
     }
 
+    @GetMapping("/aboutus")
+    public String aboutus() { 
+        return "aboutus";
+    }
+
     @GetMapping("/products")
     public String products() { 
         return "products";
