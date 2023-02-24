@@ -42,6 +42,7 @@
             <th scope="col">Stock</th>
             <th scope="col">Preview</th>
             <th scope="col">Remove</th>
+            <th scope="col">Modify</th>
         </tr>
 
 
@@ -53,6 +54,7 @@
             <td th:text="${product.stock}"></td>
             <td><img src="" height="100px" width="100px" th:src="@{${'/media/' + product.img}}"></td>
             <td><a href="" th:href="@{/admin/product/remove/{id}(id=${product.id})}"> Remove </a></td>
+            <td><a href="" th:href="@{/admin/product/modify/{id}(id=${product.id})}"> Modify </a></td>
         </tr>
 
     </table>
