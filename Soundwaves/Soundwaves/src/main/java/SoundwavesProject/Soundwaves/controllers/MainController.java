@@ -59,11 +59,6 @@ public class MainController {
         return "products";
     }
 
-    @GetMapping("/success")
-    public String success() {
-        return "success";
-    }
-
     @GetMapping("/login")
     public String login() { 
         return "login";
