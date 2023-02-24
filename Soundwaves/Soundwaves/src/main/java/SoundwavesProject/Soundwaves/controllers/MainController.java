@@ -6,10 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
+import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
 import jakarta.servlet.http.HttpSession;
 
@@ -21,18 +25,22 @@ public class MainController {
 
     @Autowired
     private categoriesService categoriesService;
+
+    @Autowired
+    ProductService productService;
     
-    @GetMapping("/")
-    public String home() { 
+    @GetMapping({"/", "/index"})
+    public String home(Model model) { 
+        model.addAttribute("categories", categoriesService.getAllCategory());
         return "index";
     }
 
-    @GetMapping("/index")
-    public String getCategories(Model model){
+    @GetMapping({"/products/category/{id}"})
+    public String viewByCategoryHome(Model model, @PathVariable int id) { 
         model.addAttribute("categories", categoriesService.getAllCategory());
-        return "index.html";
+        model.addAttribute("products", productService.getProductByCatId(id));
+        return "products";
     }
-
 
     @GetMapping("/contact")
     public String contact() { 

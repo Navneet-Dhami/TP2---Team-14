@@ -23,10 +23,13 @@
         </a>
         <div class="navigation-links">
             <ul>
+                <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
                 <li><a th:href="@{/index}">Home</a></li>
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
-                <li><a th:href="@{/user}">Login</a></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout!" />
+                </form>
             </ul>
         </div>
     </nav>

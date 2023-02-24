@@ -33,33 +33,30 @@
 
     <div class="nav">
         <h1>Hey There</h1>
+        <a>
+            <a th:href="@{/admin/adminHome}">Admin</a></li>
+        </a>
+    </div>
+<div class="container" style="margin-top: 30px">
+<div class="row">
+
+    <div class="col-sm-3">
+        <h4>Categories</h4>
+        <ul class="list-group">
+            <a href="" th:each="category, iStat : ${categories}"
+            th:href="@{/products/category/{id}(id=${category.id})}"><li
+            class="list-group-item" th:text="${category.categoryName}"></li></a>
+        </ul>
+
     </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Image</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="category : ${categories}">
-                <td>
-                    <a th:href="@{/categories/{id}(id=${category.id})}" th:text="${category.name}"></a>
-                </td>
-                <td>
-                    <a th:href="@{/categories/{id}(id=${category.id})}"><img th:src="ecommerce\src\main\resources\static\Cart\1.jpg" /></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
+    
     <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
 
-    <a>
-        <a th:href="@{/admin/adminHome}">Admin</a></li>
-    </a>
 
+
+</div>
+</div>
 
 
 </body>
