@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
 import SoundwavesProject.Soundwaves.service.ProductService;
+import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
 import jakarta.servlet.http.HttpSession;
 
@@ -22,6 +23,9 @@ public class MainController {
     
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private categoriesService categoriesService;
