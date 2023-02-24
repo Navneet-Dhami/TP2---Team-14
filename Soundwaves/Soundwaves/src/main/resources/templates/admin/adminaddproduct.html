@@ -30,9 +30,9 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="admincontainer">
         <h3>Add a new Product</h3>
-        <form th:action="@{/admin/addproduct}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
+        <form class="adminform" th:action="@{/admin/addproduct}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-sm-5">
 
