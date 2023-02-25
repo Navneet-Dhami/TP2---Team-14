@@ -26,6 +26,8 @@
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
                 <li><a th:href="@{/aboutus}">About us</a></li>
+                <li><a th:href="@{/cart}">Cart</a></li>
+                <li><span th:text="${cartNo}">0</span></li>
                 <li>
                     <div sec:authorize="isAnonymous()"> 
                         <a th:href="@{/login}">Login</a>
@@ -123,7 +125,7 @@
             </div>
         </div>
 
-
+        <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
 
 
 </body>

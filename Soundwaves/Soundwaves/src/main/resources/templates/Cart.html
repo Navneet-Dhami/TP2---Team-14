@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Cart</title>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="../static/css/cart.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+	<script type="text/javascript" th:src="@{/js/script.js}" defer></script>
 </head>
 <body>
 	<nav class="navigation">
@@ -17,10 +18,23 @@
 		</a>
 		<div class="navigation-links">
 		  <ul>
-			  <li><a href="/">Home</a></li>
-			  <li><a href="products.html">Products</a></li>
-			  <li><a href="contact.html">Contact us</a></li>
-			  <li><a href="login.html">Login</a></li>
+			<li><a th:href="@{/index}">Home</a></li>
+			<li><a th:href="@{/products}">Products</a></li>
+			<li><a th:href="@{/contact}">Contact us</a></li>
+			<li><a th:href="@{/aboutus}">About us</a></li>
+			<li><a th:href="@{/cart}">Cart</a></li>
+			<li><span th:text="${cartNo}">0</span></li>
+			<li>
+				<div sec:authorize="isAnonymous()"> 
+					<a th:href="@{/login}">Login</a>
+				</div>
+			<li>
+				<div sec:authorize="isAuthenticated()"> 
+					<form th:action="@{/logout}" method="post"> 
+						<input type="submit" value="Logout!"/>
+					</form>  
+				</div>
+			</li>
 		  </ul>
 		</div>
 	  </nav>
@@ -29,46 +43,45 @@
 	  <!-- <h1>Login</h1> -->
 	  </div>
 	  <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+
+	
+
+				</div>
+				
   
 		<div class="project">
 			<div class="shop">
 				<div class="box">
-					<img src="../Media/1.jpg">
-					<div class="content">
-						<h3>Item1</h3>
-						<h4>Price: £40</h4>
-						<p class="unit">Quantity: <input name="" value="2"></p>
-						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
+					<div class="row mb-4" th:each="items, iStat : ${cart}">												
+								<img class="img-fluid w-100"
+									 th:src="@{${'/media/' + items.img}}">
+							<div>
+								<div class="d-flex justify-content-between">
+									<div>
+										<h5 th:text="${items.name}"></h5>
+									</div>
+									<div>
+										<a th:href="@{/cart/rmvItems/{index}(index=${iStat.index})}"  type="button"> Remove item </a>
+									</div>
+									<p class="mb-0"><span><strong>£<span th:text="${items.price}"></span></strong></span></p>
+								</div>
+							</div>
+
 					</div>
 				</div>
-				<div class="box">
-					<img src="../Media/2.jpg">
-					<div class="content">
-						<h3>Item2</h3>
-						<h4>Price: £40</h4>
-						<p class="unit">Quantity: <input name="" value="1"></p>
-						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
-					</div>
-				</div>
-				<div class="box">
-					<img src="../Media/3.jpg">
-					<div class="content">
-						<h3>Item3</h3>
-						<h4>Price: £250</h4>
-						<p class="unit">Quantity: <input name="" value="0"></p>
-						<p class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></p>
-					</div>
-				</div>
+			
 			</div>
-			<div class="right-bar">
-				<p><span>Subtotal</span> <span>£120</span></p>
-				<hr>
-				<p><span>Tax (5%)</span> <span>£6</span></p>
-				<hr>
-				<p><span>Shipping</span> <span>£15</span></p>
-				<hr>
-				<p><span>Total</span> <span>£141</span></p><a href="#"><i class="fa fa-shopping-cart"></i>Checkout</a>
-			</div>
+	
+		</div>
+
+		<div class="total">
+
+			<h5 class="mb-3">The total amount: </h5>
+
+			<span>£<span th:text="${amount}"></span></span>
+
+			<a th:href="@{/checkout}">Checkout</a>
+
 		</div>
 </body>
 </html>
