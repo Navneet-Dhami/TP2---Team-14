@@ -1,12 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+    <script type="text/javascript" th:src="@{/js/script.js}" defer></script>  
 </head>
 
 <body>
+    <nav class="navigation">
+        <div class="logo">Soundwaves</div>
+        <a href="#" class="dropdown">
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+        </a>
+        <div class="navigation-links">
+            <ul>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/contact}">Contact us</a></li>
+                <li><a th:href="@{/aboutus}">About us</a></li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <a th:href="@{/cart}">Cart</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <span th:text="${cartNo}">0</span>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAnonymous()"> 
+                        <a th:href="@{/login}">Login</a>
+                    </div>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <form th:action="@{/logout}" method="post"> 
+                            <input type="submit" value="Logout!"/>
+                        </form>  
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="contactus">
         <div class="title">
             <h1>Contact Us</h1>
@@ -27,44 +67,31 @@
             </div>
         </div>
     </div>
+    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
 
     <div class="container">
-        <div class="ourinfo">
-            <div class="bottom">
-                <div class="address">
-                    <img src="addresspointer.png" alt="address" style="width: 35px">
-                    <div class="topic">Address</div>
-                    <div class="info">Aston St, Birmingham B4 7ET</div>
-                </div>
-            </div>
+        <div class="info">
+            <img th:src="@{/media/addresspointer.png}" alt="address" style="width: 35px"/>
+            <div class="info1">Address</div>
+            <div class="info2">Aston St, Birmingham B4 7ET</div>
         </div>
 
+        <div class="info">
+            <img th:src="@{/media/phoneicon.png}" alt="address" style="width: 35px"/>
+            <div class="info1">Phone Number</div>
+            <div class="info2">0121 204 3000</div>
+        </div>
 
-
-        <div class="ourinfo">
-            <div class="bottom">
-                <div class="phonenumber">
-                    <img src="phoneicon.png" alt="phone" style="width: 35px">
-                    <div class="topic">Phone Number</div>
-                    <div class="info">0121 204 3000</div>
-                </div>
-            </div>
-
-
-
-            <div class="ourinfo">
-                <div class="bottom">
-                    <div class="email">
-                        <img src="emailicon.png" alt="email" style="width: 35px">
-                        <div class="topic">Email</div>
-                        <div class="info">hello@aston.ac.uk</div>
-                    </div>
-                </div>
-            </div>
+        <div class="info">
+            <img th:src="@{/media/emailicon.png}" alt="address" style="width: 35px"/>
+            <div class="info1">Email</div>
+            <div class="info2">hello@aston.ac.uk</div>
         </div>
     </div>
 
     </div>
+
+    
 </body>
 
 

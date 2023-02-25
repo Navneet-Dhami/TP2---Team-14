@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import SoundwavesProject.Soundwaves.dto.ProductDTO;
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.service.ProductService;
+import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
 
 
@@ -34,6 +35,9 @@ public class AdminController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("/admin/adminHome") 
     public String adminHome() { 
         return "admin/adminHome";
@@ -43,6 +47,12 @@ public class AdminController {
     public String products(Model model){
         model.addAttribute("products", productService.getProduct());
         return "admin/adminproducts";
+    }
+
+    @GetMapping("/admin/adminUserView")
+    public String adminuserView(Model model){
+        model.addAttribute("users", userService.getUser());
+        return "admin/adminUserView";
     }
 
 
@@ -95,6 +105,26 @@ public class AdminController {
     {
       productService.rmvProduct(id);
       return "redirect:/admin/products";
+    }
+
+    @GetMapping("/admin/product/modify/{id}") public String modifyProduct(@PathVariable long id, Model model)
+    {
+      Product product = productService.getProductById(id).get();
+      ProductDTO productDTO = new ProductDTO();
+
+      productDTO.setId(product.getId());
+      productDTO.setName(product.getName());
+      productDTO.setCategoryId(product.getCategory().getId());
+      productDTO.setPrice(product.getPrice());
+      productDTO.setStock(product.getStock());
+      productDTO.setDescription(product.getDescription());
+      productDTO.setImg(product.getImg());
+
+      model.addAttribute("categories", categoriesService.getAllCategory());
+      model.addAttribute("productDTO", productDTO);
+      
+
+      return "admin/adminaddproduct";
     }
 
     

@@ -8,8 +8,23 @@ body{
     margin: 0%;
     padding: 0%;
     font-family: Arial, Helvetica, sans-serif;
-    background: var(--p-colour);
+    background: var(--p1-colour);
     color: var(--s-colour);
+}
+
+.footer-main {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    left: 0;
+    color: var(--p3-colour);
+    padding-bottom: 15px;
+    margin-top: 90vh;
+    padding-top: 10px;
+    font-size: 20px;
+    background-color: var(--p2-colour);
+    width: 100%;
 }
 
 /* Navigation */
@@ -108,14 +123,14 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #c0a3ff;
+    background: var(--p3-colour);
     border-radius: 5px;
 }
 
 .Login h1{
     text-align: center;
     padding: 10%;
-    border-bottom: 3px solid #f1defe;
+    border-bottom: 3px solid var(--p-colour);
 }
 
 .Login form{
@@ -125,7 +140,7 @@ body{
 
 form .email_password{
     position: relative;
-    border-bottom: 3px solid  #f1defe;
+    border-bottom: 3px solid  var(--p1-colour);
     margin: 25px 0;
 }
 
@@ -170,12 +185,12 @@ input[type="submit"] {
     width: 100%;
     height: 30px;
     border: 1px solid;
-    background: #f1defe;
+    background: var(--p-colour);
     border-radius: 25px;
 }
 
 input[type="submit"]:hover {
-    border-color: #f1defe;
+    border-color: var(--p-colour);
     transition: .7s;
 }
 
@@ -190,14 +205,14 @@ input[type="submit"]:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #c0a3ff;
+    background: var(--p3-colour);
     border-radius: 5px;
 }
 
 .Register h1{
     text-align: center;
     padding: 10%;
-    border-bottom: 3px solid #f1defe;
+    border-bottom: 3px solid var(--p-colour);
 }
 
 .Register form{
@@ -207,7 +222,7 @@ input[type="submit"]:hover {
 
 form .register_text{
     position: relative;
-    border-bottom: 3px solid  #f1defe;
+    border-bottom: 3px solid  var(--p3-colour);
     margin: 25px 0;
 }
 
@@ -237,13 +252,13 @@ form .register_text{
     left: 0px;
     width: 100%;
     height: 2px;
-    background: #f1defe;
+    background: var(--p-colour);
 }
 
 .register_text input:focus ~ label,
 .register_text input:valid ~ label {
     top: -10px;
-    color: #f1defe;
+    color: var(--s-colour);
 }
 
 input[type="submit"] {
@@ -252,26 +267,24 @@ input[type="submit"] {
     width: 100%;
     height: 30px;
     border: 1px solid;
-    background: #f1defe;
+    background: var(--p2-colour);
     border-radius: 25px;
 }
 
 input[type="submit"]:hover {
-    border-color: #f1defe;
+    border-color: var(--p2-colour);
     transition: .7s;
 }
 
-.header {
-    text-align: center;
-}
-
+/* Contact Us CSS */
 
 .contactus{
+    
     width: 250px;
     padding: 50px;
-    margin: 100px auto;
+    margin: 100px;
     border-radius: 30px;
-    background: #c0a3ff ;
+    background: var(--p2-colour) ;
 }
 
 .title h1 {
@@ -291,7 +304,7 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     padding: 10px 20px;
     box-sizing: border-box;
-    background: #eae8ead9;
+    background: var(--p-colour);
     border: 0;
     outline: none;
     border-radius: 30px;
@@ -300,66 +313,136 @@ input[type="submit"]:hover {
 }
 
 .button {
-    background: #d3b7ff;
+    background: var(--p-colour);
     text-align: center;
     padding: 10px;
     border-radius: 30px;
     cursor: pointer;
 }
 
-
-
-
-.container {
-    display: flex;
-    flex-direction: row;
-    padding-left: 225px;
-}
-
-.ourinfo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.container2 {
-    display: flex;
-    flex-direction: row;
-    padding-left: 225px;
-}
-
-.team {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.header2 {
-    padding-top: 150px;
+.container{
+    max-width: 1200px;
+    margin: 125px;
     text-align: center;
-
-}
-
-.container3 {
+    background: var(--p2-colour);
     display: flex;
-    flex-direction: row;
-    padding-left: 225px;
-}
-
-.team1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.info{
+    margin: 20px;
+    padding: 22px;
+    max-width: 30%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.info1{
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--s-colour)
+}
+
+.info2{
+    color: var(--s-colour);
+}
+
+.info img{
+    width: 25px;
+    height: 25px;
+}
+
+
+/* About Us CSS */
+
+*{
+    margin: 0%;
+    padding: 0%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--s-colour);
+}
+
+.about-us{
+    background-color: var(--p-colour);
+    text-align: center;
+}
+
+.header{
+    width: 100%;
+    height: 10vh;
+    color: var(--s-colour);
+}
+
+.header2{
+    width: 100%;
+    height: 10vh;
+}
+
+.container1{
+    padding-top: 150px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    background: var(--p-colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.team{
+    margin: 10px;
+    padding: 22px;
+    max-width: 30%;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.team img{
+    width: 150px;
+    height: 150px;
+    background: transparent;
+}
+
+.body{
+    background: transparent;
+}
+
+.name{
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--s-colour);
+}
+
+.role{
+    color: var(--s-colour);
 }
 
 /* Admin CSS */
 
+.admincontainer {
+    max-width: 1200px;
+    margin: 125px;
+    text-align: center;
+    background: var(--p-colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .table {
     width: 100%;
+}
+
+.form-control{
+    color: var(--p2-colour);
 }
 
 .form-group{
@@ -391,8 +474,10 @@ input[type="submit"]:hover {
     
 :root{
     --p-colour: #ffffff;
+    --p1-colour: #c0a3ff;
     --s-colour: #1f1d1d;
     --p2-colour: purple;   
+    --p3-colour: #e0bdff; 
 }
 
 .moon{

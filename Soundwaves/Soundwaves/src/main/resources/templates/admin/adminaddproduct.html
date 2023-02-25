@@ -23,16 +23,19 @@
         </a>
         <div class="navigation-links">
             <ul>
+                <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
                 <li><a th:href="@{/index}">Home</a></li>
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
-                <li><a th:href="@{/user}">Login</a></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout!" />
+                </form>
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="admincontainer">
         <h3>Add a new Product</h3>
-        <form th:action="@{/admin/addproduct}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
+        <form class="adminform" th:action="@{/admin/addproduct}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-sm-5">
 

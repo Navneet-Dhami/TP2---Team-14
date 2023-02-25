@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymleaf.org">
+<html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="css/styles.css" th:href="@{css/styles.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
         <script type="text/javascript" th:src="@{/js/script.js}" defer></script> 
         <title> Products </title>
     </head>
@@ -24,17 +24,76 @@
                     <li><a th:href="@{/index}">Home</a></li>
                     <li><a th:href="@{/products}">Products</a></li>
                     <li><a th:href="@{/contact}">Contact us</a></li>
-                    <li><a th:href="@{/login}">Login</a></li>
+                    <li><a th:href="@{/aboutus}">About us</a></li>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <a th:href="@{/cart}">Cart</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <span th:text="${cartNo}">0</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div sec:authorize="isAnonymous()"> 
+                            <a th:href="@{/login}">Login</a>
+                        </div>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <form th:action="@{/logout}" method="post"> 
+                                <input type="submit" value="Logout!"/>
+                            </form>  
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
 
+
+
         <div class="nav">
         <h1>Products</h1>
         </div>
+
+        <div class="col-sm-9">
+            <div class="card" style="margin-top: 20px" th:each="product : ${products}">
+                <div class="row no-gutters">
+                    <div class="col-sm-5 d-flex justify-content-center">
+                        <img class="" height="150px" width="150px" th:src="@{${'/media/' + product.img}}" th:alt="${product.name}">
+                    </div>
+                    <div class="col-sm-7 d-flex justify-content-center">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${product.name}"></h5>
+                            <h4>£ <span th:text="${product.price}"></span></h4>
+                            <p th:text="${product.description}" ></p>
+                            <a href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
 
     </body>
 
+    <footer>
+        <div class="footer-main">
+          <h1>Soundwaves</h1>
+          <p1>If you have any queries or any unanswered questions - please contact us on:</p1>
+          <br> 
+          <li>Phone Number: 07362837201</li>
+          <br> 
+          <li>Email: SoundwavesLTD@hotmail.co.uk</li>
+          <br> 
+          <li>Store Address: 64 Harrington Lane</li>
+          <br>
+          <p1>Copyright &copy; 2023 Soundwaves. Designed by Team 14.</p1>
+    </div>
+    
+    
+      </footer>
+      
 </html>
 

@@ -22,10 +22,13 @@
         </a>
         <div class="navigation-links">
             <ul>
+                <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
                 <li><a th:href="@{/index}">Home</a></li>
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
-                <li><a th:href="@{/user}">Login</a></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout!" />
+                </form>
             </ul>
         </div>
     </nav>
@@ -42,6 +45,7 @@
             <th scope="col">Stock</th>
             <th scope="col">Preview</th>
             <th scope="col">Remove</th>
+            <th scope="col">Modify</th>
         </tr>
 
 
@@ -53,6 +57,7 @@
             <td th:text="${product.stock}"></td>
             <td><img src="" height="100px" width="100px" th:src="@{${'/media/' + product.img}}"></td>
             <td><a href="" th:href="@{/admin/product/remove/{id}(id=${product.id})}"> Remove </a></td>
+            <td><a href="" th:href="@{/admin/product/modify/{id}(id=${product.id})}"> Modify </a></td>
         </tr>
 
     </table>
