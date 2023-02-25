@@ -31,8 +31,16 @@
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
                 <li><a th:href="@{/aboutus}">About us</a></li>
-                <li><a th:href="@{/cart}">Cart</a></li>
-                <li><span th:text="${cartNo}">0</span></li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <a th:href="@{/cart}">Cart</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <span th:text="${cartNo}">0</span>
+                    </div>
+                </li>
                 <li>
                     <div sec:authorize="isAnonymous()"> 
                         <a th:href="@{/login}">Login</a>
