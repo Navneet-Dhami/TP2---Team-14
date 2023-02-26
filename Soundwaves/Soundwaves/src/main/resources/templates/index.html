@@ -69,7 +69,8 @@
         <ul class="list-group">
             <a href="" th:each="category, iStat : ${categories}"
             th:href="@{/products/category/{id}(id=${category.id})}"><li
-            class="list-group-item" th:text="${category.categoryName}"></li></a>
+            class="list-group-item" th:text="${category.categoryName}"></li>
+            <li><img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}"></li></a>
         </ul>
 
     </div>
