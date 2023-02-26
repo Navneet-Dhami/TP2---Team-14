@@ -10,6 +10,8 @@ import lombok.Data;
 @Entity
 @Data
 public class Category {
+    
+  
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)   
     @Column(name="category_id")
@@ -18,6 +20,12 @@ public class Category {
     private String categoryName;
 
     private String imageUrl;
+
+
+
+    
+    
+    
 
     // public Category(int id,  String categoryName, String imageUrl) {
     //   this.id = id;
