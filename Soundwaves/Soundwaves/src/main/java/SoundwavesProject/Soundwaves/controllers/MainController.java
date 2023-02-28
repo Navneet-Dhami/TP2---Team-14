@@ -1,6 +1,9 @@
 package SoundwavesProject.Soundwaves.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +31,23 @@ public class MainController {
 
     @Autowired
     ProductService productService;
+
+
+
+    @GetMapping("/search")
+    public String search(@Param("keyword") String keyword, Model model) {
+        System.out.println("keyword: " + keyword);
+
+        List<Product> searchResult = productService.searchKeyword(keyword);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("searchResult", searchResult);
+        model.addAttribute("pageTitle", "Search Results For " + keyword);
+        return "search_results";
+
+
+    }
+
+
     
     @GetMapping({"/", "/index"})
     public String home(Model model) { 
