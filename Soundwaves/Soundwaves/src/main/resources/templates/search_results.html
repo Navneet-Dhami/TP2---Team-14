@@ -22,7 +22,7 @@
         </a>
         <div class="navigation-links">
             <ul>
-                <li> 
+                <li>
                     <div sec:authorize="hasAnyAuthority('ADMIN')">
                         <a th:href="@{/admin/adminHome}">Admin</a>
                     </div>
@@ -32,35 +32,30 @@
                 <li><a th:href="@{/contact}">Contact us</a></li>
                 <li><a th:href="@{/aboutus}">About us</a></li>
                 <li>
-                    <div sec:authorize="isAuthenticated()"> 
+                    <div sec:authorize="isAuthenticated()">
                         <a th:href="@{/cart}">Cart</a>
                     </div>
                 </li>
                 <li>
-                    <div sec:authorize="isAuthenticated()"> 
+                    <div sec:authorize="isAuthenticated()">
                         <span th:text="${cartNo}">0</span>
                     </div>
                 </li>
                 <li>
-                    <div sec:authorize="isAnonymous()"> 
+                    <div sec:authorize="isAnonymous()">
                         <a th:href="@{/login}">Login</a>
                     </div>
                 </li>
                 <li>
-                    <div sec:authorize="isAuthenticated()"> 
-                        <form th:action="@{/logout}" method="post"> 
-                            <input type="submit" value="Logout!"/>
-                        </form>  
+                    <div sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Logout!" />
+                        </form>
                     </div>
                 </li>
             </ul>
         </div>
     </nav>
-
-    <div class="nav">
-        <h1>Hey There</h1>
-    </div>
-
     <!-- THIS SHOWS STUFF -Bill :D -->
     <h1>Temp Search Bar</h1>
     <form th:action="@{/search}" method="get">
@@ -73,59 +68,41 @@
         <h2>Search Results for '[[${keyword}]]'</h2>
         <br>
     </div>
-    
-<div class="container" style="margin-top: 30px">
-<div class="row">
-
-    <div class="col-sm-3">
-        <h4>Categories</h4>
-        <ul class="list-group">
-            <a href="" th:each="category, iStat : ${categories}"
-            th:href="@{/products/category/{id}(id=${category.id})}"><li
-            class="list-group-item" th:text="${category.categoryName}"></li>
-            <li><img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}"></li></a>
-        </ul>
-
+    <!-- THIS SHOWS STUFF -Bill :D -->
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="card" style="margin-top: 20px" th:each="product : ${searchResult}">
+                <div class="row no-gutters">
+                    <div class="col-sm-5 d-flex justify-content-center">
+                        <img class="" height="150px" width="150px" th:src="@{${'/media/' + product.img}}"
+                            th:alt="${product.name}">
+                    </div>
+                    <div class="col-sm-7 d-flex justify-content-center">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${product.name}"></h5>
+                            <h4>£ <span th:text="${product.price}"></span></h4>
+                            <p th:text="${product.description}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    
-    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
-
-
-
-</div>
-</div>
-
-
 </body>
 
 <footer>
     <div class="footer-main">
-      <div>
-      <h3>Soundwaves</h3>
-      <div>
-      <div class="col">
-      <p>If you have any queries or any unanswered questions - please contact us on:</p>
-      <p><strong>Phone Number:</strong> 07362837201</p>
-      <p><strong>Email:</strong> SoundwavesLTD@hotmail.co.uk</p>
-      <p><strong>Store Address:</strong> 64 Harrington Lane</p>
-      </div>
-      <div class="col">
-        <h4>About</h4>
-        <a th:href="@{/aboutus}">About Us</a>
-        <a th:href="@{/contact}">Contact Us</a>
-      </div>
-      <div class="col">
-        <h4>My Account</h4>
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/cart}">View Cart</a>
-      </div>
-      <div class="col">
-        <p><strong>Copyright &copy; 2023 Soundwaves.</strong> Designed by Team 14.</p>
-      </div>
+        <h1>Soundwaves</h1>
+        <p1>If you have any queries or any unanswered questions - please contact us on:</p1>
+        <br>
+        <li>Phone Number: 07362837201</li>
+        <br>
+        <li>Email: SoundwavesLTD@hotmail.co.uk</li>
+        <br>
+        <li>Store Address: 64 Harrington Lane</li>
+        <br>
+        <p1>Copyright &copy; 2023 Soundwaves. Designed by Team 14.</p1>
     </div>
-    
+</footer>
 
-  </footer>
-  
 </html>
