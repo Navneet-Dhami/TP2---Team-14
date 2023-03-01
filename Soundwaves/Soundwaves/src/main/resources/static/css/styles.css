@@ -491,16 +491,16 @@ input[type="submit"]:hover {
     color: var(--s-colour);
 }
 /* Cart page */
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
+} */
 body {
 	background: #f1defe;
 	font-family: montserrat;
 }
-.wrapper {
+/* .wrapper {
 	max-width: 1000px;
 	margin: 0 auto;
 }
@@ -509,9 +509,9 @@ body {
 	text-align: center;
 	text-transform: uppercase;
 }
- 
+  */
 
-.list-items{
+/* .list-items{
     display: flex;
     list-style: none;
     width: 50%;
@@ -540,7 +540,7 @@ body {
     margin: 2rem;
     cursor: pointer;
     font-weight: 600;
-}
+} */
 
 .project {
 	display: flex;
@@ -548,23 +548,38 @@ body {
 	justify-content: space-around;
 }
 .shop {
-	 display: flex;
+	 /* display: flex ;
 	 flex-direction: column;
+     display: flex;
+    flex-wrap: wrap;
+     */
+     display: flex;
+     flex-wrap: wrap;
+     
 } 
 .box-container {
-	display: flex;
-	flex-direction: row;
+	/* display: flex;
+	flex-direction: column;
 	margin-bottom: 20px;
+    flex-basis: calc(33.33% - 10px); */
+    flex-basis: calc(33.33% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 .box {
-	display: flex;
+	/* display: flex;
 	width: 100%;
-	height: 200px;
-	overflow: hidden;
+	height: 300px;
+    flex-flow: column;
+    overflow:scroll;
+   
 	background: #fff;
 	transition: all .6s ease;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-	border-radius: 5px;
+	border-radius: 5px; */
+    flex-basis: calc(33.33% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 .box:hover {
 	border: none;
@@ -575,17 +590,7 @@ body {
 	height: 200px;
 	object-fit: cover;
 }
-.content {
-	padding: 20px;
-	width: 100%;
-	position: relative;
-}
-.content h3 {
-	margin-bottom: 30px;
-}
-.content h4 {
-	margin-bottom: 50px;
-}
+
 .btn-area {
 	height: 2.5rem;
 	width: 7rem;
@@ -600,7 +605,7 @@ body {
 	cursor: pointer;
 	border-radius: 5px;
 }
-.btn-area:hover {
+/* .btn-area:hover {
 	background-color: #76bfb6;
 	color: #fff;
 	font-weight: 600;
@@ -648,8 +653,10 @@ body {
 }
 
 .right-bar a:hover {
-	background-color: #3972a7;
+	background-color: #3972a7 
 }
+     */
+
 
 /* Admin CSS */
 
