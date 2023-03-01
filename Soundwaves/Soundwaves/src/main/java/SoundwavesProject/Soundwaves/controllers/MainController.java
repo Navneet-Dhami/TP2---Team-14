@@ -1,5 +1,9 @@
 package SoundwavesProject.Soundwaves.controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,18 +15,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
+
+import SoundwavesProject.Soundwaves.dto.OrderDTO;
 import SoundwavesProject.Soundwaves.global.AllData;
+import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
+import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
+import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
     
+    public static String findDir = System.getProperty("user.dir") + "/Soundwaves/Soundwaves/src/main/resources/static/media";
+
     @Autowired
     private UserRepository userRepository;
 
@@ -31,6 +46,12 @@ public class MainController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    OrderService orderService;
 
 
 
@@ -128,4 +149,59 @@ public class MainController {
     public String checkout() { 
         return "checkout";
     }
+
+    @GetMapping("/addOrder/{id}") public String addOrder(Model model)
+    {
+        model.addAttribute("cart", AllData.cart);
+        model.addAttribute("orderDTO", new OrderDTO());
+        model.addAttribute("orderItems", productService.getProduct());
+        return"Cart";
+    }
+
+    @PostMapping("/addorder") 
+    public String addOrderPost(@ModelAttribute("orderDTO") OrderDTO orderDTO,
+    @RequestParam("media") MultipartFile file, 
+    @RequestParam("imgName") String imgName) throws IOException {
+
+       Order order = new Order();
+       order.setId(orderDTO.getId());
+       order.setProduct(productService.getProductById(orderDTO.getProductId()).get());
+       order.setUser(userService.getUserId(orderDTO.getUserId()).get());
+       order.setCreatedDate(orderDTO.getCreatedDate());
+       order.setTotalPrice(orderDTO.getTotalPrice());
+       order.setQuantity(orderDTO.getQuantity());
+       order.setTracking(orderDTO.getTracking());
+
+        //Unique identifiter for image = uuidNme
+       //Directory is linked to findDir, in which the Path 'filePathName' takes in the value of the image name (the uuid) and the directory (findDir) to write operation
+
+       String uuidNme;
+
+       
+       if(!file.isEmpty())
+       {
+        uuidNme = file.getOriginalFilename();
+        Path filePathName = Paths.get(findDir, uuidNme);
+        Files.write(filePathName, file.getBytes());
+       } else {
+
+        uuidNme = imgName;
+
+       }
+
+       order.setImg(uuidNme);
+       orderService.addOrder(order);
+
+
+
+     return "redirect:/cart";
+
+
+    }
+
+    
+  
+
+    
 }
+
