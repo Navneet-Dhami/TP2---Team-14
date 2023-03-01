@@ -345,13 +345,11 @@ input[type="submit"]:hover {
 
 .contactus{
     
-    width: 500px;
+    width: 250px;
     padding: 50px;
-    margin: 100px auto;
+    margin: 100px;
     border-radius: 30px;
-    position: relative;
     background: var(--p2-colour) ;
-    
 }
 
 .title h1 {
