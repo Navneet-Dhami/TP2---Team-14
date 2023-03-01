@@ -123,7 +123,9 @@ public class MainController {
         AllData.cart.remove(index);
         return "redirect:/cart";
     }
-
-
     
+    @GetMapping("/checkout")
+    public String checkout() { 
+        return "checkout";
+    }
 }
