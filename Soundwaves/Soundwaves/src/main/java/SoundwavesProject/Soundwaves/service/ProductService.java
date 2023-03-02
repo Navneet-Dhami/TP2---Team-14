@@ -8,21 +8,12 @@ import org.springframework.stereotype.Service;
 
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.repository.ProductRepository;
-import SoundwavesProject.Soundwaves.repository.SearchRepository;
 
 @Service
 public class ProductService {
 
     @Autowired
     ProductRepository productRepository;
-
-    @Autowired
-    SearchRepository searchRepository;
-
-    public List<Product> searchKeyword(String keyword)
-    {
-        return searchRepository.search(keyword);
-    }
 
     public List<Product> getProduct() 
     {
