@@ -62,23 +62,21 @@
     </div>
 
     <!-- THIS SHOWS STUFF -Bill :D -->
-    <h1>Temp Search Bar</h1>
-    <form th:action="@{/search}" method="get">
-        <input type="search" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
-        <input type="submit" value="Search" class="btn btn-info"></button>
+    <form class="search-bar" th:action="@{/search}" method="get">
+        <br>
+        <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
     </form>
     <div>
         <!-- THIS SHOWS STUFF -Bill :D -->
         <br>
-        <h2>Search Results for '[[${keyword}]]'</h2>
         <br>
     </div>
-    
+    <div class="nav"><h4>Categories</h4></div>
 <div class="container" style="margin-top: 30px">
-<div class="row">
+<div class="indexRow">
 
     <div class="col-sm-3">
-        <h4>Categories</h4>
+        
         <ul class="list-group">
             <a href="" th:each="category, iStat : ${categories}"
             th:href="@{/products/category/{id}(id=${category.id})}"><li

@@ -57,15 +57,14 @@
         </div>
     </nav>
     <!-- THIS SHOWS STUFF -Bill :D -->
-    <h1>Temp Search Bar</h1>
-    <form th:action="@{/search}" method="get">
-        <input type="search" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
-        <input type="submit" value="Search" class="btn btn-info"></button>
+    <form class="search-bar" th:action="@{/search}" method="get">
+        <br>
+        <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
     </form>
     <div>
         <!-- THIS SHOWS STUFF -Bill :D -->
         <br>
-        <h2>Search Results for '[[${keyword}]]'</h2>
+        <div class="nav"><h2>Search Results for '[[${keyword}]]'</h2></div>
         <br>
     </div>
     <!-- THIS SHOWS STUFF -Bill :D -->
@@ -88,6 +87,7 @@
             </div>
         </div>
     </div>
+    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
 </body>
 
 <footer>

@@ -1,16 +1,40 @@
 
 .nav h1{
     color: var(--s-colour);
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5em;
 }
 
-body{
-    margin: 0%;
-    padding: 0%;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--p1-colour);
+.nav h4{
     color: var(--s-colour);
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
 }
+
+.nav h3{
+    color: var(--s-colour);
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
+
+.nav h2{
+    color: var(--s-colour);
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+}
+
+.search-bar{
+    margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+    
+}
+
+
 
 .footer-main {
 
@@ -18,7 +42,6 @@ body{
     color: var(--p3-colour);
     margin-top: 10px;
     padding-top: 10px;
-    
     background-color: var(--p2-colour);
     width: 100%;
 }
@@ -389,9 +412,10 @@ input[type="submit"]:hover {
 
 .container{
     max-width: 1200px;
-    margin: 125px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    background: var(--p2-colour);
+    background: var(--p-colour);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -432,6 +456,7 @@ input[type="submit"]:hover {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--s-colour);
 }
+
 
 .about-us{
     background-color: var(--p-colour);
@@ -497,8 +522,8 @@ input[type="submit"]:hover {
 	box-sizing: border-box;
 } */
 body {
-	background: #f1defe;
-	font-family: montserrat;
+	background: var(--p-colour)
+
 }
 /* .wrapper {
 	max-width: 1000px;
@@ -660,29 +685,27 @@ body {
 
 /* Admin CSS */
 
-.admincontainer {
-    max-width: 1200px;
-    margin: 125px;
-    text-align: center;
-    background: var(--p-colour);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
 
 .table {
     width: 100%;
 }
 
 .form-control{
-    color: var(--p2-colour);
+    color: var(--p4-colour);
 }
 
 .form-group{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+}
+
+.indexRow{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+    padding: 5px 5px;
     box-sizing: border-box;
 }
 
@@ -692,6 +715,16 @@ body {
     margin: 8px 0;
     box-sizing: border-box;
 }
+
+.card-body1{
+   margin-top: 100px;
+   margin-left: auto;
+   margin-right: auto;
+   width: 8em;
+}
+
+
+
 
 
 /*Dark Mode */
@@ -710,8 +743,9 @@ body {
     --p-colour: #E7D5AD; /*Nav-select*/
     --p1-colour: #FED154; /*Background*/
     --s-colour: #3A3B3D; /* text*/
-    --p2-colour: #F6F6F9;   /*Footer*/
-    --p3-colour: #F6F6F9; 
+    --p2-colour: #FED154;   /*Footer*/
+    --p3-colour: #F6F6F9;
+    --p4-colour: #3A3B3D; 
 }
 
 .moon{
@@ -719,6 +753,8 @@ body {
     --s-colour: #eaf0fd; 
     --p2-colour: #271A52;  
     --p1-colour: #1D1E42; 
+    --p3-colour: #F6F6F9; 
+    --p4-colour: #1f1d1d;
 }
 
 
