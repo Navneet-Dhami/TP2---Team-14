@@ -39,7 +39,7 @@ public class SecurityConfig{
             .authorizeHttpRequests()
             .requestMatchers( "/media/**").permitAll() 
             .requestMatchers( "/css/styles.css", "/js/script.js").permitAll()  
-            .requestMatchers("/", "/index", "/contact", "/products", "/products/category/{id}","/aboutus").permitAll()
+            .requestMatchers("/", "/index", "/contact", "/products", "/products/category/{id}","/aboutus", "/search", "search_results").permitAll()
             .requestMatchers( "/register", "/registerUser").permitAll()    
             .requestMatchers( "/admin/adminHome").hasAnyAuthority("ADMIN")
             .anyRequest().authenticated()
