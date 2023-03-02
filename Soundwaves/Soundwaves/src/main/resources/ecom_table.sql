@@ -1,3 +1,4 @@
+-- Active: 1677422310485@@127.0.0.1@3306@soundwaves
 -- phpMyAdmin SQL Dump
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
@@ -22,96 +23,32 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+-- MAIN CODE
 
---
--- Table structure for table `order_details`
---
+INSERT INTO category (category_id, category_name, image_url) 
+VALUES 
+    (1, 'Headphones', 'something.jpg'), 
+    (2, 'Speakers', 'something.jpg'), 
+    (3, 'CDs', 'something.jpg'), 
+    (4, 'Vinyls (7\' 10\' & 12\' variations)', 'something.jpg'), 
+    (5, 'Posters & Merch', 'something.jpg');
 
-CREATE TABLE `order_details` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `total` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- --------------------------------------------------------
+INSERT INTO product (id, name, category_id, price, stock, description, img)
+VALUES
+(1, 'Product 1 for Headphones', 1, 60.0, 5, 'Product 1 for Headphones description', 'something.jpg'),
+(2, 'Product 2 for Headphones', 1, 70.0, 200, 'Product 2 for Headphones description', 'something.jpg'),
+(3, 'Product 3 for Speakers', 2, 100.0, 30, 'Product 3 for Speakers description', 'something.jpg'),
+(4, 'Product 4 for Speakers', 2, 75.0, 40, 'Product 4 for Speakers description', 'something.jpg'),
+(5, 'Product 5 for CDs', 3, 10.0, 50, 'Product 5 for CDs description', 'something.jpg'),
+(6, 'Product 6 for CDs', 3, 10.0, 60, 'Product 6 for CDs description', 'something.jpg'),
+(7, 'Product 7 for Vinyls', 4, 70.0, 70, 'Product 7 for Vinyls description', 'something.jpg'),
+(8, 'Product 8 for Vinyls', 4, 80.0, 80, 'Product 8 for Vinyls description', 'something.jpg'),
+(9, 'Product 9 for Posters & Merch', 5, 40.0, 300, 'Product 9 for Posters & Merch description', 'something.jpg'),
+(10, 'Product 10 for Posters & Merch', 5, 40.0, 350, 'Product 10 for Posters & Merch description', 'something.jpg');
 
---
--- Table structure for table `product`
---
 
-CREATE TABLE `product` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `price` float NOT NULL,
-  `type` varchar(50) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `description` varchar(500) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `alt_text` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `created_at` date NOT NULL,
-  `updated_at` date NOT NULL,
-  `stock` int NOT NULL,
-  `sale` tinyint NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `reviews`
---
-
-CREATE TABLE `reviews` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `rating` int NOT NULL,
-  `reason` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE users (
-  id int(11) NOT NULL,
-  email varchar(255) DEFAULT NULL,
-  name varchar(255) DEFAULT NULL,
-  password varchar(255) DEFAULT NULL,
-  surname varchar(255) DEFAULT NULL,
-  username varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_address`
---
-
-CREATE TABLE `user_address` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `address_line1` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `address_line2` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `postcode` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `mobile` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wishlist`
---
-
-CREATE TABLE `wishlist` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `quantity` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
