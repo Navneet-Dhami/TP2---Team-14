@@ -9,12 +9,15 @@ import org.springframework.stereotype.Service;
 import SoundwavesProject.Soundwaves.model.Category;
 import SoundwavesProject.Soundwaves.repository.categoriesRepository;
 
+
 @Service
 public class categoriesService {
 
+
     @Autowired
     categoriesRepository categoriesRepository;
-     
+
+
     public List<Category> getAllCategory(){
         return categoriesRepository.findAll();
     }
@@ -23,5 +26,6 @@ public class categoriesService {
     {
       return categoriesRepository.findById(id);
     }
+
    
 }
