@@ -211,14 +211,14 @@ ul.list-group img{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--p3-colour);
+    background: var(--p2-colour);
     border-radius: 5px;
 }
 
 .Login h1{
     text-align: center;
     padding: 10%;
-    border-bottom: 3px solid var(--p-colour);
+    border-bottom: 3px solid var(--s-colour);
 }
 
 .Login form{
@@ -293,24 +293,25 @@ input[type="submit"]:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--p3-colour);
+    background: var(--p2-colour);
     border-radius: 5px;
 }
 
 .Register h1{
     text-align: center;
     padding: 10%;
-    border-bottom: 3px solid var(--p-colour);
+    border-bottom: 3px solid var(--p4-colour);
 }
 
 .Register form{
     padding: 0 30px;
     box-sizing: border-box;
+    color: var(--p4-colour);
 }
 
 form .register_text{
     position: relative;
-    border-bottom: 3px solid  var(--p3-colour);
+    border-bottom: 3px solid  var(--p4-colour);
     margin: 25px 0;
 }
 
@@ -322,6 +323,7 @@ form .register_text{
     border: none;
     background: none;
     outline: none;
+    color: var(--p4-colour);
 }
 
 .register_text label{
@@ -340,13 +342,13 @@ form .register_text{
     left: 0px;
     width: 100%;
     height: 2px;
-    background: var(--p-colour);
+    background: var(--p4-colour);
 }
 
 .register_text input:focus ~ label,
 .register_text input:valid ~ label {
     top: -10px;
-    color: var(--s-colour);
+    color: var(--p4-colour);
 }
 
 input[type="submit"] {
@@ -730,12 +732,11 @@ body {
 /*Dark Mode */
 
 #darkmode{
-    color: var(--s-colour);
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%, -50%);
+color: var(--s-colour);
+
+padding: 16px;
+
+cursor: pointer;
     }
     
     

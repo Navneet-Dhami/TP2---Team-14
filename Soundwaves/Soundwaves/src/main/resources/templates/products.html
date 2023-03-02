@@ -25,6 +25,7 @@
                     <li><a th:href="@{/products}">Products</a></li>
                     <li><a th:href="@{/contact}">Contact us</a></li>
                     <li><a th:href="@{/aboutus}">About us</a></li>
+                    <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
                     <li>
                         <div sec:authorize="isAuthenticated()"> 
                             <a th:href="@{/cart}">Cart</a>
@@ -56,6 +57,11 @@
         <h1>Products</h1>
         </div>
 
+        <form class="search-bar" th:action="@{/search}" method="get">
+            <br>
+            <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
+        </form>
+
         <div class="col-sm-9">
             <div class="card" style="margin-top: 20px" th:each="product : ${products}">
                 <div class="row no-gutters">
@@ -74,7 +80,7 @@
             </div>
         </div>
 
-        <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+      
 
     </body>
 

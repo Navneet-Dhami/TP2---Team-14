@@ -31,6 +31,7 @@
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
                 <li><a th:href="@{/aboutus}">About us</a></li>
+                <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
                 <li>
                     <div sec:authorize="isAuthenticated()">
                         <a th:href="@{/cart}">Cart</a>
@@ -87,7 +88,7 @@
             </div>
         </div>
     </div>
-    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+   
 </body>
 
 <footer>

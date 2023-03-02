@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
     <script type="text/javascript" th:src="@{/js/script.js}" defer></script>  
 </head>
@@ -22,6 +23,7 @@
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
                 <li><a th:href="@{/aboutus}">About us</a></li>
+                <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
                 <li>
                     <div sec:authorize="isAuthenticated()"> 
                         <a th:href="@{/cart}">Cart</a>
@@ -69,7 +71,7 @@
         </div>
     </form>
     </div>
-    <i class="fa fa-sun-o" style="font-size:50px" id="darkmode"></i>
+
 
     <div class="container">
         <div class="info">
