@@ -53,6 +53,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     font-size: 13px;
+    transition: .2s;
 }
 
 .footer-main .col {
@@ -123,6 +124,7 @@ ul.list-group img{
     align-items: center;
     background-color: var(--p2-colour);
     height: 7vh;
+    transition: .2s;
 }
 
 .logo{
@@ -422,6 +424,7 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    transition: .2s;
 }
 
 .info{
@@ -463,6 +466,7 @@ input[type="submit"]:hover {
 .about-us{
     background-color: var(--p-colour);
     text-align: center;
+    transition: .2s;
 }
 
 .header{
@@ -486,6 +490,7 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    transition: .2s;
 }
 
 .team{
@@ -524,7 +529,8 @@ input[type="submit"]:hover {
 	box-sizing: border-box;
 } */
 body {
-	background: var(--p-colour)
+	background: var(--p-colour);
+    transition: .2s;
 
 }
 /* .wrapper {
@@ -725,8 +731,27 @@ body {
    width: 8em;
 }
 
+.card{
+    width: 23%;
+    min-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--p5-colour);
+    border-radius: 25px;
+    transition: .2s;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    background-color: var(--p2-colour);
+ }
 
+.card:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
 
+.card img {
+    border-radius: 20px;
+}
 
 
 /*Dark Mode */
@@ -746,7 +771,8 @@ cursor: pointer;
     --s-colour: #3A3B3D; /* text*/
     --p2-colour: #FED154;   /*Footer*/
     --p3-colour: #F6F6F9;
-    --p4-colour: #3A3B3D; 
+    --p4-colour: #3A3B3D;
+    --p5-colour: #271A52; 
 }
 
 .moon{
@@ -756,6 +782,7 @@ cursor: pointer;
     --p1-colour: #1D1E42; 
     --p3-colour: #F6F6F9; 
     --p4-colour: #1f1d1d;
+    --p5-colour: #FED154;
 }
 
 
