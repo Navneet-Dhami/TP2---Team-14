@@ -113,27 +113,39 @@ public class MainController {
         return "redirect:/login";
     }
 
-    @GetMapping("/addCart/{id}") public String addCart(@PathVariable int id) //addCart = checkout page
-    {
-      AllData.cart.add(productService.getProductById(id).get());
-      return "redirect:/products";
+    @GetMapping("/addCart/{id}")
+    public String addCart(@PathVariable int id) {
+        Product product = productService.getProductById(id).get();
+        product.setQuantity(1); 
+        AllData.cart.add(product);
+        return "redirect:/products";
     }
-
-    @GetMapping("/cart") public String getCart (Model model) //orderTable = cart table
-    {
+    
+    @GetMapping("/cart")
+    public String getCart(Model model) {
         model.addAttribute("cartNo", AllData.cart.size());
-        double amount = AllData.cart.stream().mapToDouble(Product::getPrice).sum();
+        double amount = AllData.cart.stream()
+            .mapToDouble(item -> item.getPrice() * item.getQuantity())
+            .sum();
         model.addAttribute("amount", amount);
         model.addAttribute("cart", AllData.cart);
-        return "cart";
+        return "Cart";
     }
-
-    @GetMapping("/cart/rmvItems/{index}") public String rmvItems(@PathVariable int index)
-    {
+    
+    @GetMapping("/cart/rmvItems/{index}")
+    public String rmvItems(@PathVariable int index) {
         AllData.cart.remove(index);
         return "redirect:/cart";
     }
-
+    
+    @PostMapping("/cart/updateQuantity")
+    public String updateQuantity(@RequestParam("quantity") List<Integer> quantities) {
+        for (int i = 0; i < AllData.cart.size(); i++) {
+            AllData.cart.get(i).setQuantity(quantities.get(i));
+        }
+        return "redirect:/cart";
+    }
+    
    // Orders Table & Functionality
 
     // @GetMapping("/addCheckout/{id}") public String checkout(@PathVariable int id)

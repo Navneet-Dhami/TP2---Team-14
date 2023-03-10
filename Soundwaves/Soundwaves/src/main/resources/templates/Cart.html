@@ -41,42 +41,70 @@
 		</div>
 	  </nav>
   	
-
-				</div>
-				
-  
-		<div class="project">
-			<div class="shop">
-				<div class="box">
-					<div class="row mb-4" th:each="items, iStat : ${cart}">												
-								<img class="img-fluid w-100"
-									 th:src="@{${'/media/' + items.img}}">
-							<div>
-								<div class="d-flex justify-content-between">
-									<div>
-										<h5 th:text="${items.name}"></h5>
-									</div>
-									<div>
-										<a th:href="@{/cart/rmvItems/{index}(index=${iStat.index})}"  type="button"> Remove item </a>
-									</div>
-									<p class="mb-0"><span><strong>£<span th:text="${items.price}"></span></strong></span></p>
-								</div>
-							</div>
-
-					</div>
-				</div>
+	  <div class="shop">
+		<div class="box">
+			<div class="nav" th:if="${not #lists.isEmpty(cart)}">
+				<h2>Shopping Cart</h2>
 			</div>
-	
-		</div>
+		  <form th:action="@{/cart/updateQuantity}" method="post" th:if="${not #lists.isEmpty(cart)}" >
+			<table>
+			  <thead>
+				<tr>
+					<br>
+				  <th>Product</th>
+				  <th>Price</th>
+				  <th>Quantity</th>
+				  <th>Subtotal</th>
+				  <th>Action</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr th:each="item, iStat : ${cart}">
+				  <td>
 
-		<div class="total">
-
-			<h5 class="mb-3">The total amount: </h5>
-
+					
+					<div class="product-info">
+						<span th:text="${item.name}"></span>
+						<img width=200px height=200px th:src="@{${'/media/' + item.img}}" alt="product image" />
+					  </div>
+				  </td>
+				  <td>
+					£<span th:text="${item.price}"></span>
+				  </td>
+				  <td>
+					<input class="form-control" type="number" name="quantity" th:value="${item.quantity}" />
+					<input type="hidden" name="productId" th:value="${item.id}" />
+				  </td>
+				  <td>
+					£<span th:text="${item.price * item.quantity}"></span>
+				  </td>
+				  <td>
+					<a th:href="@{/cart/rmvItems/{index}(index=${iStat.index})}" class="btn btn-outline-danger">Remove</a>
+				  </td>
+				</tr>
+			  </tbody>		  
+			</table>
+			<button type="submit" class="form-control">Update Cart</button>
+		  </form>
+	  
+		  <div class="total" th:if="${not #lists.isEmpty(cart)}">
+			<h5>Total Amount:</h5>
 			<span>£<span th:text="${amount}"></span></span>
-
-			<a th:href="@{/checkout}">Checkout</a>
-
+		  </div>
+	  
+		  <div class="total" th:if="${not #lists.isEmpty(cart)}">
+			<a th:href="@{/checkout}" class="btn btn-success">Checkout</a>
+		  </div>
+	  
+		  <div class="empty-cart" th:if="${#lists.isEmpty(cart)}">
+			<p>Your cart is currently empty.</p>
+		  </div>
 		</div>
+	  </div>
+	  
+				
+			
+	
+		
 </body>
 </html>
