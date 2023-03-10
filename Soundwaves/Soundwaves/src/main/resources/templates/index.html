@@ -201,33 +201,70 @@
 
 </body>
 
-<footer>
-    <div class="footer-main">
-      <div>
-      <h3>Soundwaves</h3>
-      <div>
-      <div class="col">
-      <p>If you have any queries or any unanswered questions - please contact us on:</p>
-      <p><strong>Phone Number:</strong> 07362837201</p>
-      <p><strong>Email:</strong> SoundwavesLTD@hotmail.co.uk</p>
-      <p><strong>Store Address:</strong> 64 Harrington Lane</p>
+<footer class="site-footer">
+    <div class="fcontainer">
+      <div class="row">
+        <div class="fcol">
+          <h6>About</h6>
+          <p class="text-justify">We are a group of 10 university students who have come together to make this e-commerce website!
+This website has been made for those who love music! We offer products such as
+headphones, speakers and much more.</p>
+        </div>
+
+        <div class="fcol">
+          <h6>Categories</h6>
+          <ul class="footer-links">
+    
+              <a href="" th:each="category, iStat : ${categories}"
+              th:href="@{/products/category/{id}(id=${category.id})}"><li
+              class="list-group-item" th:text="${category.categoryName}"></li>
+              </a>
+          
+          </ul>
+        </div>
+
+        <div class="fcol">
+          <h6>Links</h6>
+          <ul class="footer-links">
+            <li><a th:href="@{/aboutus"}>About Us</a></li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/cart}">View Cart</a></li>
+          </ul>
+        </div>
+
+        <div class="fcol">
+          <h6>Contact Us</h6>
+          <ul class="footer-links">
+            <li><p>If you have any queries or any unanswered questions - please contact us on:</p></li>
+            <li><strong>Phone Number:</strong> 07362837201</p></li>
+            <li><strong>Email:</strong> SoundwavesLTD@hotmail.co.uk</p></li>
+            <li><strong>Store Address:</strong> 64 Harrington Lane</p></li>
+          </ul>
+        </div>
+
       </div>
-      <div class="col">
-        <h4>About</h4>
-        <a th:href="@{/aboutus}">About Us</a>
-        <a th:href="@{/contact}">Contact Us</a>
-      </div>
-      <div class="col">
-        <h4>My Account</h4>
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/cart}">View Cart</a>
-      </div>
-      <div class="col">
-        <p><strong>Copyright &copy; 2023 Soundwaves.</strong> Designed by Team 14.</p>
+      <hr>
+    </div>
+
+
+    <div class="fcontainer">
+      <div class="row">
+        <div class="fcol1">
+          <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
+       <a href="#">Soundwaves</a>.
+          </p>
+        </div>
+
+        <div class="fcol1">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+          </ul>
+        </div>
       </div>
     </div>
-    
-
-  </footer>
+</footer>      
   
 </html>
