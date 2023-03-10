@@ -34,6 +34,7 @@
       <div class="Login">
       <h1>Login Here</h1>
       
+      <div id="form-box">
       <form th:action="@{loginUser}" method="post"> 
         <div class="email_password">
           <input type="username" name="loginEmail"  required/>
@@ -56,24 +57,74 @@
 
       </form>
       </div>
+      </div>
 
 
+
+      <footer class="site-footer">
+        <div class="fcontainer">
+          <div class="row">
+            <div class="fcol">
+              <h6>About</h6>
+              <p class="text-justify">We are a group of 10 university students who have come together to make this e-commerce website!
+  This website has been made for those who love music! We offer products such as
+  headphones, speakers and much more.</p>
+            </div>
+  
+            <div class="fcol">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+        
+                  <a href="" th:each="category, iStat : ${categories}"
+                  th:href="@{/products/category/{id}(id=${category.id})}"><li
+                  class="list-group-item" th:text="${category.categoryName}"></li>
+                  </a>
+              
+              </ul>
+            </div>
+  
+            <div class="fcol">
+              <h6>Links</h6>
+              <ul class="footer-links">
+                <li><a th:href="@{/aboutus"}>About Us</a></li>
+                <li><a th:href="@{/contact}">Contact Us</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+                <li><a th:href="@{/cart}">View Cart</a></li>
+              </ul>
+            </div>
+
+            <div class="fcol">
+              <h6>Contact Us</h6>
+              <ul class="footer-links">
+                <li><p>If you have any queries or any unanswered questions - please contact us on:</p></li>
+                <li><strong>Phone Number:</strong> 07362837201</p></li>
+                <li><strong>Email:</strong> SoundwavesLTD@hotmail.co.uk</p></li>
+                <li><strong>Store Address:</strong> 64 Harrington Lane</p></li>
+              </ul>
+            </div>
+
+          </div>
+          <hr>
+        </div>
+
+
+        <div class="fcontainer">
+          <div class="row">
+            <div class="fcol1">
+              <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
+           <a href="#">Soundwaves</a>.
+              </p>
+            </div>
+  
+            <div class="fcol1">
+              <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+              </ul>
+            </div>
+          </div>
+        </div>
+  </footer>      
   </body>
-
-  <footer>
-    <div class="footer-main">
-      <h1>Soundwaves</h1>
-      <p1>If you have any queries or any unanswered questions - please contact us on:</p1>
-      <br> 
-      <li>Phone Number: 07362837201</li>
-      <br> 
-      <li>Email: SoundwavesLTD@hotmail.co.uk</li>
-      <br> 
-      <li>Store Address: 64 Harrington Lane</li>
-      <br>
-      <p1>Copyright &copy; 2023 Soundwaves. Designed by Team 14.</p1>
-</div>
-
-
-  </footer>
 </html>
