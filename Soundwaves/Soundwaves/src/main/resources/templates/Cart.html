@@ -18,26 +18,39 @@
 		  <span class="list"></span>
 		</a>
 		<div class="navigation-links">
-		  <ul>
-			<li><a th:href="@{/index}">Home</a></li>
-			<li><a th:href="@{/products}">Products</a></li>
-			<li><a th:href="@{/contact}">Contact us</a></li>
-			<li><a th:href="@{/aboutus}">About us</a></li>
-			<li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
-			<li><a th:href="@{/cart}">Cart</a></li>
-			<li><span th:text="${cartNo}">0</span></li>
-			<li>
-				<div sec:authorize="isAnonymous()"> 
-					<a th:href="@{/login}">Login</a>
-				</div>
-			<li>
-				<div sec:authorize="isAuthenticated()"> 
-					<form th:action="@{/logout}" method="post"> 
-						<input type="submit" value="Logout!"/>
-					</form>  
-				</div>
-			</li>
-		  </ul>
+			<ul>
+				<li><a th:href="@{/index}">Home</a></li>
+				<li><a th:href="@{/products}">Products</a></li>
+				<li><a th:href="@{/contact}">Contact us</a></li>
+				<li><a th:href="@{/aboutus}">About us</a></li>
+				<li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+				<li>
+					<div sec:authorize="isAuthenticated()"> 
+						<a th:href="@{/wishlist}">Wishlist</a>
+					</div>
+				</li>
+				<li>
+					<div sec:authorize="isAuthenticated()"> 
+						<a th:href="@{/cart}">Cart</a>
+					</div>
+				</li>
+				<li>
+					<div sec:authorize="isAuthenticated()"> 
+						<span th:text="${cartNo}">0</span>
+					</div>
+				</li>
+				<li>
+					<div sec:authorize="isAnonymous()"> 
+						<a th:href="@{/login}">Login</a>
+					</div>
+				<li>
+					<div sec:authorize="isAuthenticated()"> 
+						<form th:action="@{/logout}" method="post"> 
+							<input type="submit" value="Logout!"/>
+						</form>  
+					</div>
+				</li>
+			</ul>
 		</div>
 	  </nav>
   	

@@ -5,9 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +23,13 @@ import org.springframework.web.multipart.MultipartFile;
 // import SoundwavesProject.Soundwaves.dto.OrderDTO;
 import SoundwavesProject.Soundwaves.global.AllData;
 import SoundwavesProject.Soundwaves.model.Product;
+import SoundwavesProject.Soundwaves.model.SoundWavesUserDetails;
 // import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.model.Wishlist;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
 import SoundwavesProject.Soundwaves.service.ProductService;
+import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.WishlistService;
 //import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
@@ -42,6 +46,9 @@ public class MainController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    UserService userService;
 
     @Autowired
     WishlistService wishlistService;
@@ -152,23 +159,36 @@ public class MainController {
     }
 
     @GetMapping("/wishlist")
-    public String getWishlist(Model model) {
-        model.addAttribute("wishlists", wishlistService.getWishlist());
+    public String getWishlist(Model model, Authentication authentication) {
+        int userId = ((SoundWavesUserDetails) authentication.getPrincipal()).getUserId();
+        model.addAttribute("wishlists", wishlistService.getWishlist(userId));
         return "wishlist";
     }
+    
 
 
     @GetMapping("/addToWishlist/{id}")
-    public String addToWishlist(@PathVariable int id) {
-    Product product = productService.getProductById(id).get();
-    Wishlist wishlistItem = new Wishlist(product);
+    public String addToWishlist(@PathVariable int id, Authentication authentication) {
+
+    int userId = ((SoundWavesUserDetails) authentication.getPrincipal()).getUserId();
+
+    Optional<Product> optionalProduct = productService.getProductById(id);
+    if (!optionalProduct.isPresent()) {
+        return "error-page";
+    }
+
+    Product product = optionalProduct.get();
+    User user = userService.getUserById(userId).get();
+    Wishlist wishlistItem = new Wishlist(user, product);
     wishlistService.addToWishlist(wishlistItem);
+
     return "redirect:/products";
 }
 
+
 @GetMapping("/wishlist/remove/{id}") public String removeWish(@PathVariable long id)
 {
-  productService.rmvProduct(id);
+  wishlistService.rmvWish(id);
   return "redirect:/wishlist";
 }
 

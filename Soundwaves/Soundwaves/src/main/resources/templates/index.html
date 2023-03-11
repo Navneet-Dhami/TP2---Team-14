@@ -22,17 +22,16 @@
         </a>
         <div class="navigation-links">
             <ul>
-                <li> 
-                    <div sec:authorize="hasAnyAuthority('ADMIN')">
-                        <a th:href="@{/admin/adminHome}">Admin</a>
-                    </div>
-                </li>
                 <li><a th:href="@{/index}">Home</a></li>
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
                 <li><a th:href="@{/aboutus}">About us</a></li>
                 <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
-
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <a th:href="@{/wishlist}">Wishlist</a>
+                    </div>
+                </li>
                 <li>
                     <div sec:authorize="isAuthenticated()"> 
                         <a th:href="@{/cart}">Cart</a>
@@ -47,7 +46,6 @@
                     <div sec:authorize="isAnonymous()"> 
                         <a th:href="@{/login}">Login</a>
                     </div>
-                </li>
                 <li>
                     <div sec:authorize="isAuthenticated()"> 
                         <form th:action="@{/logout}" method="post"> 

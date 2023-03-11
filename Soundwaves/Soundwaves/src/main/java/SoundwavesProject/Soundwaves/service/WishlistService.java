@@ -27,5 +27,10 @@ public class WishlistService {
      wishlistRepository.deleteById(id);
     }
 
+    public List<Wishlist> getWishlist(int userId) {
+        return wishlistRepository.findByUserId(userId);
+    }
+    
+
 
 }

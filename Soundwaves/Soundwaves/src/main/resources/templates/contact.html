@@ -26,6 +26,11 @@
                 <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
                 <li>
                     <div sec:authorize="isAuthenticated()"> 
+                        <a th:href="@{/wishlist}">Wishlist</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
                         <a th:href="@{/cart}">Cart</a>
                     </div>
                 </li>

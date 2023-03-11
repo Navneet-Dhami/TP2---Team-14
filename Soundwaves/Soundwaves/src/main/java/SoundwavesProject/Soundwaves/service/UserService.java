@@ -1,6 +1,7 @@
 package SoundwavesProject.Soundwaves.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,4 +32,9 @@ public class UserService implements UserDetailsService {
     public List<User> getUser() { 
         return userRepository.findAll();
     }
+
+    public Optional<User> getUserById(int id)
+    {
+        return userRepository.findById(id);
+    } 
 }

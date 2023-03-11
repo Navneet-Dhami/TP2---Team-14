@@ -35,6 +35,10 @@ public class SoundWavesUserDetails implements UserDetails {
         return u.getUsername();
     }
 
+    public int getUserId() {
+        return u.getId();
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
