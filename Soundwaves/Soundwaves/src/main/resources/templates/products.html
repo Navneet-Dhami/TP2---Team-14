@@ -28,6 +28,11 @@
                     <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
                     <li>
                         <div sec:authorize="isAuthenticated()"> 
+                            <a th:href="@{/wishlist}">Wishlist</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
                             <a th:href="@{/cart}">Cart</a>
                         </div>
                     </li>
@@ -74,6 +79,7 @@
                             <h4>£ <span th:text="${product.price}"></span></h4>
                             <p th:text="${product.description}" ></p>
                             <a href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary">Add to cart</a>
+                            <a href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
                         </div>
                     </div>
                 </div>

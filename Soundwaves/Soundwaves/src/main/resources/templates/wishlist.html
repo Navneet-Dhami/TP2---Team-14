@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+	<script type="text/javascript" th:src="@{/js/script.js}" defer></script>
+</head>
+<body>
+	<nav class="navigation">
+		<div class="logo">Soundwaves</div>
+		<a href="#" class="dropdown">
+		  <span class="list"></span>
+		  <span class="list"></span>
+		  <span class="list"></span>
+		  <span class="list"></span>
+		</a>
+		<div class="navigation-links">
+		  <ul>
+			<li><a th:href="@{/index}">Home</a></li>
+			<li><a th:href="@{/products}">Products</a></li>
+			<li><a th:href="@{/contact}">Contact us</a></li>
+			<li><a th:href="@{/aboutus}">About us</a></li>
+			<li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+			<li><a th:href="@{/cart}">Cart</a></li>
+			<li><span th:text="${cartNo}">0</span></li>
+			<li>
+				<div sec:authorize="isAnonymous()"> 
+					<a th:href="@{/login}">Login</a>
+				</div>
+			<li>
+				<div sec:authorize="isAuthenticated()"> 
+					<form th:action="@{/logout}" method="post"> 
+						<input type="submit" value="Logout!"/>
+					</form>  
+				</div>
+			</li>
+		  </ul>
+		</div>
+	  </nav>
+  	
+      <table>
+        <thead>
+          <tr>
+              <br>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr th:each="wishlist, iStat : ${wishlists}">
+         
+            <td>
+
+              
+              <div class="product-info">
+                  <span th:text="${wishlist.product.name}"></span>
+                  <img src="" height="100px" width="100px" th:src="@{${'/media/' + wishlist.product.img}}" />
+                </div>
+            </td>
+            <td>
+              <span th:text="${wishlist.product.description}"></span>
+            </td>
+            <td>
+            <!-- <a href="" th:href="@{/wishlist/remove/{id}(id=${wishlist.product.id})}"> Remove </a> -->
+            </td>
+          </tr>
+        </tbody>		  
+      </table>
+				
+			
+	
+		
+</body>
+    
+    
+
+
+
+</html>

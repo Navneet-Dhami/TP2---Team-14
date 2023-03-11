@@ -23,8 +23,10 @@ import SoundwavesProject.Soundwaves.global.AllData;
 import SoundwavesProject.Soundwaves.model.Product;
 // import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.User;
+import SoundwavesProject.Soundwaves.model.Wishlist;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
 import SoundwavesProject.Soundwaves.service.ProductService;
+import SoundwavesProject.Soundwaves.service.WishlistService;
 //import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
 import jakarta.servlet.http.HttpSession;
@@ -40,6 +42,9 @@ public class MainController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    WishlistService wishlistService;
     // @Autowired
     // private OrderService orderService;
 
@@ -145,6 +150,28 @@ public class MainController {
         }
         return "redirect:/cart";
     }
+
+    @GetMapping("/wishlist")
+    public String getWishlist(Model model) {
+        model.addAttribute("wishlists", wishlistService.getWishlist());
+        return "wishlist";
+    }
+
+
+    @GetMapping("/addToWishlist/{id}")
+    public String addToWishlist(@PathVariable int id) {
+    Product product = productService.getProductById(id).get();
+    Wishlist wishlistItem = new Wishlist(product);
+    wishlistService.addToWishlist(wishlistItem);
+    return "redirect:/products";
+}
+
+@GetMapping("/wishlist/remove/{id}") public String removeWish(@PathVariable long id)
+{
+  productService.rmvProduct(id);
+  return "redirect:/wishlist";
+}
+
     
    // Orders Table & Functionality
 
