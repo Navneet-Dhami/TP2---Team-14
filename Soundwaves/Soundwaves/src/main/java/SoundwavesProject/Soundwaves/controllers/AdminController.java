@@ -55,6 +55,12 @@ public class AdminController {
         return "admin/adminUserView";
     }
 
+    @GetMapping("/admin/user/remove/{id}") 
+    public String removeProduct(@PathVariable int id) { 
+        userService.removeUser(id);
+        return "redirect:/admin/adminUserView";
+    }
+
 
     @GetMapping("/admin/addproduct")
     public String addProduct(Model model){

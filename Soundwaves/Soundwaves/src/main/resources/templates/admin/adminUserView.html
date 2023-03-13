@@ -44,6 +44,7 @@
             <th scope="col">Surname</th>
             <th scope="col">Username</th>
             <th scope="col">Role</th>
+            <th scope="col">Remove</th>
         </tr>
 
         <tr th:each="user, iStat : ${users}">
@@ -53,6 +54,7 @@
             <td th:text="${user.surname}"></td> 
             <td th:text="${user.username}"></td> 
             <td th:text="${user.role}"></td> 
+            <td><a th:href="@{/admin/user/remove/{id}(id=${user.id})}"> Remove </a></td>
         </tr>
 
     </table>

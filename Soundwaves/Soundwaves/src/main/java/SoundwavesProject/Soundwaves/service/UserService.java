@@ -33,6 +33,10 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
 
+    public void removeUser(int id) { 
+        userRepository.deleteById(id);
+    }
+
     public Optional<User> getUserById(int id)
     {
         return userRepository.findById(id);
