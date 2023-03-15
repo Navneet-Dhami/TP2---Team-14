@@ -517,12 +517,17 @@ input[type="submit"]:hover {
 
 /* Register Page */
 .Register{
-    position: absolute;
+        /*position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--p2-colour);
-    border-radius: 5px;
+    */background: var(--p2-colour);
+    border-radius: 20px;
+    margin-top: 200px;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-bottom: 200px;
+    
 }
 
 .Register h1{
