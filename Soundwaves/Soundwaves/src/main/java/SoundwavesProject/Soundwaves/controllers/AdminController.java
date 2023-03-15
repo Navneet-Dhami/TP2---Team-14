@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import SoundwavesProject.Soundwaves.dto.ProductDTO;
-import SoundwavesProject.Soundwaves.model.Date;
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.UserService;
@@ -54,14 +53,6 @@ public class AdminController {
     public String adminuserView(Model model){
         model.addAttribute("users", userService.getUser());
         return "admin/adminUserView";
-    }
-
-    @GetMapping("/admin/adminReport")
-    public String adminReport(Model model) { 
-        model.addAttribute("products", productService.getProduct());
-        Date date = new Date();
-        model.addAttribute("date", date);
-        return "admin/adminReport";
     }
 
     @GetMapping("/admin/user/remove/{id}") 
