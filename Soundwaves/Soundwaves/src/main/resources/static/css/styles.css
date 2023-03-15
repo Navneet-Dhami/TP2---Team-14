@@ -56,7 +56,7 @@
     color: var(--s-colour);
     margin-left: auto;
     margin-right: auto;
-    width: 5em;
+    text-align: center;
 }
 
 .nav h4{
@@ -970,34 +970,32 @@ th {
     box-sizing: border-box;
 }
 
-.card-body1{
-   margin-top: 100px;
-   margin-left: auto;
-   margin-right: auto;
-   width: 8em;
-}
+/* ADMIN HOME CSS */
 
-.card{
-    width: 23%;
+.card-body1 {
+    width: 30%;
     min-width: 250px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 15px;
     border: 1px solid var(--p5-colour);
     border-radius: 25px;
     transition: .2s;
-    position: relative;
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     background-color: var(--p2-colour);
- }
+    text-align: center;
+    vertical-align: top; 
+    padding: 20px; 
+  }
 
 .card:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
-}
-
-.card img {
     border-radius: 20px;
 }
+
+
+/* END OF ADMIN HOME CSS */
 
 
 /*Dark Mode */
