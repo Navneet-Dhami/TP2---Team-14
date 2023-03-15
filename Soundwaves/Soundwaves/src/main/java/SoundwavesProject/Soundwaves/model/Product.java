@@ -27,6 +27,7 @@ public class Product{
     private String description;
     private int quantity;
     private String img;
+    private int minimum;
 
 
 
