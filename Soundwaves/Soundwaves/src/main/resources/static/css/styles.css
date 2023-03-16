@@ -112,7 +112,7 @@ background-color: #f1f1f1;
 .carbon {
 width: 90%;
 height: 350px;
-background: url('https://i.ibb.co/72cgtsz/carbon.jpg') no-repeat center center/cover;
+background: url('media/carbon.jpg') no-repeat center center/cover;
 margin: 50px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.50), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
 }
