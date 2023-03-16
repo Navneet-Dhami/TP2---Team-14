@@ -3,6 +3,14 @@
 
 /* Feysal's changes: */
 
+#banner{
+    margin: auto;
+    display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-gap: 15px;
+justify-items: center;
+}
+
 .showcase {
     width: 90%;
     height: 300px;
@@ -59,7 +67,7 @@ grid-gap: 15px;
 .col-sm-3 {
 width: 90%;
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(1, 1fr);
 grid-gap: 15px;
 margin: 50px;
 background-color: var(--p2--colour);
@@ -839,7 +847,7 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    transition: .2s;
+    transition: .5s ease;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
