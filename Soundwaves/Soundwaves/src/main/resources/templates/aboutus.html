@@ -45,6 +45,12 @@
                     <div sec:authorize="isAnonymous()"> 
                         <a th:href="@{/login}">Login</a>
                     </div>
+                </li>
+                <li> 
+                    <div sec:authorize="isAuthenticated()"> 
+                      <a th:href="@{/userPage}">My Account</a> 
+                    </div>
+                </li>
                 <li>
                     <div sec:authorize="isAuthenticated()"> 
                         <form th:action="@{/logout}" method="post"> 
