@@ -144,6 +144,16 @@ public class MainController {
         return "userPage";
     }
 
+    @GetMapping("/userOrders")
+    public String userOrders(Model model) { 
+        SoundWavesUserDetails userDetails = (SoundWavesUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int userId = userDetails.getUserId();
+        String userName = userDetails.getUsername();
+        model.addAttribute("orders", orderService.getOrdersByUserId(userId));
+        model.addAttribute("users", userService.loadUserByUsername(userName));
+        return "userOrders";
+    }
+
     @GetMapping("/addCart/{id}")
     public String addCart(@PathVariable int id) {
         Product product = productService.getProductById(id).get();

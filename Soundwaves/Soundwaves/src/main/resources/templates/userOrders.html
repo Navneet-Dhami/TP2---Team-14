@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css" th:href="@{css/styles.css}" />
     <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
-    <title> My Account </title>
+    <title> View My Orders </title>
 </head>
 
 <body>
@@ -64,19 +64,18 @@
         </div>
     </nav>
 
-    <div th:each="user : ${users}">
-        <div class="nav">
-            <h1> Welcome, <span th:text="${user.username}"></span> </h1>
-        </div>
-        <h4> User Information: </h4>
-        <p> Username: <span th:text="${user.username}"></span></p>
-        <p> Email Address: <span th:text="${user.email}"></span></p>
-        <p> Firstname: <span th:text="${user.firstname}"></span></p>
-        <p> Surname: <span th:text="${user.surname}"></span></p>
-        <br>
+    <div class="nav">
+        <h1> Viewing Orders </h1>
     </div>
 
-    <a th:href="@{/userOrders}"> View All Orders </a> 
+    <div th:each="order : ${orders}">
+        <p> Product Name: <span th:text="${order.productName}"></span></p>
+        <p> Product Quantity: <span th:text="${order.quantity}"></span></p>
+        <p> Total Amount: <span th:text="${order.totalAmount}"></span></p>
+        <p> Purchase Date: <span th:text="${order.dateOrdered}"></span></p>
+        <p> Order Status: <span th:text="${order.orderStatus}"></span></p>
+        <br>
+    </div>
 
 </body>
 
