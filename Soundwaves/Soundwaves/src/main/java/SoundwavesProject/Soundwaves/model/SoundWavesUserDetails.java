@@ -35,6 +35,18 @@ public class SoundWavesUserDetails implements UserDetails {
         return u.getUsername();
     }
 
+    public String getEmail() {
+        return u.getEmail();
+    }
+
+    public String getFirstname() {
+        return u.getFirstname();
+    }
+
+    public String getSurname() {
+        return u.getSurname();
+    }
+
     public int getUserId() {
         return u.getId();
     }

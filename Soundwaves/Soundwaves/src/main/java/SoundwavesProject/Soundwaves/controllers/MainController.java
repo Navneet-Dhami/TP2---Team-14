@@ -136,6 +136,14 @@ public class MainController {
         return "redirect:/login";
     }
 
+    @GetMapping("/userPage")
+    public String userPage(Model model) { 
+        SoundWavesUserDetails userDetails = (SoundWavesUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String userName = userDetails.getUsername();
+        model.addAttribute("users", userService.loadUserByUsername(userName));
+        return "userPage";
+    }
+
     @GetMapping("/addCart/{id}")
     public String addCart(@PathVariable int id) {
         Product product = productService.getProductById(id).get();
