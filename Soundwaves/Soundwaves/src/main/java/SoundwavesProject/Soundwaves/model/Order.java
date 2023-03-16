@@ -1,38 +1,50 @@
-// package SoundwavesProject.Soundwaves.model;
+package SoundwavesProject.Soundwaves.model;
 
-// import jakarta.persistence.*;
-// import lombok.Data;
+import jakarta.persistence.*;
+import lombok.Data;
+import java.time.LocalDate;
 
-// import java.util.Date;
 
-// @Entity
-// @Data
-// public class Order {
+@Data
+@Entity
+@Table(name = "orders")
+public class Order {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+    
+    @Column(name = "product_name")
+    private String productName;
+    
+    @Column(name = "quantity")
+    private int quantity;
+    
+    @Column(name = "total_amount")
+    private double totalAmount;
+    
+    @Column(name = "date_ordered")
+    private LocalDate dateOrdered;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "order_status")
+    private OrderStatus orderStatus;
+    
 
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.AUTO)
-//     @Column(name = "order_id")
-//     private Long id;
+    public enum OrderStatus {
+        PENDING,
+        SHIPPED,
+        DELIVERED
+    }
+    
 
-//     @ManyToOne(fetch = FetchType.LAZY)
-//     @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-//     private Product product;
 
-//     @ManyToOne(fetch = FetchType.LAZY)
-//     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-//     private User user;
-
-//     @Column(name = "created_date")
-//     private Date createdDate;
-
-//     @Column(name = "total_price")
-//     private double totalPrice;
-
-//     private String img;
-
-//     private int quantity;
-
-//     private int tracking;
-
-  
-// }
+}

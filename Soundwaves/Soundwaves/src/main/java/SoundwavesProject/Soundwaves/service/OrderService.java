@@ -1,39 +1,28 @@
-// package SoundwavesProject.Soundwaves.service;
+package SoundwavesProject.Soundwaves.service;
 
-// import java.util.List;
-// import java.util.Optional;
+import java.util.List;
+import java.util.Optional;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-// import SoundwavesProject.Soundwaves.model.Order;
-// import SoundwavesProject.Soundwaves.repository.OrderRepository;
+import SoundwavesProject.Soundwaves.model.Order;
+import SoundwavesProject.Soundwaves.repository.OrderRepository;
 
-// @Service
-// public class OrderService {
+@Service
+public class OrderService implements OrderServiceInterface {
 
-//     @Autowired
-//     OrderRepository orderRepository;
+    @Autowired
+    OrderRepository orderRepository;
 
-//     public List<Order> getOrder() {
+    @Override
+    public void createOrder(Order order) {
+        orderRepository.save(order);
+    }
 
-//         return orderRepository.findAll();
-//     }
-//     public void addOrder(Order order){
-
-//         orderRepository.save(order);
-//     }
-//     public void rmvOrder(int id){
-
-//         orderRepository.deleteById(id);
-//     }
-//     public Optional<Order> getOrderByProductId(int productId){
-        
-//         return orderRepository.findById(productId);
-//     } 
-
-//     public List<Order> getOrderByUserId(int userId){
-
-//         return orderRepository.findAllOrdersByUserId(userId);
-//     }    
-// }
+    @Override
+    public List<Order> getOrdersByUserId(long userId) {
+        return orderRepository.findByUserId(userId);
+    }
+    
+}

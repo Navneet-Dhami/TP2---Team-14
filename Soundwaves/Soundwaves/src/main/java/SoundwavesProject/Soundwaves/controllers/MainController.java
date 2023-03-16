@@ -4,12 +4,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +25,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 // import SoundwavesProject.Soundwaves.dto.OrderDTO;
 import SoundwavesProject.Soundwaves.global.AllData;
+import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.model.SoundWavesUserDetails;
 // import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.model.Wishlist;
+import SoundwavesProject.Soundwaves.model.Order.OrderStatus;
+import SoundwavesProject.Soundwaves.repository.ProductRepository;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
+import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.WishlistService;
@@ -52,9 +59,13 @@ public class MainController {
 
     @Autowired
     WishlistService wishlistService;
-    // @Autowired
-    // private OrderService orderService;
 
+    @Autowired
+    OrderService orderService;
+
+    @Autowired
+    ProductRepository productRepository;
+  
 
 
     @GetMapping("/search")
@@ -193,36 +204,55 @@ public class MainController {
 }
 
     
-   // Orders Table & Functionality
+    @GetMapping("/checkout")
+    public String checkout(Model model) {
+ 
+    SoundWavesUserDetails userDetails = (SoundWavesUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    int userId = userDetails.getUserId();
+    Optional<User> user = userService.getUserById(userId);
 
-    // @GetMapping("/addCheckout/{id}") public String checkout(@PathVariable int id)
-    // {
-    //     AllData.cartOrder.add(orderService.getOrderByProductId(id).get());
+   
+    List<Product> cartItems = AllData.cart;
 
-    //   return "redirect:/products";
-    // }
 
-    // @GetMapping("/checkout") public String getCartOrder(Model model){
+    double totalAmount = cartItems.stream()
+            .mapToDouble(item -> item.getPrice() * item.getQuantity())
+            .sum();
 
-    //     model.addAttribute("cartOrderNo", AllData.cartOrder.size());
-    //     double amount = AllData.cartOrder.stream().mapToDouble(Order::getTotalPrice).sum();
-    //     model.addAttribute("amount", amount);
-    //     model.addAttribute("cartOrder", AllData.cartOrder);
-    //     return "cartOrder";
-    // }
 
-    // @GetMapping("/cartOrder/rmvOrdertItems/{index}") public String rmvOrderItems(@PathVariable int index)
-    // {
-    //     AllData.cartOrder.remove(index);
-    //     return "redirect:/cart";
-    // }
+    Order order = new Order();
+    order.setUser(user.get());
+    order.setOrderStatus(OrderStatus.PENDING);
+    order.setDateOrdered(LocalDate.now());
+    order.setTotalAmount(totalAmount);
+
+
+    for (Product item : cartItems) {
+        int quantity = item.getQuantity();
+        int newStock = item.getStock() - quantity;
+       
+        item.setStock(newStock);
+        productRepository.save(item);
+
+        Order orderDetail = new Order();
+        orderDetail.setUser(user.get());
+        orderDetail.setOrderStatus(OrderStatus.PENDING);
+        orderDetail.setDateOrdered(LocalDate.now());
+        orderDetail.setTotalAmount(item.getPrice() * quantity);
+        orderDetail.setQuantity(quantity);
+        orderDetail.setProductName(item.getName());
+        orderDetail.setProduct(item);
+        orderService.createOrder(orderDetail);
+     }
+
+
+    AllData.cart.clear();
+
     
-    // @GetMapping("/checkout")
-    // public String checkout(Model model) { 
-    //     double orderAmount = AllData.cartOrder.stream().mapToDouble(Order::getTotalPrice).sum();
-    //     model.addAttribute("amount", orderAmount);
-    //     return "checkout";
+    return "redirect:/index";
+    }
 
-    // }
+
+
 }
 
