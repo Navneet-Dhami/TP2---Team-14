@@ -62,6 +62,52 @@
 </head>
 
 <body>
+    <section id="about-head" class="section-p1">
+        <img src="img/about/a7.jpg" alt="">
+        <div>
+            <h2>Who We Are?</h2>
+            <p>We are a group of 10 university students who have come together to make this e-commerce website!
+                This website has been made for those who love music! We offer products such as
+                headphones, speakers and much more.
+            </p>
+
+            <br><br>
+
+        </div>
+    </section>
+
+    <style>
+        #page-header.about-header {
+background-image: url("media/pexels-photo-1.jpg");
+}
+
+#about-head {
+display: flex;
+align-items: center;
+}
+
+#about-head img {
+width: 50%;
+height: auto;
+}
+
+#about-head div {
+padding-left: 40px;
+}
+
+#about-head {
+        flex-direction: column;
+    }
+    #about-head img {
+        width: 100%;
+    }
+    #about-head div {
+        padding-top: 20px;
+        padding-left: 0px;
+    }
+    </style>
+
+
     <div class="about-us">
         <div class="header">
             <h1>About Us!</h1>
@@ -179,8 +225,43 @@
             </div>
         </div>
 
+        <section class="carbon">
+            <div class="content">
+              <h2>Commiting To Carbon Negative</h2>
+              <p>Soundwaves will be carbon negative by 2025 and by 2030 we will remove
+                all carbon the company has emitted since it was founded.</p>
+            </div>
+          </section>
 
+          <style>
+            /* Carbon */
+.carbon {
+width: 90%;
+height: 350px;
+background: url('https://i.ibb.co/72cgtsz/carbon.jpg') no-repeat center center/cover;
+margin: 50px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.50), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+}
 
+.carbon .content {
+width: 55%;
+padding: 100px 0 0 30px;
+}
+
+.carbon .content h2{
+    color: #fff;
+}
+
+.carbon .content p{
+    color: #fff;
+}
+
+.carbon .content a{
+    color: #fff;
+    padding: 10px 0px;
+}
+          </style>
+       
 
 </body>
 
@@ -232,7 +313,7 @@ headphones, speakers and much more.</p>
           <ul class="social-icons">
             <li><a class="facebook" href="#"><i class="fa fa-github"></i></a></li>
             <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="linkedin" href="#"><i class="fa fa-github"></i></a></li>   
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
           </ul>
         </div>
       </div>

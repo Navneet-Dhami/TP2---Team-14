@@ -68,52 +68,193 @@
         <h1>Hey There</h1>
     </div>
 
-    <!-- THIS SHOWS STUFF -Bill :D -->
+    <header class="showcase">
+        <h2>Wavy Deals</h2>
+        <p>
+          Select Products are on Sale Now - Buy whilst still in Stock
+        </p>
+        <button class="button5"><a th:href="@{/products}">Shop Now</a></button>
+      </header>
+    
+      <style>
+        /* Showcase */
+        .showcase {
+    width: 90%;
+    height: 300px;
+    background: url(media/pexels-photo-1.jpg) no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-end;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+    margin: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    
+    .showcase h2, .showcase p {
+    margin-bottom: 10px;
+    }
+    
+    .showcase .btn {
+    margin-top: 20px;
+    }
+    
+    .button5 {
+    background-color: #333333; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 0%;
+    }
+
+    .button5:hover {
+        transition: 0.5s ease;
+        transform: scale(1.05);
+    }
+
+    .button5 a {
+        color: white;
+    }
+
+
+    
+    
+      </style>
+
+
+    
+<div class="container" style="margin-top: 30px">
+    <div class="container2">
+        <div class="nav"><h2>Categories</h2></div>
+        <!-- THIS SHOWS STUFF -Bill :D -->
     <form class="search-bar" th:action="@{/search}" method="get">
         <br>
         <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
     </form>
-
-    <div class="nav"><h4>Categories</h4></div>
-<div class="container" style="margin-top: 30px">
-<div class="indexRow">
-
+    </div>
     <div class="col-sm-3">
         
-        <ul class="list-group" >
-            <a href="" th:each="category, iStat : ${categories}"
-            th:href="@{/products/category/{id}(id=${category.id})}"><li
-            class="list-group-item" th:text="${category.categoryName}"></li>
-           
-            <li><img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}"></li>
-            <ul id="stars">
-                <li id="fa-1"><i class="fa fa-star checked"> </i></li>
-                <li id="fa-1"><i class="fa fa-star checked"> </i></li>
-                <li id="fa-1"><i class="fa fa-star checked"> </i></li>
-                <li id="fa-1"><i class="fa fa-star"> </i></li>
-                <li id="fa-1"><i class="fa fa-star"> </i></li>
-            </ul>
-        
-        </a>
-
-       
-          
-        
-        </ul>
-        
-        
-        
-
-    </div>
+        <div class="categories">
+            <a href="" th:each="category, iStat : ${categories}" th:href="@{/products/category/{id}(id=${category.id})}">
+              <div class="category">
+                  <img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}" />
+                <p th:text="${category.categoryName}"></p>
+              </div>
+            </a>
+          </div>
+        </div>
 
     
-    
-
-
-
-</div>
 </div>
 
+
+<section class="carbon">
+  <div class="content">
+    <h2>Commiting To Carbon Negative</h2>
+    <p>Soundwaves will be carbon negative by 2025 and by 2030 we will remove
+      all carbon the company has emitted since it was founded.</p>
+      <a th:href="@{/aboutus}" class="btn">
+        Learn More
+      </a>
+  </div>
+</section>
+
+
+<style>
+.container2 {
+    display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-gap: 15px;
+}
+
+.col-sm-3 {
+width: 90%;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 15px;
+margin: 50px;
+background-color: var(--p2--colour);
+/*
+display: flex;
+flex-direction: row;
+align-items: center; */
+}
+
+.categories {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-gap: 15px;
+}
+
+.categories a{
+margin: 18px;
+}
+
+.category {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: var(--p2--colour);
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.50), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+padding: 20px;
+border: 1px solid #ccc;
+transition: 0.5s ease;
+}
+
+.category:hover {
+background-color: #f1f1f1;
+}
+
+.category:hover img {
+    transition: 0.5s ease;
+    transform: scale(1.5);
+}
+
+/* Carbon */
+.carbon {
+width: 90%;
+height: 350px;
+background: url('https://i.ibb.co/72cgtsz/carbon.jpg') no-repeat center center/cover;
+margin: 50px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.50), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
+}
+
+.carbon .content {
+width: 55%;
+padding: 100px 0 0 30px;
+}
+
+.carbon .content h2{
+    color: #fff;
+}
+
+.carbon .content p{
+    color: #fff;
+}
+
+.carbon .content a{
+    color: #fff;
+    padding: 10px 0px;
+}
+
+.carbon .content a:hover{
+    color: #fff;
+    padding: 10px 0px;
+    transform: scale(1.05);
+    transition: 0.5s ease;
+}
+
+</style>
 
 </body>
 

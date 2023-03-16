@@ -78,6 +78,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 8em;
+    margin-top:20px;
 }
 
 .search-bar{
@@ -391,6 +392,10 @@ margin-top: 50px;
     background-color: var(--p2-colour);
     height: 7vh;
     transition: .2s;
+   /* position: fixed;
+    width: 100%;
+    z-index: 999;
+    top: 0; */
 }
 
 .logo{
@@ -418,6 +423,8 @@ margin-top: 50px;
 
 .navigation-links li:hover{
     background-color: var(--p-colour);
+    transform: scale(1.05);
+    transition: 0.5s ease;
 }
 
 .dropdown{
@@ -651,7 +658,7 @@ input[type="submit"]:hover {
     width: 500px;
     padding: 50px;
     margin: 100px auto;
-    border-radius: 30px;
+   /* border-radius: 30px; */
     position: relative;
     background: var(--p2-colour) ;
     
@@ -674,33 +681,34 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     padding: 10px 20px;
     box-sizing: border-box;
-    background: var(--p-colour);
+    background: var(--p4-colour);
     border: 0;
     outline: none;
-    border-radius: 30px;
+   /* border-radius: 30px; */
     resize: none;
 
 }
 
 .button {
-    background: var(--p-colour);
+    background: var(--p4-colour);
     text-align: center;
     padding: 10px;
-    border-radius: 30px;
+  /*  border-radius: 30px; */
     cursor: pointer;
+    color: #fff;
 }
 
 .container{
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 50px;
     text-align: center;
-    background: var(--p-colour);
+    background: var(--p1-colour);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     transition: .2s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .info{
@@ -740,7 +748,7 @@ input[type="submit"]:hover {
 
 
 .about-us{
-    background-color: var(--p-colour);
+    background-color: var(--p1-colour);
     text-align: center;
     transition: .2s;
 }
@@ -761,7 +769,7 @@ input[type="submit"]:hover {
     max-width: 1200px;
     margin: auto;
     text-align: center;
-    background: var(--p-colour);
+    background: var(--p1-colour);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -778,10 +786,20 @@ input[type="submit"]:hover {
     background-color: var(--p1-colour);
 }
 
+.team:hover{
+    box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1)
+}
+
 .team img{
     width: 150px;
     height: 150px;
     background: transparent;
+    transition: 0.5s ease;
+}
+
+.team:hover img{
+    transform: scale(1.3);
+    transition: 0.5s ease;
 }
 
 .body{
@@ -806,7 +824,7 @@ input[type="submit"]:hover {
 	box-sizing: border-box;
 } */
 body {
-	background: var(--p-colour);
+	background: var(--p1-colour);
     transition: .2s;
 
 }
@@ -999,7 +1017,7 @@ th {
     margin-right: auto;
     width: 8em;
 }
-
+/*
 .indexRow{
     display: flex;
     margin-left: auto;
@@ -1008,7 +1026,7 @@ th {
     padding: 5px 5px;
     box-sizing: border-box;
 }
-
+*/
 .row{
     width: 100%;
     padding: 12px 20px;
@@ -1057,9 +1075,9 @@ cursor: pointer;
     
 :root{
     --p-colour: #E7D5AD; /*Nav-select*/
-    --p1-colour: #FED154; /*Background*/
+    --p1-colour:#f2f2f2; /*Background*/
     --s-colour: #3A3B3D; /* text*/
-    --p2-colour: #FED154;   /*Footer*/
+    --p2-colour: #ccc;   /*Footer + Navbar*/
     --p3-colour: #F6F6F9;
     --p4-colour: #3A3B3D;
     --p5-colour: #271A52; 
