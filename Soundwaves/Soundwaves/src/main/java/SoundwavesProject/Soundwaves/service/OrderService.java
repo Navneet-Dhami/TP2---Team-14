@@ -24,5 +24,10 @@ public class OrderService implements OrderServiceInterface {
     public List<Order> getOrdersByUserId(long userId) {
         return orderRepository.findByUserId(userId);
     }
+
+    @Override 
+    public List<Order> getOrders() { 
+        return orderRepository.findAll();
+    }
     
 }

@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import SoundwavesProject.Soundwaves.dto.ProductDTO;
 import SoundwavesProject.Soundwaves.model.Date;
 import SoundwavesProject.Soundwaves.model.Product;
+import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
@@ -39,6 +40,9 @@ public class AdminController {
     @Autowired
     UserService userService;
 
+    @Autowired 
+    OrderService orderService;
+
     @GetMapping("/admin/adminHome") 
     public String adminHome() { 
         return "admin/adminHome";
@@ -58,9 +62,10 @@ public class AdminController {
 
     @GetMapping("/admin/adminReport")
     public String adminReport(Model model) { 
-        model.addAttribute("products", productService.getProduct());
         Date date = new Date();
         model.addAttribute("date", date);
+        model.addAttribute("products", productService.getProduct());
+        model.addAttribute("orders", orderService.getOrders());
         return "admin/adminReport";
     }
 
