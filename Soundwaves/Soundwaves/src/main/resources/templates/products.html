@@ -67,7 +67,7 @@
             <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
         </form>
 
-        <div class="col-sm-9">
+        <div class="pro-container">
             <div class="card" style="margin-top: 20px" th:each="product : ${products}">
                 <div class="row no-gutters">
                     <div class="col-sm-5 d-flex justify-content-center">
@@ -81,16 +81,15 @@
                             <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming weeks.</div>
                             <div th:if="${product.stock > 0 and product.stock < 10}" class="stock-status low-stock">Low stock</div>
                             <div th:if="${product.stock >= 25}" class="stock-status high-stock">In stock</div>
-                            <a href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart" th:if="${product.stock > 0}">Add to cart</a>
-                            <a href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
+                            <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart" th:if="${product.stock > 0}">Add to Cart</a>
+                            <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-      
-
+        
     </body>
 
     <footer class="site-footer">
