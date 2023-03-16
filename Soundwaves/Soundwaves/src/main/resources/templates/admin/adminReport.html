@@ -38,16 +38,33 @@
     <br> 
     <h3> Stock Levels</h3>
     <div th:each="product : ${products}">
-        <a> <b>Product Name:</b> <span th:text="${product.name}"></span> | <b>Product Stock:</b> <span th:text="${product.stock}"></span></a>
+        <a> 
+            <b>Product Name:</b> <span th:text="${product.name}"></span> | 
+            <b>Product Stock:</b> <span th:text="${product.stock}"></span>
+        </a>
     </div>
     <br>
     <h3> Incoming Orders </h3>
+    <div th:each="order : ${orders}"> 
+        <a> 
+            <b>Order Name:</b> <span th:text="${order.productName}"></span> | 
+            <b>Order Quantity:</b> <span th:text="${order.quantity}"></span> | 
+            <b>Total Amount:</b> <span th:text="${order.totalAmount}"></span> |
+            <b>Purchase Date:</b> <span th:text="${order.dateOrdered}"></span> |
+            <b>Order Status:</b> <span th:text="${order.orderStatus}"></span> |
+        </a>
+    </div>
     <br>
     <h3> Outgoing Orders </h3>
-
-    
-
-
+    <div th:each="order : ${orders}"> 
+        <a> 
+            <b>Order Name:</b> <span th:text="${order.productName}"></span> | 
+            <b>Order Quantity:</b> <span th:text="${order.quantity}"></span> | 
+            <b>Total Amount:</b> <span th:text="${order.totalAmount}"></span> |
+            <b>Purchase Date:</b> <span th:text="${order.dateOrdered}"></span> |
+            <b>Order Status:</b> <span th:text="${order.orderStatus}"></span> |
+        </a>
+    </div>
 
     </body>
 
