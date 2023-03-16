@@ -337,6 +337,51 @@ ul.list-group img{
     }
 }
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 262px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: .3s;
+    transition-duration: 0.4s;
+    background-color: var(--p1-colour);
+  }
+
+  .card:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card #adds {
+    border-radius: 0%;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    transition-duration: 0.4s;
+  }
+  
+  .card #adds:hover {
+    opacity: 0.7;
+    
+  }
+
+  .pro-container{
+      display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));/* 4 columns */
+grid-gap: 10px;
+margin-bottom: 50px;
+margin-top: 50px;
+  }
+
 /* Navigation */
 .navigation{
     box-sizing: border-box;
@@ -730,6 +775,7 @@ input[type="submit"]:hover {
     max-width: 30%;
     cursor: pointer;
     box-sizing: border-box;
+    background-color: var(--p1-colour);
 }
 
 .team img{
@@ -988,12 +1034,12 @@ th {
     vertical-align: top; 
     padding: 20px; 
   }
-
+/*
 .card:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
 }
-
+*/
 
 /* END OF ADMIN HOME CSS */
 
