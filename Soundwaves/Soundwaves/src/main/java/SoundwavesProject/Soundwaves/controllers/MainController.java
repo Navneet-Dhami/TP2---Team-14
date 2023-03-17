@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 // import SoundwavesProject.Soundwaves.dto.OrderDTO;
 import SoundwavesProject.Soundwaves.global.AllData;
@@ -154,10 +154,22 @@ public class MainController {
     @GetMapping("/addCart/{id}")
     public String addCart(@PathVariable int id) {
         Product product = productService.getProductById(id).get();
-        product.setQuantity(1); 
-        AllData.cart.add(product);
+        boolean duplicateProduct = false;
+        for (Product p : AllData.cart) {
+            if (p.getId() == product.getId()) {
+                duplicateProduct = true;
+                break;
+            }
+        }
+        if (duplicateProduct) {
+            
+        } else {
+            product.setQuantity(1); 
+            AllData.cart.add(product);
+        }
         return "redirect:/products";
     }
+    
     
     @GetMapping("/cart")
     public String getCart(Model model) {
