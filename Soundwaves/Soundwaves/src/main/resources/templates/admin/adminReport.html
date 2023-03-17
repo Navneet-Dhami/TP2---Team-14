@@ -34,37 +34,76 @@
         </div>
     </nav>
     
-    <h1> Soundwaves Inventory Report Generated On <span th:text="${date.date}"></span> at <span th:text="${date.time}"></span></h1>
+    <h1> Soundwaves Inventory Report </h1>
+    <br>
+    <i> <h2> Generated On <span th:text="${date.date}"></span> at <span th:text="${date.time}"></span> </h2> </i>
     <br> 
     <h3> Stock Levels</h3>
-    <div th:each="product : ${products}">
-        <a> 
-            <b>Product Name:</b> <span th:text="${product.name}"></span> | 
-            <b>Product Stock:</b> <span th:text="${product.stock}"></span>
-        </a>
-    </div>
+    <table class="table">
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Stock</th>
+        </tr>
+
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.category.categoryName}"></td>
+            <td th:text="${product.stock}"></td>
+        </tr>
+    </table>
     <br>
     <h3> Incoming Orders </h3>
-    <div th:each="order : ${orders}"> 
-        <a> 
-            <b>Order Name:</b> <span th:text="${order.productName}"></span> | 
-            <b>Order Quantity:</b> <span th:text="${order.quantity}"></span> | 
-            <b>Total Amount:</b> <span th:text="${order.totalAmount}"></span> |
-            <b>Purchase Date:</b> <span th:text="${order.dateOrdered}"></span> |
-            <b>Order Status:</b> <span th:text="${order.orderStatus}"></span> |
-        </a>
-    </div>
+    <table class="table">
+        <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Purchase Date</th>
+            <th scope="col">Order ID</th>
+            <th scope="col">Order Name</th>
+            <th scope="col">Order Quantity</th>
+            <th scope="col">Order Price</th>
+            <th scope="col">Order Status</th>
+        </tr>
+        <tr th:each="order : ${orders}">
+            <div th:if="${order.orderStatus == order.orderStatus.PENDING}"> 
+                <td th:text="${order.user.id}"></td>
+                <td th:text="${order.user.email}"></td>
+                <td th:text="${order.dateOrdered}"></td>
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.productName}"></td>
+                <td th:text="${order.quantity}"></td>
+                <td th:text="${order.totalAmount}"></td>
+                <td th:text="${order.orderStatus}"></td>
+            </div>
+        </tr>
+    </table>
     <br>
     <h3> Outgoing Orders </h3>
-    <div th:each="order : ${orders}"> 
-        <a> 
-            <b>Order Name:</b> <span th:text="${order.productName}"></span> | 
-            <b>Order Quantity:</b> <span th:text="${order.quantity}"></span> | 
-            <b>Total Amount:</b> <span th:text="${order.totalAmount}"></span> |
-            <b>Purchase Date:</b> <span th:text="${order.dateOrdered}"></span> |
-            <b>Order Status:</b> <span th:text="${order.orderStatus}"></span> |
-        </a>
-    </div>
+    <table class="table">
+        <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Purchase Date</th>
+            <th scope="col">Order ID</th>
+            <th scope="col">Order Name</th>
+            <th scope="col">Order Quantity</th>
+            <th scope="col">Order Price</th>
+            <th scope="col">Order Status</th>
+        </tr>
+        <tr th:each="order : ${orders}">
+            <div th:if="${order.orderStatus == order.orderStatus.SHIPPED or order.orderStatus == order.orderStatus.DELIVERED or order.orderStatus == order.orderStatus.CANCELLED}"> 
+                <td th:text="${order.user.id}"></td>
+                <td th:text="${order.user.email}"></td>
+                <td th:text="${order.dateOrdered}"></td>
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.productName}"></td>
+                <td th:text="${order.quantity}"></td>
+                <td th:text="${order.totalAmount}"></td>
+                <td th:text="${order.orderStatus}"></td>
+            </div>
+        </tr>
+    </table>
 
     </body>
 
