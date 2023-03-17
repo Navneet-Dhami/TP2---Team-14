@@ -621,19 +621,7 @@ margin-top: 50px;
 }
 
 /* Login Page */
-.Login{
-    /*position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    */background: var(--p2-colour);
-    border-radius: 20px;
-    margin-top: 200px;
-    margin-left: 500px;
-    margin-right: 500px;
-    margin-bottom: 200px;
-    
-}
+
 
 .Login h1{
     text-align: center;
@@ -641,10 +629,27 @@ margin-top: 50px;
     border-bottom: 3px solid var(--s-colour);
 }
 
-.Login form{
-    padding: 0 30px;
+
+
+.Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--p2-colour);
+    border-radius: 20px;
+  /*  margin-top: 200px;
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-bottom: 200px; */
+  }
+  
+  .Login form{
+    width: 100%;
+    max-width: 400px; /* adjust as needed */
+    padding: 30px;
     box-sizing: border-box;
-}
+  }
 
 form .email_password{
     position: relative;
@@ -1027,6 +1032,41 @@ height: 100%;
 .role{
     color: var(--s-colour);
 }
+
+
+#page-header.about-header {
+    background-image: url("media/pexels-photo-1.jpg");
+    }
+    
+    #about-head {
+    display: flex;
+    align-items: center;
+    }
+    
+   #about-head #about-us img {
+    width: 10%;
+    }
+    
+    #about-head div {
+    padding-left: 40px;
+    }
+
+    #about-head #about-us {
+        display: flex;
+        justify-items: center;
+    }
+    
+    #about-head {
+            flex-direction: column;
+        }
+        #about-head img {
+            width: 100%;
+        }
+        #about-head div {
+            padding-top: 20px;
+            padding-left: 0px;
+        }
+
 /* Cart page */
 /* * {
 	margin: 0;
