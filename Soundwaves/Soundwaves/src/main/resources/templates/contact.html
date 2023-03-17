@@ -66,25 +66,24 @@
             <h1>Contact Us</h1>
         </div>
 
-    <form action="POST">
-        <div class="contactform">
-            <div class="credentials">
-                <input type="text" class="input" placeholder="Name">
-            </div>
-            <div class="credentials">
-                <input type="text" class="input" placeholder="Email">
-            </div>
-            <div class="credentials">
-                <input type="text" class="input" placeholder="Subject">
-            </div>
-            <div class="credentials">
-                <textarea class="input" cols="30" rows="10" placeholder="Type message here"></textarea>
-            </div>
-            <div class="button">
-                Submit
-            </div>
+    <form method="POST" th:action="@{/contact}">
+         <div class="credentials">
+                <input type="text" id="name" name="name" class="input" placeholder="Name" required>
+        </div>
+        <div class="credentials">
+                <input type="email" id="email" name="email" class="input" placeholder="Email" required>
+        </div>
+        <div class="credentials">
+                <input type="text" id="subject" name="subject" class="input" placeholder="Subject" required>
+        </div>
+        <div class="credentials">
+                <textarea id="message" name="message" class="input" cols="30" rows="10" placeholder="Type message here" required></textarea>
+        </div>
+        <div class="button">
+                <button class="form-control" type="submit">Submit</button>
         </div>
     </form>
+        
     </div>
     </div>
 

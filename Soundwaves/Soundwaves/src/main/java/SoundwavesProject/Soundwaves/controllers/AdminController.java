@@ -21,6 +21,7 @@ import SoundwavesProject.Soundwaves.dto.ProductDTO;
 import SoundwavesProject.Soundwaves.model.Date;
 import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
+import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.UserService;
@@ -42,12 +43,22 @@ public class AdminController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    FeedbackService feedbackService;
+
     @Autowired 
     OrderService orderService;
 
     @GetMapping("/admin/adminHome") 
     public String adminHome() { 
         return "admin/adminHome";
+    }
+
+    @GetMapping("/admin/feedback")
+    public String feedback(Model model){
+        model.addAttribute("feedback", feedbackService.getFeedback());
+        return "/admin/adminFeedback";
+
     }
 
     @GetMapping("/admin/products")

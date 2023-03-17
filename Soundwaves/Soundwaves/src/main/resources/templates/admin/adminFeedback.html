@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+        <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <title> Admin Feedback </title>
+    </head>
+    
+    <body>
+        <nav class="navigation">
+            <div class="logo">Soundwaves</div>
+            <a href="#" class="dropdown">
+                <span class="list"></span>
+                <span class="list"></span>
+                <span class="list"></span>
+                <span class="list"></span>
+            </a>
+            <div class="navigation-links">
+                <ul>
+                    <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
+                    <li><a th:href="@{/index}">Home</a></li>
+                    <li><a th:href="@{/products}">Products</a></li>
+                    <li><a th:href="@{/contact}">Contact us</a></li>
+                    <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Logout!" />
+                    </form>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="nav">
+            <h1>Feedback</h1>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+            </tr>
+            <tr th:each="feedback : ${feedback}">
+                <td th:text="${feedback.name}"></td>
+                <td th:text="${feedback.email}"></td>
+                <td th:text="${feedback.subject}"></td>
+                <td th:text="${feedback.message}"></td>
+            </tr>
+        </table>
+        
+
+
+    
+</body>
+</html>

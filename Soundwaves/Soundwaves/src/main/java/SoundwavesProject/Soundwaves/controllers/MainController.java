@@ -18,10 +18,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 // import SoundwavesProject.Soundwaves.dto.OrderDTO;
 import SoundwavesProject.Soundwaves.global.AllData;
+import SoundwavesProject.Soundwaves.model.Feedback;
 import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.model.SoundWavesUserDetails;
@@ -31,6 +32,7 @@ import SoundwavesProject.Soundwaves.model.Wishlist;
 import SoundwavesProject.Soundwaves.model.Order.OrderStatus;
 import SoundwavesProject.Soundwaves.repository.ProductRepository;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
+import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.UserService;
@@ -50,6 +52,9 @@ public class MainController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    FeedbackService feedbackService;
 
     @Autowired
     UserService userService;
@@ -149,6 +154,19 @@ public class MainController {
         model.addAttribute("orders", orderService.getOrdersByUserId(userId));
         model.addAttribute("users", userService.loadUserByUsername(userName));
         return "userOrders";
+    }
+
+    @PostMapping("/contact")
+    public String submitFeedback(@RequestParam String name, @RequestParam String email, @RequestParam String subject, @RequestParam String message) {
+        Feedback feedback = new Feedback();
+        feedback.setName(name);
+        feedback.setEmail(email);
+        feedback.setSubject(subject);
+        feedback.setMessage(message);
+
+        feedbackService.saveFeedback(feedback);
+
+        return "redirect:/contact";
     }
 
     @GetMapping("/addCart/{id}")
@@ -278,6 +296,8 @@ public class MainController {
     
     return "redirect:/userOrders";
     }
+
+
 
 
 
