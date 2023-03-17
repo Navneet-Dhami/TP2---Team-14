@@ -276,7 +276,7 @@ public class MainController {
     AllData.cart.clear();
 
     
-    return "redirect:/index";
+    return "redirect:/userOrders";
     }
 
 
