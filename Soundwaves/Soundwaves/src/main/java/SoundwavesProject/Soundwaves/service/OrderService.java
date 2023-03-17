@@ -1,12 +1,13 @@
 package SoundwavesProject.Soundwaves.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import SoundwavesProject.Soundwaves.model.Order;
+import SoundwavesProject.Soundwaves.model.Order.OrderStatus;
 import SoundwavesProject.Soundwaves.repository.OrderRepository;
 
 @Service
@@ -20,14 +21,28 @@ public class OrderService implements OrderServiceInterface {
         orderRepository.save(order);
     }
 
+  
+
     @Override
     public List<Order> getOrdersByUserId(long userId) {
         return orderRepository.findByUserId(userId);
     }
+    
 
     @Override 
     public List<Order> getOrders() { 
         return orderRepository.findAll();
+    }
+
+    public void rmvOrder(long id)
+    {
+     orderRepository.deleteById(id);
+    }
+
+    public void updateOrderStatus(long id, OrderStatus orderStatus) {
+        Order order = orderRepository.findById(id).get();
+        order.setOrderStatus(orderStatus);
+        orderRepository.save(order);
     }
     
 }

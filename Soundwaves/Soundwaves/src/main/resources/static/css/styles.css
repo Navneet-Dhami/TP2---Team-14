@@ -1262,6 +1262,18 @@ th {
     vertical-align: top; 
     padding: 20px; 
   }
+
+/* ADMIN Order Status CSS */
+
+tr.CANCELLED {
+    background-color: red;
+  }
+  
+  tr.DELIVERED {
+    background-color: green;
+  }
+  
+  
 /*
 .card:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+    <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
+    <title> Admin Order Page </title>
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="logo">Soundwaves</div>
+        <a href="#" class="dropdown">
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+        </a>
+        <div class="navigation-links">
+            <ul>
+                <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/contact}">Contact us</a></li>
+                <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout!" />
+                </form>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="nav"><h1>Admin Order Page</h1></div>
+<table class="order-table">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Email</th>
+      <th>Order ID</th>
+      <th>Order Name</th>
+      <th>Order Price</th>
+      <th>Order Quantity</th>
+      <th>Order Status</th>
+      <th>Modify</th>
+      <th>Delete</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="order : ${orders}" th:class="${order.orderStatus}">
+      <td th:text="${order.user.id}"></td>
+      <td th:text="${order.user.email}"></td>
+      <td th:text="${order.id}"></td>
+      <td th:text="${order.product.name}"></td>
+      <td><span>£<span th:text="${order.totalAmount}"></span></span></td>
+      <td th:text="${order.quantity}"></td>
+      <td th:text="${order.orderStatus}"></td>
+      <td>
+        <form th:action="@{/admin/order/updateStatus/{id}(id=${order.id})}" method="post">
+          <input type="hidden" name="id" th:value="${order.id}" />
+          <select name="orderStatus">
+            <option th:value="PENDING" th:text="Pending" th:selected="${order.orderStatus == 'PENDING'}"></option>
+            <option th:value="SHIPPED" th:text="Shipped" th:selected="${order.orderStatus == 'SHIPPED'}"></option>
+            <option th:value="DELIVERED" th:text="Delivered" th:selected="${order.orderStatus == 'DELIVERED'}"></option>
+            <option th:value="CANCELLED" th:text="Cancelled" th:selected="${order.orderStatus == 'CANCELLED'}"></option>
+          </select>
+          <button type="submit">Update</button>
+        </form>
+      </td>
+      <td>
+        <a href="" th:href="@{/admin/order/remove/{id}(id=${order.id})}"> Remove </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+    
+</body>
+</html>
