@@ -27,11 +27,11 @@ SET time_zone = "+00:00";
 
 INSERT INTO category (category_id, category_name, image_url) 
 VALUES 
-    (1, 'Headphones', 'something.jpg'), 
-    (2, 'Speakers', 'something.jpg'), 
-    (3, 'CDs', 'something.jpg'), 
-    (4, 'Vinyls (7\' 10\' & 12\' variations)', 'something.jpg'), 
-    (5, 'Posters & Merch', 'something.jpg');
+    (1, 'Headphones', 'headphone-icon.png'), 
+    (2, 'Speakers', 'speaker-icon.png'), 
+    (3, 'CDs', 'cd-icon.png'), 
+    (4, 'Vinyls (7\' 10\' & 12\' variations)', 'vinyl-icon.png'), 
+    (5, 'Posters & Merch', 'merch-icon.png');
 
 
 INSERT INTO product (id, name, category_id, price, stock, description, img)
