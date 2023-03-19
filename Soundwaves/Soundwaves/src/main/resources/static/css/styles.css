@@ -999,10 +999,12 @@ height: 100%;
     cursor: pointer;
     box-sizing: border-box;
     background-color: var(--p1-colour);
+    transition: 0.5s ease;
+    box-shadow: 10px 10px 54px rgba(0, 0, 0, 0.1)
 }
 
 .team:hover{
-    box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.50), 0 6px 20px 0 rgba(0, 0, 0, 0.50);
 }
 
 .team img{
@@ -1037,35 +1039,52 @@ height: 100%;
 #page-header.about-header {
     background-image: url("media/pexels-photo-1.jpg");
     }
+
     
-    #about-head {
-    display: flex;
-    align-items: center;
-    }
-    
-   #about-head #about-us img {
-    width: 10%;
-    }
-    
-    #about-head div {
-    padding-left: 40px;
+    .about-head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:var(--p1-colour);
+        padding: 40px;
+        margin: 40px;
+        transition: 0.5s ease;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    #about-head #about-us {
+    .banner-container {
         display: flex;
-        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        max-width: 1200px;
     }
-    
-    #about-head {
-            flex-direction: column;
-        }
-        #about-head img {
-            width: 100%;
-        }
-        #about-head div {
-            padding-top: 20px;
-            padding-left: 0px;
-        }
+
+    .banner-image {
+        flex: 1;
+        margin-right: 40px;
+    }
+
+    .banner-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .banner-text {
+        flex: 2;
+    }
+
+    .banner-text h2 {
+        margin-top: 0;
+    }
+
+    .banner-text p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 0;
+        padding-top: 5px;
+    }
+
+
 
 /* Cart page */
 /* * {
@@ -1075,7 +1094,7 @@ height: 100%;
 } */
 body {
 	background: var(--p1-colour);
-    transition: .2s;
+    transition: .5s ease;
 
 }
 /* .wrapper {
