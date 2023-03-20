@@ -269,6 +269,9 @@ font-size:15px;
 line-height:24px;
 color:/*#737373*/ var(--s-colour);
 width: 100%;
+position: relative;
+   left: 0;
+   bottom: 0;
 }
 .site-footer hr
 {
