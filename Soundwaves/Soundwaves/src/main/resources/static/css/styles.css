@@ -627,6 +627,16 @@ margin-top: 50px;
 
 /* Login Page */
 
+.container3 { max-width: 1200px;
+    margin: 50px;
+    text-align: center;
+    background: var(--p1-colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: .5s ease;
+    }
 
 .Login h1{
     text-align: center;
@@ -642,11 +652,12 @@ margin-top: 50px;
     align-items: center;
     justify-content: center;
     background: var(--p2-colour);
-    border-radius: 20px;
+   /* border-radius: 20px;
   /*  margin-top: 200px;
     margin-left: 500px;
     margin-right: 500px;
     margin-bottom: 200px; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   
   .Login form{
@@ -723,13 +734,13 @@ input[type="submit"]:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    */background: var(--p2-colour);
-    border-radius: 20px;
-    margin-top: 200px;
-    margin-left: 500px;
-    margin-right: 500px;
-    margin-bottom: 200px;
-    
+    */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--p2-colour);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Register h1{
@@ -739,9 +750,13 @@ input[type="submit"]:hover {
 }
 
 .Register form{
-    padding: 0 30px;
+    /*padding: 0 30px;
     box-sizing: border-box;
-    color: var(--p4-colour);
+    color: var(--p4-colour); */
+    width: 100%;
+    max-width: 400px; /* adjust as needed */
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 form .register_text{
