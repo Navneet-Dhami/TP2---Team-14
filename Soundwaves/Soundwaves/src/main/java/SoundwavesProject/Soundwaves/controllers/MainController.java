@@ -25,16 +25,20 @@ import SoundwavesProject.Soundwaves.global.AllData;
 import SoundwavesProject.Soundwaves.model.Feedback;
 import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
+import SoundwavesProject.Soundwaves.model.Review;
 import SoundwavesProject.Soundwaves.model.SoundWavesUserDetails;
 // import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.model.Wishlist;
 import SoundwavesProject.Soundwaves.model.Order.OrderStatus;
 import SoundwavesProject.Soundwaves.repository.ProductRepository;
+import SoundwavesProject.Soundwaves.repository.ReviewRepository;
+import SoundwavesProject.Soundwaves.repository.SearchRepository;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
 import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
+import SoundwavesProject.Soundwaves.service.ReviewService;
 import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.WishlistService;
 //import SoundwavesProject.Soundwaves.service.OrderService;
@@ -67,6 +71,12 @@ public class MainController {
 
     @Autowired
     ProductRepository productRepository;
+
+    @Autowired
+    ReviewRepository reviewRepository;
+
+    @Autowired
+    ReviewService reviewService;
   
 
 
@@ -81,6 +91,41 @@ public class MainController {
         return "search_results";
 
     }
+
+    @GetMapping("/productView/{id}")
+    public String productView(@PathVariable Long id, Model model) {
+
+        Product product = productService.getProductById(id).get();
+        List<Review> review = reviewService.getReview(id);
+        model.addAttribute("product", product);
+        model.addAttribute("review", review);
+        model.addAttribute("addReview", new Review());
+        return "product_view";
+
+    }
+
+    @PostMapping("/productView/{id}/review")
+    public String addReview(@PathVariable Long id, Model model, @ModelAttribute("addReview") Review review) {
+
+        //Code from Orders
+        SoundWavesUserDetails userDetails = (SoundWavesUserDetails)
+        SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int userId = userDetails.getUserId();
+        Optional<User> user = userService.getUserById(userId);
+        //Sets the new review
+        Review reviewNew = new Review();
+        reviewNew.setUser(user.get());
+        reviewNew.setRating(review.getRating());
+        System.out.print(review.getReview());
+        reviewNew.setReview(review.getReview());
+        reviewNew.setProduct(productService.getProductById(id).get());
+        reviewNew.setDate(LocalDate.now());
+        reviewService.createReview(reviewNew);
+
+        return "redirect:/productView/{id}";
+
+    }
+
     @GetMapping({"/", "/index"})
     public String home(Model model) { 
         model.addAttribute("categories", categoriesService.getAllCategory());

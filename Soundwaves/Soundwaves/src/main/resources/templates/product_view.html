@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+    <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
+    <title> Input Product Name </title>
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="logo">Soundwaves</div>
+        <a href="#" class="dropdown">
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+        </a>
+        <div class="navigation-links">
+            <ul>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/contact}">Contact us</a></li>
+                <li><a th:href="@{/aboutus}">About us</a></li>
+                <li>
+                    <div sec:authorize="isAuthenticated()">
+                        <a th:href="@{/wishlist}">Wishlist</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()">
+                        <a th:href="@{/cart}">Cart</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()">
+                        <span th:text="${cartNo}">0</span>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAnonymous()">
+                        <a th:href="@{/login}">Login</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()">
+                        <a th:href="@{/userPage}">My Account</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Logout!" />
+                        </form>
+                    </div>
+                </li>
+                <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="nav">
+        <h1>Search</h1>
+    </div>
+
+    <form class="search-bar" th:action="@{/search}" method="get">
+        <br>
+        <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here"
+            size="50">
+    </form>
+    <div th:each="product, iStat : ${product}">
+        <figure class="figure">
+            <img th:src="@{${'/media/' + product.img}}" class="figure-img img-fluid rounded" th:alt="${product.name}">
+            <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
+        </figure>
+        <h4>£ <span th:text="${product.price}"></span></h4>
+        <p th:text="${product.description}"></p>
+        <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming
+            weeks.</div>
+        <div th:if="${product.stock > 0 and product.stock <= 10}" class="stock-status low-stock">Low stock</div>
+        <div th:if="${product.stock >= 25}" class="stock-status high-stock">In stock</div>
+        <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart"
+            th:if="${product.stock > 0}">Add to Cart</a>
+        <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
+    </div>
+
+    <form th:action="@{/productView/{id}/review(id=${product.id})}" th:object="${addReview}" method="post">
+        <div>
+            <label>Star Rating:</label>
+            <input type="number" th:field="*{rating}" min="1" max="5" required>
+        </div>
+        <div>
+            <label>Review:</label>
+            <textarea th:field="*{review}" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Rating</th>
+                <th scope="col">User</th>
+                <th scope="col">Review</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="reviews : ${review}">
+                <td th:text="${reviews.rating}"></td>
+                <td th:text="${reviews.user.firstname}"></td>
+                <td th:text="${reviews.review}"></td>
+                <td th:text="${reviews.date}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+
+<footer class="site-footer">
+    <div class="fcontainer">
+        <div class="row">
+            <div class="fcol">
+                <h6>About</h6>
+                <p class="text-justify">We are a group of 10 university students who have come together to make this
+                    e-commerce website!
+                    This website has been made for those who love music! We offer products such as
+                    headphones, speakers and much more.</p>
+            </div>
+
+            <div class="fcol">
+                <h6>Links</h6>
+                <ul class="footer-links">
+                    <li><a th:href="@{/products}">Products</a></li>
+                    <li><a th:href="@{/aboutus}">About Us</a></li>
+                    <li><a th:href="@{/contact}">Contact Us</a></li>
+                    <li><a th:href="@{/login}">Login</a></li>
+                    <li><a th:href="@{/cart}">View Cart</a></li>
+                </ul>
+            </div>
+
+            <div class="fcol">
+                <h6>Contact Us</h6>
+                <ul class="footer-links">
+                    <li>
+                        <p>If you have any queries or any unanswered questions - please contact us on:</p>
+                    </li>
+                    <li><strong>Phone Number:</strong> 07362837201</p>
+                    </li>
+                    <li><strong>Email:</strong> SoundwavesLTD@hotmail.co.uk</p>
+                    </li>
+                    <li><strong>Store Address:</strong> 64 Harrington Lane</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <hr>
+    </div>
+
+
+    <div class="fcontainer">
+        <div class="row">
+            <div class="fcol1">
+                <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by
+                    <a href="#">Soundwaves</a>.
+                </p>
+            </div>
+
+            <div class="fcol1">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-github"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-github"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

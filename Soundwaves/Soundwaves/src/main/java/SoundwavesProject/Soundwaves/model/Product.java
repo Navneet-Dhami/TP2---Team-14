@@ -1,5 +1,7 @@
 package SoundwavesProject.Soundwaves.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend.Prop;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +31,45 @@ public class Product{
     private String img;
     private int minimum;
 
+    public Long getId() {
+        return this.id;
+    }
 
+    public String getName() {
+        return this.name;
+    }
 
+    public Category getCategory() {
+        return this.category;
+    }
 
+    public double getPrice() {
+        return this.price;
+    }
+
+    public int getStock() {
+        return this.stock;
+    }
+
+    public String getDesc() {
+        return this.description;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public String getImg() {
+        return this.img;
+    }
+
+    public Product() {
+    }
+
+    public Product(Long id, String name, String img) {
+        this.id = id;
+        this.name = name;
+        this.img = img;
+
+    }
 }
