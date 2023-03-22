@@ -534,11 +534,18 @@ margin-top: 50px;
     align-items: center;
     background-color: var(--p2-colour);
     height: 7vh;
-    transition: .2s;
-   /* position: fixed;
+    transition: .5s ease;
+   /* position: sticky;
     width: 100%;
     z-index: 999;
     top: 0; */
+}
+
+.nav-space{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .logo{

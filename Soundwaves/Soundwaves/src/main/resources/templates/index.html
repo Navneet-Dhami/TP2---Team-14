@@ -11,64 +11,69 @@
     <title> Homepage </title>
 </head>
 
+
+
 <body>
-    <nav class="navigation">
-        <div class="logo">Soundwaves</div>
-        <a href="#" class="dropdown">
-            <span class="list"></span>
-            <span class="list"></span>
-            <span class="list"></span>
-            <span class="list"></span>
-        </a>
-        <div class="navigation-links">
-            <ul>
-                <li>
-                    <div sec:authorize="isAuthenticated()"> 
-                        <div sec:authorize="hasAnyAuthority('ADMIN')">
-                            <a th:href="@{/admin/adminHome}">Admin</a>
+    
+    <section class="nav-space">
+        <nav class="navigation">
+            <div class="logo">Soundwaves</div>
+            <a href="#" class="dropdown">
+                <span class="list"></span>
+                <span class="list"></span>
+                <span class="list"></span>
+                <span class="list"></span>
+            </a>
+            <div class="navigation-links">
+                <ul>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <div sec:authorize="hasAnyAuthority('ADMIN')">
+                                <a th:href="@{/admin/adminHome}">Admin</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li><a th:href="@{/index}">Home</a></li>
-                <li><a th:href="@{/products}">Products</a></li>
-                <li><a th:href="@{/contact}">Contact us</a></li>
-                <li><a th:href="@{/aboutus}">About us</a></li>
-                <li>
-                    <div sec:authorize="isAuthenticated()"> 
-                        <a th:href="@{/wishlist}">Wishlist</a>
-                    </div>
-                </li>
-                <li>
-                    <div sec:authorize="isAuthenticated()"> 
-                        <a th:href="@{/cart}">Cart</a>
-                    </div>
-                </li>
-                <li>
-                    <div sec:authorize="isAuthenticated()"> 
-                        <span th:text="${cartNo}">0</span>
-                    </div>
-                </li>
-                <li>
-                    <div sec:authorize="isAnonymous()"> 
-                        <a th:href="@{/login}">Login</a>
-                    </div>
-                </li>
-                <li> 
-                    <div sec:authorize="isAuthenticated()"> 
-                      <a th:href="@{/userPage}">My Account</a> 
-                    </div>
-                </li>
-                <li>
-                    <div sec:authorize="isAuthenticated()"> 
-                        <form th:action="@{/logout}" method="post"> 
-                            <input type="submit" value="Logout!"/>
-                        </form>  
-                    </div>
-                </li>
-                <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
-            </ul>
-        </div>
-    </nav>
+                    </li>
+                    <li><a th:href="@{/index}">Home</a></li>
+                    <li><a th:href="@{/products}">Products</a></li>
+                    <li><a th:href="@{/contact}">Contact us</a></li>
+                    <li><a th:href="@{/aboutus}">About us</a></li>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <a th:href="@{/wishlist}">Wishlist</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <a th:href="@{/cart}">Cart</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <span th:text="${cartNo}">0</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div sec:authorize="isAnonymous()"> 
+                            <a th:href="@{/login}">Login</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <div sec:authorize="isAuthenticated()"> 
+                          <a th:href="@{/userPage}">My Account</a> 
+                        </div>
+                    </li>
+                    <li>
+                        <div sec:authorize="isAuthenticated()"> 
+                            <form th:action="@{/logout}" method="post"> 
+                                <input type="submit" value="Logout!"/>
+                            </form>  
+                        </div>
+                    </li>
+                    <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
 
     <div class="nav">
         <h1>Hey There</h1>

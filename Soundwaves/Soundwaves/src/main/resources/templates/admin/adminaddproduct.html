@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <section class="nav-space">
     <nav class="navigation">
         <div class="logo">Soundwaves</div>
         <a href="#" class="dropdown">
@@ -34,6 +35,7 @@
             </ul>
         </div>
     </nav>
+    </section>
     <div class="admincontainer">
         <div class="nav"><h3>Add a new Product</h3></div>
         <form class="adminform" th:action="@{/admin/addproduct}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
