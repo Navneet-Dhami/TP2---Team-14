@@ -1475,18 +1475,20 @@ tr.CANCELLED {
 
 .admin-aside .admin-logo{
     display: flex;
-    margin-left: -1.8rem;
+    align-items: center;
     gap: 0.1rem;
 }
 
-.admin-aside .admin-logo img {
+/* .admin-aside .admin-logo span {
     width: 50%;
     height: 50%;
-}
+} */
 
 .admin-aside .admin-logo h2 {
-    margin-left: -2.5rem;
+    margin-right: 1rem;
     margin-top: 0.9rem;
+    display: flex;
+    align-items: center;
 }
 
 .admin-aside .admin-x{
