@@ -33,7 +33,6 @@ import SoundwavesProject.Soundwaves.model.Wishlist;
 import SoundwavesProject.Soundwaves.model.Order.OrderStatus;
 import SoundwavesProject.Soundwaves.repository.ProductRepository;
 import SoundwavesProject.Soundwaves.repository.ReviewRepository;
-import SoundwavesProject.Soundwaves.repository.SearchRepository;
 import SoundwavesProject.Soundwaves.repository.UserRepository;
 import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;

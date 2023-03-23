@@ -1,7 +1,5 @@
 package SoundwavesProject.Soundwaves.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend.Prop;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;

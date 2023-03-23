@@ -69,11 +69,14 @@
         <h1>Search</h1>
     </div>
 
+    <!-- This is a search bar to search all products -->
     <form class="search-bar" th:action="@{/search}" method="get">
         <br>
         <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here"
             size="50">
     </form>
+
+    <!-- This displays the detailed product view -->
     <div th:each="product, iStat : ${product}">
         <figure class="figure">
             <img th:src="@{${'/media/' + product.img}}" class="figure-img img-fluid rounded" th:alt="${product.name}">
@@ -90,6 +93,13 @@
         <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
     </div>
 
+    <!-- If you are not logged in this displays a clickable h1 to the login -->
+    <div sec:authorize="isAnonymous()">
+        <h1><a th:href="@{/login}" class="btn btn-primary">Login to comment!</a></h1>
+    </div>
+
+    <!-- If logged in you can add a review here -->
+    <div sec:authorize="isAuthenticated()">
     <form th:action="@{/productView/{id}/review(id=${product.id})}" th:object="${addReview}" method="post">
         <div>
             <label>Star Rating:</label>
@@ -101,6 +111,7 @@
         </div>
         <button type="submit">Submit</button>
     </form>
+    </div>
 
     <table class="table">
         <thead>
