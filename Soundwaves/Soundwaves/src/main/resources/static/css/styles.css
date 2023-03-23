@@ -676,7 +676,7 @@ margin-top: 50px;
 
 form .email_password{
     position: relative;
-    border-bottom: 3px solid  var(--p1-colour);
+    border-bottom: 3px solid;
     margin: 25px 0;
 }
 
@@ -706,13 +706,13 @@ form .email_password{
     left: 0px;
     width: 100%;
     height: 2px;
-    background: var(--p4-colour);
+    background: var(--s-colour);
 }
 
 .email_password input:focus ~ label,
 .email_password input:valid ~ label {
     top: -10px;
-    color: var(--p4-colour);
+    color: var(--s-colour);
 }
 
 input[type="submit"] {
@@ -753,7 +753,7 @@ input[type="submit"]:hover {
 .Register h1{
     text-align: center;
     padding: 10%;
-    border-bottom: 3px solid var(--p4-colour);
+    border-bottom: 3px solid var(--s-colour);
 }
 
 .Register form{
@@ -768,7 +768,7 @@ input[type="submit"]:hover {
 
 form .register_text{
     position: relative;
-    border-bottom: 3px solid  var(--p4-colour);
+    border-bottom: 3px solid  var(--s-colour);
     margin: 25px 0;
 }
 
@@ -780,7 +780,7 @@ form .register_text{
     border: none;
     background: none;
     outline: none;
-    color: var(--p4-colour);
+    color: var(--s-colour);
 }
 
 .register_text label{
@@ -799,13 +799,13 @@ form .register_text{
     left: 0px;
     width: 100%;
     height: 2px;
-    background: var(--p4-colour);
+    background: var(--s-colour);
 }
 
 .register_text input:focus ~ label,
 .register_text input:valid ~ label {
     top: -10px;
-    color: var(--p4-colour);
+    color: var(--s-colour);
 }
 
 input[type="submit"] {
