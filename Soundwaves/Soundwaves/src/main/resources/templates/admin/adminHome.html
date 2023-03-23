@@ -12,28 +12,30 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <title>Admin Home</title>
 </head>
-<body id="admin-body">
-  <nav class="navigation">
+<body>
+  <section class="nav-space">
+    <nav class="navigation">
       <img class="logo" src=\media\lightLogo.png/>
-      <a href="#" class="dropdown">
-          <span class="list"></span>
-          <span class="list"></span>
-          <span class="list"></span>
-          <span class="list"></span>
-      </a>
-      <div class="navigation-links">
-          <ul>
-              <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
-              <li><a th:href="@{/index}">Home</a></li>
-              <li><a th:href="@{/products}">Products</a></li>
-              <li><a th:href="@{/contact}">Contact us</a></li>
-              <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
-              <form th:action="@{/logout}" method="post">
-                  <input type="submit" value="Logout!" />
-              </form>
-          </ul>
-      </div>
-  </nav>
+        <a href="#" class="dropdown">
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+            <span class="list"></span>
+        </a>
+        <div class="navigation-links">
+            <ul>
+                <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
+                <li><a th:href="@{/index}">Home</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/contact}">Contact us</a></li>
+                <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Logout!" />
+                </form>
+            </ul>
+        </div>
+    </nav>
+  </section>
 
   <div class="admin-container">
       <aside class="admin-aside">
