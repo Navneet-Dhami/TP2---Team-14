@@ -28,6 +28,7 @@ justify-items: center;
     
     .showcase h2, .showcase p {
     margin-bottom: 10px;
+    color: #3A3B3D;
     }
     
     .showcase .btn {
