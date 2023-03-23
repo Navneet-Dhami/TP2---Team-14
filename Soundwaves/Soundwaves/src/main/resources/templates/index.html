@@ -65,7 +65,14 @@
                     <li>
                         <div sec:authorize="isAuthenticated()"> 
                             <form th:action="@{/logout}" method="post"> 
-                                <input type="submit" value="Logout!"/>
+                                <input type="submit" value="Logout" 
+                                style="
+                                  text-decoration: none;
+                                    color: var(--s-colour);
+                                    padding: 1rem;
+                                    background-color: transparent;
+                                    border: none;
+                                    cursor: pointer;"/>
                             </form>  
                         </div>
                     </li>
