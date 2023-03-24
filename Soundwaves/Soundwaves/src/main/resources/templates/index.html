@@ -65,14 +65,7 @@
                     <li>
                         <div sec:authorize="isAuthenticated()"> 
                             <form th:action="@{/logout}" method="post"> 
-                                <input type="submit" value="Logout" 
-                                style="
-                                  text-decoration: none;
-                                    color: var(--s-colour);
-                                    padding: 1rem;
-                                    background-color: transparent;
-                                    border: none;
-                                    cursor: pointer;"/>
+                                <input class="log-out" type="submit" value="Logout" />
                             </form>  
                         </div>
                     </li>
@@ -113,6 +106,7 @@
             <a href="" th:each="category, iStat : ${categories}" th:href="@{/products/category/{id}(id=${category.id})}">
               <div class="category">
                   <img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}" />
+                  
                 <p th:text="${category.categoryName}"></p>
               </div>
             </a>
