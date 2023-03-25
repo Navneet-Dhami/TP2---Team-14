@@ -79,10 +79,7 @@
       <main class="admin-main">
           <h1 class="admin-h1">Home</h1>
           
-          <div class="admin-date">
-              <input type="date"/>
-          </div>
-
+          
           <div class="admin-insights">
               <!--start of sales-->
               <div class="admin-sales">
@@ -90,35 +87,21 @@
                   <div class="admin-middle">
                       <div class="admin-left">
                           <h3 class="admin-h3">Total Sales</h3>
-                          <h1>£10,000</h1>
+                          <h1>£<span th:text="${ordersAllTime}"></span></h1>
                       </div>
-                      <div class="admin-progress">
-                          <svg>
-                              <circle cx="38" cy="38" r="36"></circle>
-                          </svg>
-                          <div class="admin-number">
-                              <p>81%</p>
-                          </div>
-                      </div>
+              
                   </div>
-                  <small class="admin-text-muted">Last 24 Hours</small>
+                  <small class="admin-text-muted">All Time</small>
               </div>
               <!--end of sales & start of expenses-->
               <div class="admin-expenses">
                   <span class="material-symbols-rounded">bar_chart</span>
                   <div class="admin-middle">
                       <div class="admin-left">
-                          <h3 class="admin-h3">Total Expenses</h3>
-                          <h1>£12,000</h1>
+                          <h3 class="admin-h3">Total Sales</h3>
+                          <h1>£<span th:text="${ordersLast24HoursTotal}"></span></h1>
                       </div>
-                      <div class="admin-progress">
-                          <svg>
-                              <circle cx="38" cy="38" r="36"></circle>
-                          </svg>
-                          <div class="admin-number">
-                              <p>62%</p>
-                          </div>
-                      </div>
+                     
                   </div>
                   <small class="admin-text-muted">Last 24 Hours</small>
               </div>

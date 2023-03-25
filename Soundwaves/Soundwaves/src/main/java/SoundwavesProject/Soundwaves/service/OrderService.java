@@ -1,5 +1,6 @@
 package SoundwavesProject.Soundwaves.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -44,5 +45,21 @@ public class OrderService implements OrderServiceInterface {
         order.setOrderStatus(orderStatus);
         orderRepository.save(order);
     }
+
+
+
+    public double getTotalSalesLast24Hours() {
+        LocalDate yesterday = LocalDate.now().minusDays(1);
+        List<Order> orders = orderRepository.findByDateOrderedAfterAndOrderStatusNot(yesterday, Order.OrderStatus.CANCELLED);
+        double totalSales = orders.stream().mapToDouble(Order::getTotalAmount).sum();
+        return totalSales;
+    }
+
+    public double getTotalSales() {
+        List<Order> orders = orderRepository.findByOrderStatusNot(Order.OrderStatus.CANCELLED);
+        double totalSales = orders.stream().mapToDouble(Order::getTotalAmount).sum();
+        return totalSales;
+    }
+    
     
 }

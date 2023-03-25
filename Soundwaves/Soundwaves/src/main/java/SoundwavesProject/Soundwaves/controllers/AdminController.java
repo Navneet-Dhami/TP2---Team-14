@@ -49,10 +49,17 @@ public class AdminController {
     @Autowired 
     OrderService orderService;
 
-    @GetMapping("/admin/adminHome") 
-    public String adminHome() { 
-        return "admin/adminHome";
+   
+
+    @GetMapping("/admin/adminHome")
+    public String adminHome(Model model) {
+    double totalSales24 = orderService.getTotalSalesLast24Hours();
+    double totalSales = orderService.getTotalSales();
+    model.addAttribute("ordersLast24HoursTotal", totalSales24);
+    model.addAttribute("ordersAllTime", totalSales);
+    return "admin/adminHome";
     }
+
 
     @GetMapping("/admin/feedback")
     public String feedback(Model model){
