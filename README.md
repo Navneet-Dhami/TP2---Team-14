@@ -1,6 +1,7 @@
 # TP2-Team-14
 
-E-Commerce website development
+At Soundwaves we aim to create an interactive and imaginative musical e-commerce site which provides a unique and enjoyable shopping experience for music lovers of all ages. This product offers a wide range of high-quality products, including record players, speakers, headphones, and CDs, accessible through a visually appealing and intuitive interface. The ultimate goal is to make discovering and purchasing music-related products as easy and enjoyable as possible while providing exceptional customer service and support. 
+To achieve this, we developed the website using Spring Boot, which provides a flexible framework with easy integration of popular e-commerce libraries and tools for efficient development and deployment.
 
 In order to run the project, you will need: 
 - XAMPP running 
