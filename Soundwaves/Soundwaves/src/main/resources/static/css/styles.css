@@ -1795,7 +1795,145 @@ text-decoration: none;
     gap: 1rem;
     margin-bottom: 1rem;
 }
+
+/* media queries for general admin pages */  
   
+@media screen and (max-width: 1200px) {
+    .admin-container {
+      width: 94%;
+      grid-template-columns: 7rem auto 23rem;
+      margin: auto;
+    }
+
+    .admin-aside .admin-logo{
+        display: none;
+    }
+
+    .admin-aside .admin-side .admin-h3{
+        display: none;
+    }
+
+    .admin-aside .admin-side a{
+        width: 5rem;
+    }
+
+    .admin-main .admin-insights{
+        grid-template-columns: 1fr;
+        gap: 0;
+        width: 87%;
+
+    }
+
+    .admin-main .admin-recent-orders{
+        width: 75%;
+        left: 50%;
+        margin: 2rem 0 0 8.8rem;
+        transform: translateX(-50%);
+        position: absolute
+    }
+
+    .admin-main .admin-recent-orders table{
+        width: 83vw;
+    }
+
+    
+}
+
+@media screen and (max-width: 768px){
+    .admin-container{
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .admin-aside{
+        position: fixed;
+        display: none; 
+        width: 18rem;
+        z-index: 3;
+        left: -100%;
+        height: 100vh;
+        padding-right: 1.8rem;
+        box-shadow: 0 1rem 2rem var(--p2-colour);
+        animation: showAdminNav 350ms ease forwards;
+    }
+
+    @keyframes showAdminNav {
+        to {
+          left: 0;
+        }
+      }
+
+    .admin-aside .admin-side .admin-logo{
+        margin-left: 1rem;
+        display: inline;
+    }
+
+    .admin-aside .admin-side h3{
+        display: inline;
+    }
+
+    .admin-aside .admin-side a{
+        width: 100%;
+        height: 3.3rem;
+    }
+
+    .admin-aside .admin-x{
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .admin-main{
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+
+    .admin-main .admin-insights > div{
+        width: 100%;
+    }
+    .admin-main .admin-recent-orders{
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    .admin-main .admin-recent-orders table{
+        width: 100%;
+        margin: 0;
+    }
+
+    .admin-right{
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+
+    .admin-right .admin-top{
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 0 0.8rem;
+        align-items: center;
+        height: 4.6rem;
+        margin: 0;
+        z-index: 2;
+        width: 100%;
+    }
+    .admin-right .top button{
+        position: absolute;
+        left: 1rem;
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        font-size: 2rem;
+    }
+
+    .admin-right .admin-top button span{
+        font-size: 2rem;
+    }
+
+
+}
+  
+/* end of general admin pages styling */
 /* admin add product page */
 
 .admin-addproduct-container{
