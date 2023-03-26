@@ -2,7 +2,7 @@
 /* Homepage*/
 
 /* Feysal's changes: */
-
+  
 #banner{
     margin: auto;
     display: grid;
@@ -470,7 +470,7 @@ ul.list-group{
 }
 
 ul.ist-group li{
-    flex-basis: (33.33% - 10px);
+    flex-basis: calc(33.33% - 10px);
     margin-right: 10px;
     margin-bottom: 10px;
 }
@@ -481,7 +481,7 @@ ul.list-group img{
 
 @media (max-width: 767px) {
     ul.ist-group li{
-        flex-basis: (50% - 10px);
+        flex-basis: calc(50% - 10px);
     }
 }
 
