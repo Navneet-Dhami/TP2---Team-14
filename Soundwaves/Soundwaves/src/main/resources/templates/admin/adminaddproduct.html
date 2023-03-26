@@ -30,14 +30,58 @@
                 <li><a th:href="@{/contact}">Contact us</a></li>
                 <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
                 <form th:action="@{/logout}" method="post">
-                    <input type="submit" value="Logout!" />
+                    <input class="log-out" type="submit" value="Logout!" />
                 </form>
             </ul>
         </div>
     </nav>
     </section>
-    <div class="admincontainer">
-        <div class="nav"><h3>Add a new Product</h3></div>
+    <div class="admin-addproduct-container">
+        <h1>Add New Product</h1>
+        <form class="admin-addproduct-form" th:action="@{/admin/addproduct}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
+
+            <input type="hidden" name="id" th:field="*{id}">
+            <div class="admin-addproduct-input-box">
+                <label class="admin-addproduct-label" for="name">Name</label>
+                <input type="text" class="admin-addproduct-input" required th:field="*{name}" name="name" id="name" placeholder="Enter name">
+
+            </div>
+            <div class="admin-addproduct-input-box">
+                <label class="admin-addproduct-label" for="category">Select Category</label>
+                <select class="admin-addproduct-custom-select" th:field="*{categoryId}" id="category" name="category">
+                <option th:each="category :${categories}"
+                        th:value="${category.id}"
+                        th:text="${category.categoryName}"
+                >
+            </select>
+            </div>
+            <div class="admin-addproduct-input-box">
+                <label class="admin-addproduct-label" for="price">Price</label>
+                <input type="number" class="admin-addproduct-input" required th:field="*{price}" name="price" id="price" placeholder="Price">
+            </div>
+            <div class="admin-addproduct-input-box">
+                <label class="admin-addproduct-label" for="stock">Stock</label>
+                <input type="number" class="admin-addproduct-input" required th:field="*{stock}" name="stock" id="stock" placeholder="Stock">
+            </div>
+            <div class="admin-addproduct-input-box">
+                <label class="admin-addproduct-label" for="description">Product Description</label>
+                <textarea class="admin-addproduct-textarea" rows="5" th:field="*{description}" name="description" id="description"></textarea>
+            </div>
+            <div class="admin-addproduct-custom-file admin-addproduct-input-box">
+                <label class="custom-file-label admin-addproduct-label" for="media">Product Image</label>
+                <input type="file" class="admin-addproduct-custom-file-input" name="media" accept="image/jpeg, image/png" id="media" />
+                
+            </div>
+            <div class="admin-addproduct-input-box">
+                <!-- <img src="#" id="imgPreview" height="100px" width="100px" th:src="@{${'/media/' + productDTO.img}}" style="margin-top: 20px" alt=" "> -->
+            </div>
+            <div class="admin-addproduct-input-box">
+            <input type="hidden" name="imgName" th:value="${productDTO.img}">
+            <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+        <!-- <div class="nav"><h3>Add a new Product</h3></div>
         <form class="adminform" th:action="@{/admin/addproduct}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-sm-5">
@@ -83,7 +127,7 @@
                     <button type="submit" class="form-control">Submit</button>
                 </div>
             </div>
-        </form>
+        </form> -->
 
 
 

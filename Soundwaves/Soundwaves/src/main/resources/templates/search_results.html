@@ -55,7 +55,7 @@
                 <li>
                     <div sec:authorize="isAuthenticated()">
                         <form th:action="@{/logout}" method="post">
-                            <input type="submit" value="Logout!" />
+                            <input class="log-out" type="submit" value="Logout!" />
                         </form>
                     </div>
                 </li>

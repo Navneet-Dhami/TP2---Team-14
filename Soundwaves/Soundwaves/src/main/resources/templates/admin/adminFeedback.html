@@ -12,34 +12,35 @@
         <title> Admin Feedback </title>
     </head>
     
-    <body id="admin-body">
-        <nav class="navigation">
-            <img class="logo" src=\media\lightLogo.png/>
-            <a href="#" class="dropdown">
-                <span class="list"></span>
-                <span class="list"></span>
-                <span class="list"></span>
-                <span class="list"></span>
-            </a>
-            <div class="navigation-links">
-                <ul>
-                    <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
-                    <li><a th:href="@{/index}">Home</a></li>
-                    <li><a th:href="@{/products}">Products</a></li>
-                    <li><a th:href="@{/contact}">Contact us</a></li>
-                    <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
-                    <form th:action="@{/logout}" method="post">
-                        <input type="submit" value="Logout!" />
-                    </form>
-                </ul>
-            </div>
-        </nav>
+    <body>
+        <section class="nav-space">
+            <nav class="navigation">
+              <img class="logo" src=\media\lightLogo.png/>
+                <a href="#" class="dropdown">
+                    <span class="list"></span>
+                    <span class="list"></span>
+                    <span class="list"></span>
+                    <span class="list"></span>
+                </a>
+                <div class="navigation-links">
+                    <ul>
+                        <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
+                        <li><a th:href="@{/index}">Home</a></li>
+                        <li><a th:href="@{/products}">Products</a></li>
+                        <li><a th:href="@{/contact}">Contact us</a></li>
+                        <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
+                        <form th:action="@{/logout}" method="post">
+                            <input class="log-out" type="submit" value="Logout!" />
+                        </form>
+                    </ul>
+                </div>
+            </nav>
+        </section>
 
         <div class="admin-container">
             <aside class="admin-aside">
                 <div class="admin-top">
                     <div class="admin-logo">
-                        <img class="logo" src=\media\lightLogo.png/>
                         <h2>Soundwaves</h2>
                     </div>
                     <div class="admin-x" id="close-btn">
@@ -78,70 +79,8 @@
             <main class="admin-main">
                 <h1 class="admin-h1">Feedback</h1>
                 
-                <div class="admin-date">
-                    <input type="date"/>
-                </div>
-
-                <div class="admin-insights">
-                    <!--start of sales-->
-                    <div class="admin-sales">
-                        <span class="material-symbols-rounded">analytics</span>
-                        <div class="admin-middle">
-                            <div class="admin-left">
-                                <h3 class="admin-h3">Total Sales</h3>
-                                <h1>£10,000</h1>
-                            </div>
-                            <div class="admin-progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class="admin-number">
-                                    <p>81%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <small class="admin-text-muted">Last 24 Hours</small>
-                    </div>
-                    <!--end of sales & start of expenses-->
-                    <div class="admin-expenses">
-                        <span class="material-symbols-rounded">bar_chart</span>
-                        <div class="admin-middle">
-                            <div class="admin-left">
-                                <h3 class="admin-h3">Total Expenses</h3>
-                                <h1>£12,000</h1>
-                            </div>
-                            <div class="admin-progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class="admin-number">
-                                    <p>62%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <small class="admin-text-muted">Last 24 Hours</small>
-                    </div>
-                    <!--end of expensies & start of income-->
-                    <div class="admin-income">
-                        <span class="material-symbols-rounded">stacked_line_chart</span>
-                        <div class="admin-middle">
-                            <div class="admin-left">
-                                <h3 class="admin-h3">Total Income</h3>
-                                <h1>£23,000</h1>
-                            </div>
-                            <div class="admin-progress">
-                                <svg>
-                                    <circle cx="38" cy="38" r="36"></circle>
-                                </svg>
-                                <div class="admin-number">
-                                    <p>44%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <small class="admin-text-muted">Last 24 Hours</small>
-                    </div>
-                    <!--end of income-->
-                </div>
+            
+                
                 <!--end of insights-->
 
                 <!--start of tables-->
@@ -158,36 +97,11 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <!-- <tr th:each="feedback : ${feedback}">
+                        <tr th:each="feedback : ${feedback}">
                             <td th:text="${feedback.name}"></td>
                             <td th:text="${feedback.email}"></td>
                             <td th:text="${feedback.subject}"></td>
                             <td th:text="${feedback.message}"></td>
-                        </tr> -->
-                        <!--temp info to see how it should look below but the final will have the code above instead-->
-                         <tr>
-                            <td>Mary</td>
-                            <td>someone@hotmail.com</td>
-                            <td>previous order</td>
-                            <td>hi there...</td>
-                        </tr>
-                        <tr>
-                            <td>Luke</td>
-                            <td>someone@hotmail.com</td>
-                            <td>previous order</td>
-                            <td>hi there...</td>
-                        </tr>
-                        <tr>
-                            <td>Dan</td>
-                            <td>someone@hotmail.com</td>
-                            <td>previous order</td>
-                            <td>hi there...</td>
-                        </tr>
-                        <tr>
-                            <td>Liam</td>
-                            <td>someone@hotmail.com</td>
-                            <td>previous order</td>
-                            <td>hi there...</td>
                         </tr>
                         
                       </tbody>
