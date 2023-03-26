@@ -654,6 +654,7 @@ margin-top: 50px;
 
     .navigation-links.active {
         display: flex;
+        background-color: var(--p2-colour);
     }
 
 }
