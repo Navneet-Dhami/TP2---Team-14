@@ -743,10 +743,11 @@ form .email_password{
 }
 
 .log-out {
+    cursor: pointer;
     border: none;
-    border-bottom: 2px solid var(--p-colour);
     background: transparent;
     outline: none;
+    padding-top: 12px;
     height: 40px;
     color: var(--s-colour);
     font-size: 16px;
