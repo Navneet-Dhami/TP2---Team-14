@@ -2,7 +2,6 @@ package SoundwavesProject.Soundwaves.controllers;
 
 
 import java.time.LocalDate;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +26,7 @@ import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.model.Review;
 import SoundwavesProject.Soundwaves.model.SoundWavesUserDetails;
+import SoundwavesProject.Soundwaves.model.TrendingModel;
 // import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.model.Wishlist;
@@ -38,6 +38,7 @@ import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.ReviewService;
+import SoundwavesProject.Soundwaves.service.TrendingProductsService;
 import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.WishlistService;
 //import SoundwavesProject.Soundwaves.service.OrderService;
@@ -77,6 +78,8 @@ public class MainController {
     @Autowired
     ReviewService reviewService;
   
+    @Autowired
+    TrendingProductsService trendingProductsService;
 
 
     @GetMapping("/search")
@@ -126,10 +129,37 @@ public class MainController {
     }
 
     @GetMapping({"/", "/index"})
-    public String home(Model model) { 
+    public String home(Model model, @ModelAttribute("changeFilter") TrendingModel filter) { 
+        
+        List<Product> trendingProducts;
+        if (filter.getFilter() != null && filter.getFilter().equals("orders")) {
+            trendingProducts = trendingProductsService.getTrendingProductsByOrders();
+        } else {
+            trendingProducts = trendingProductsService.getTrendingProducts();
+        }
+        model.addAttribute("trendingProducts", trendingProducts);
+    
+
         model.addAttribute("categories", categoriesService.getAllCategory());
         model.addAttribute("cartNo", AllData.cart.size());
         //model.addAttribute("cartOrderNo", AllData.cartOrder.size());
+        return "index";
+    }
+
+    @PostMapping({ "/", "/index" })
+    public String homeFilter(Model model, @ModelAttribute("changeFilter") TrendingModel filter) {
+
+        List<Product> trendingProducts;
+        if (filter.getFilter().equals("orders")) {
+            trendingProducts = trendingProductsService.getTrendingProductsByOrders();
+        } else {
+            trendingProducts = trendingProductsService.getTrendingProducts();
+        }
+        model.addAttribute("trendingProducts", trendingProducts);
+
+        model.addAttribute("categories", categoriesService.getAllCategory());
+        model.addAttribute("cartNo", AllData.cart.size());
+        // model.addAttribute("cartOrderNo", AllData.cartOrder.size());
         return "index";
     }
 

@@ -100,20 +100,51 @@
         <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
     </form>
     </div>
-    <div class="col-sm-3">
-        
-        <div class="categories">
-            <a href="" th:each="category, iStat : ${categories}" th:href="@{/products/category/{id}(id=${category.id})}">
-              <div class="category">
-                  <img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}" />
-                  
-                <p th:text="${category.categoryName}"></p>
-              </div>
-            </a>
+    <div class="col-sm-3"> 
+      <div class="categories">
+        <a href="" th:each="category, iStat : ${categories}" th:href="@{/products/category/{id}(id=${category.id})}">
+          <div class="category">
+              <img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}" />
+              
+            <p th:text="${category.categoryName}"></p>
+          </div>
+        </a>
+      </div>
+    </div>
+</div>
+
+<!-- Trending Products Functionality -->
+<div class="nav">
+  <h2>Trending</h2>
+</div>
+<!-- This filters the functions based on ratings or orders -->
+<form th:action="@{/}" th:object="${changeFilter}" method="post">
+  <label for="filter">Filter by:</label>
+  <select id="filter" name="filter" th:field="*{filter}" onchange="this.form.submit()">
+    <option value="ratings">Ratings</option>
+    <option value="orders">Orders</option>
+  </select>
+</form>
+<!-- Display of the Trending Products -->
+<div class="row">
+  <div class="col-sm-9">
+    <div class="card" style="margin-top: 20px" th:each="product : ${trendingProducts}">
+      <a th:href="@{/productView/{id}(id=${product.id})}">
+        <div class="row no-gutters">
+          <div class="col-sm-5 d-flex justify-content-center">
+            <img class="" height="150px" width="150px" th:src="@{${'/media/' + product.img}}" th:alt="${product.name}">
+          </div>
+          <div class="col-sm-7 d-flex justify-content-center">
+            <div class="card-body">
+              <h5 class="card-title" th:text="${product.name}"></h5>
+              <h4>£ <span th:text="${product.price}"></span></h4>
+              <p th:text="${product.description}"></p>
+            </div>
           </div>
         </div>
-
-    
+        </a>
+    </div>
+  </div>
 </div>
 
 

@@ -79,6 +79,7 @@
     <div class="row">
         <div class="col-sm-9">
             <div class="card" style="margin-top: 20px" th:each="product : ${searchResult}">
+                <a th:href="@{/productView/{id}(id=${product.id})}">
                 <div class="row no-gutters">
                     <div class="col-sm-5 d-flex justify-content-center">
                         <img class="" height="150px" width="150px" th:src="@{${'/media/' + product.img}}"
@@ -92,6 +93,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>

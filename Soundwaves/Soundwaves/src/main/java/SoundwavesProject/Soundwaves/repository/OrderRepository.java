@@ -14,6 +14,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByUserId(long userId);
     List<Order> findByOrderStatusNot(Order.OrderStatus orderStatus);
     List<Order> findByDateOrderedAfterAndOrderStatusNot(LocalDate date, Order.OrderStatus orderStatus);
+    List<Order> findByDateOrderedAfter(LocalDate oneMonthAgo);
 
 
    

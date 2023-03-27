@@ -77,6 +77,7 @@
 
         <div class="pro-container">
             <div class="card" style="margin-top: 20px" th:each="product : ${products}">
+                <a th:href="@{/productView/{id}(id=${product.id})}">
                 <div class="row no-gutters">
                     <div class="col-sm-5 d-flex justify-content-center">
                         <img class="" height="150px" width="150px" th:src="@{${'/media/' + product.img}}" th:alt="${product.name}">
@@ -94,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
 
