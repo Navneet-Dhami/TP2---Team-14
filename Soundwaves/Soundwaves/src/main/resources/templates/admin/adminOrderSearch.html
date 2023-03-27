@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
   <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <title> Admin Orders </title>
+  <title> Admin Order Search </title>
 </head>
 
 <body>
@@ -79,24 +79,12 @@
       <!-- end of aside -->
       <main class="admin-main">
           <h1 class="admin-h1">Orders</h1>
-          
-          <a th:href="@{/admin/adminPendingOrders}"> View Pending Orders </a>
-          <br>
-          <a th:href="@{/admin/adminShippedOrders}"> View Shipped Orders </a>
-          <br>
-          <a th:href="@{/admin/adminDeliveredOrders}"> View Delivered Orders </a>
-          <br>
-          <a th:href="@{/admin/adminCancelledOrders}"> View Cancelled Orders </a>
-      
+                
           <!--end of insights-->
-
-          <form class="search-bar" th:action="@{/searchOrder}" method="get">
-            <label> Please Enter the product name </label> <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
-          </form>
 
           <!--start of tables-->
           <div class="admin-recent-orders">
-              <h2 class="admin-h2">Recent Orders</h2>
+              <h2 class="admin-h2">Search Results for '[[${keyword}]]'</h2>
               <table>
                 <thead>
                   <tr>
@@ -113,7 +101,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="order : ${orders}" th:class="${order.orderStatus}">
+                  <tr th:each="order : ${searchResult}" th:class="${order.orderStatus}">
                     <td th:text="${order.user.id}"></td>
                     <td th:text="${order.user.email}"></td>
                     <td th:text="${order.id}"></td>
