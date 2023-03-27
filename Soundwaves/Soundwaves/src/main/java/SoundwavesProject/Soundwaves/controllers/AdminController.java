@@ -95,6 +95,31 @@ public class AdminController {
         return "admin/adminReport";
     }
 
+    @GetMapping("/admin/adminPendingOrders")
+    public String adminPendingOrders(Model model) { 
+        model.addAttribute("orders", orderService.getOrders());
+        return "admin/adminPendingOrders";
+    }
+
+    @GetMapping("/admin/adminShippedOrders")
+    public String adminShippedOrders(Model model) { 
+        model.addAttribute("orders", orderService.getOrders());
+        return "admin/adminShippedOrders";
+    }
+
+    @GetMapping("/admin/adminDeliveredOrders")
+    public String adminDeliveredOrders(Model model) { 
+        model.addAttribute("orders", orderService.getOrders());
+        return "admin/adminDeliveredOrders";
+    }
+
+    @GetMapping("/admin/adminCancelledOrders")
+    public String adminCancelledOrders(Model model) { 
+        model.addAttribute("orders", orderService.getOrders());
+        return "admin/adminCancelledOrders";
+    }
+
+
     @GetMapping("/admin/user/remove/{id}") 
     public String removeProduct(@PathVariable int id) { 
         userService.removeUser(id);

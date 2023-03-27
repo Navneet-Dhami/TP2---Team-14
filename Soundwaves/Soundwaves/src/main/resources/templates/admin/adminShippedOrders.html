@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
   <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <title> Admin Orders </title>
+  <title> Admin Shipped Orders </title>
 </head>
 
 <body>
@@ -80,19 +80,13 @@
       <main class="admin-main">
           <h1 class="admin-h1">Orders</h1>
           
-          <a th:href="@{/admin/adminPendingOrders}"> View Pending Orders </a>
-          <br>
-          <a th:href="@{/admin/adminShippedOrders}"> View Shipped Orders </a>
-          <br>
-          <a th:href="@{/admin/adminDeliveredOrders}"> View Delivered Orders </a>
-          <br>
-          <a th:href="@{/admin/adminCancelledOrders}"> View Cancelled Orders </a>
       
+          
           <!--end of insights-->
 
           <!--start of tables-->
           <div class="admin-recent-orders">
-              <h2 class="admin-h2">Recent Orders</h2>
+              <h2 class="admin-h2">Shipped Orders</h2>
               <table>
                 <thead>
                   <tr>
@@ -110,28 +104,30 @@
                 </thead>
                 <tbody>
                   <tr th:each="order : ${orders}" th:class="${order.orderStatus}">
-                    <td th:text="${order.user.id}"></td>
-                    <td th:text="${order.user.email}"></td>
-                    <td th:text="${order.id}"></td>
-                    <td th:text="${order.product.name}"></td>
-                    <td><span>£<span th:text="${order.totalAmount}"></span></span></td>
-                    <td th:text="${order.quantity}"></td>
-                    <td th:text="${order.orderStatus}"></td>
-                    <td>
-                      <form th:action="@{/admin/order/updateStatus/{id}(id=${order.id})}" method="post">
-                        <input type="hidden" name="id" th:value="${order.id}" />
-                        <select class="form-control" name="orderStatus">
-                          <option th:value="PENDING" th:text="Pending" th:selected="${order.orderStatus == 'PENDING'}"></option>
-                          <option th:value="SHIPPED" th:text="Shipped" th:selected="${order.orderStatus == 'SHIPPED'}"></option>
-                          <option th:value="DELIVERED" th:text="Delivered" th:selected="${order.orderStatus == 'DELIVERED'}"></option>
-                          <option th:value="CANCELLED" th:text="Cancelled" th:selected="${order.orderStatus == 'CANCELLED'}"></option>
-                        </select>
-                        <button class="form-control" type="submit">Update</button>
-                      </form>
-                    </td>
-                    <td>
-                      <a href="" th:href="@{/admin/order/remove/{id}(id=${order.id})}"> Remove </a>
-                    </td>
+                    <div th:if="${order.orderStatus == order.orderStatus.SHIPPED}"> 
+                      <td th:text="${order.user.id}"></td>
+                      <td th:text="${order.user.email}"></td>
+                      <td th:text="${order.id}"></td>
+                      <td th:text="${order.product.name}"></td>
+                      <td><span>£<span th:text="${order.totalAmount}"></span></span></td>
+                      <td th:text="${order.quantity}"></td>
+                      <td th:text="${order.orderStatus}"></td>
+                      <td>
+                        <form th:action="@{/admin/order/updateStatus/{id}(id=${order.id})}" method="post">
+                          <input type="hidden" name="id" th:value="${order.id}" />
+                          <select class="form-control" name="orderStatus">
+                            <option th:value="PENDING" th:text="Pending" th:selected="${order.orderStatus == 'PENDING'}"></option>
+                            <option th:value="SHIPPED" th:text="Shipped" th:selected="${order.orderStatus == 'SHIPPED'}"></option>
+                            <option th:value="DELIVERED" th:text="Delivered" th:selected="${order.orderStatus == 'DELIVERED'}"></option>
+                            <option th:value="CANCELLED" th:text="Cancelled" th:selected="${order.orderStatus == 'CANCELLED'}"></option>
+                          </select>
+                          <button class="form-control" type="submit">Update</button>
+                        </form>
+                      </td>
+                      <td>
+                        <a href="" th:href="@{/admin/order/remove/{id}(id=${order.id})}"> Remove </a>
+                      </td>
+                    </div>
                   </tr>
                   
                 </tbody>
