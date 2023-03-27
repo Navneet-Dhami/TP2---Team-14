@@ -38,6 +38,7 @@ import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
 import SoundwavesProject.Soundwaves.service.ReviewService;
+import SoundwavesProject.Soundwaves.service.UpdatesService;
 import SoundwavesProject.Soundwaves.service.TrendingProductsService;
 import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.WishlistService;
@@ -77,6 +78,9 @@ public class MainController {
 
     @Autowired
     ReviewService reviewService;
+
+    @Autowired
+    UpdatesService updatesService;
   
     @Autowired
     TrendingProductsService trendingProductsService;
@@ -237,11 +241,14 @@ public class MainController {
         feedback.setEmail(email);
         feedback.setSubject(subject);
         feedback.setMessage(message);
-
+    
         feedbackService.saveFeedback(feedback);
-
+    
+        updatesService.sendFeedbackUpdate(feedback);
+    
         return "redirect:/contact";
     }
+    
 
     @GetMapping("/addCart/{id}")
     public String addCart(@PathVariable int id) {
@@ -362,6 +369,8 @@ public class MainController {
         orderDetail.setProductName(item.getName());
         orderDetail.setProduct(item);
         orderService.createOrder(orderDetail);
+
+        updatesService.sendOrderUpdate(orderDetail);
      }
 
 

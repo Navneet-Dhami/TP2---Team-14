@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,11 @@ import SoundwavesProject.Soundwaves.dto.ProductDTO;
 import SoundwavesProject.Soundwaves.model.Date;
 import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
+import SoundwavesProject.Soundwaves.model.Updates;
 import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
+import SoundwavesProject.Soundwaves.service.UpdatesService;
 import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.categoriesService;
 
@@ -49,12 +52,16 @@ public class AdminController {
     @Autowired 
     OrderService orderService;
 
-   
+    @Autowired
+    UpdatesService updatesService;
+  
 
     @GetMapping("/admin/adminHome")
     public String adminHome(Model model) {
     double totalSales24 = orderService.getTotalSalesLast24Hours();
     double totalSales = orderService.getTotalSales();
+    List<Updates> updates = updatesService.getRecentUpdates();
+    model.addAttribute("updates", updates);
     model.addAttribute("ordersLast24HoursTotal", totalSales24);
     model.addAttribute("ordersAllTime", totalSales);
     return "admin/adminHome";

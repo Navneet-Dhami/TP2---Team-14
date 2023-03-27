@@ -17,6 +17,8 @@ public class OrderService implements OrderServiceInterface {
     @Autowired
     OrderRepository orderRepository;
 
+    @Autowired UpdatesService updatesService;
+
     @Override
     public void createOrder(Order order) {
         orderRepository.save(order);
@@ -44,6 +46,11 @@ public class OrderService implements OrderServiceInterface {
         Order order = orderRepository.findById(id).get();
         order.setOrderStatus(orderStatus);
         orderRepository.save(order);
+
+        if (orderStatus == OrderStatus.DELIVERED) {
+            updatesService.sendDeliveryUpdate(order);
+        }
+
     }
 
 
@@ -60,6 +67,7 @@ public class OrderService implements OrderServiceInterface {
         double totalSales = orders.stream().mapToDouble(Order::getTotalAmount).sum();
         return totalSales;
     }
+    
     
     
 }
