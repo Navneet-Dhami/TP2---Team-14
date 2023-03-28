@@ -24,6 +24,7 @@ import SoundwavesProject.Soundwaves.model.Date;
 import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.model.Updates;
+import SoundwavesProject.Soundwaves.repository.OrderRepository;
 import SoundwavesProject.Soundwaves.service.FeedbackService;
 import SoundwavesProject.Soundwaves.service.OrderService;
 import SoundwavesProject.Soundwaves.service.ProductService;
@@ -55,6 +56,9 @@ public class AdminController {
 
     @Autowired
     UpdatesService updatesService;
+
+    @Autowired
+    OrderRepository orderRepository;
   
 
     @GetMapping("/admin/adminHome")
@@ -62,6 +66,9 @@ public class AdminController {
     double totalSales24 = orderService.getTotalSalesLast24Hours();
     double totalSales = orderService.getTotalSales();
     List<Updates> updates = updatesService.getRecentUpdates();
+    List<Order> orders = orderRepository.findAll();
+    int totalOrders = orders.size();
+    model.addAttribute("totalOrders", totalOrders);
     model.addAttribute("updates", updates);
     model.addAttribute("ordersLast24HoursTotal", totalSales24);
     model.addAttribute("ordersAllTime", totalSales);
@@ -72,6 +79,8 @@ public class AdminController {
     @GetMapping("/admin/feedback")
     public String feedback(Model model){
         model.addAttribute("feedback", feedbackService.getFeedback());
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         return "/admin/adminFeedback";
 
     }
@@ -79,24 +88,32 @@ public class AdminController {
     @GetMapping("/admin/products")
     public String products(Model model){
         model.addAttribute("products", productService.getProduct());
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         return "admin/adminproducts";
     }
 
     @GetMapping("/admin/order")
     public String orders(Model model){
         model.addAttribute("orders", orderService.getOrders());
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         return "admin/adminOrder";
     }
 
     @GetMapping("/admin/adminUserView")
     public String adminuserView(Model model){
         model.addAttribute("users", userService.getUser());
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         return "admin/adminUserView";
     }
 
     @GetMapping("/admin/adminReport")
     public String adminReport(Model model) { 
         Date date = new Date();
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         model.addAttribute("date", date);
         model.addAttribute("products", productService.getProduct());
         model.addAttribute("orders", orderService.getOrders());

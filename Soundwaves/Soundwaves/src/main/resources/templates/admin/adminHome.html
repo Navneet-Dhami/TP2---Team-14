@@ -110,19 +110,13 @@
                   <span class="material-symbols-rounded">stacked_line_chart</span>
                   <div class="admin-middle">
                       <div class="admin-left">
-                          <h3 class="admin-h3">Total Income</h3>
-                          <h1>£23,000</h1>
+                          <h3 class="admin-h3">Total Orders Placed</h3>
+                          <h1 th:text="${totalOrders}">0</h1>
                       </div>
-                      <div class="admin-progress">
-                          <svg>
-                              <circle cx="38" cy="38" r="36"></circle>
-                          </svg>
-                          <div class="admin-number">
-                              <p>44%</p>
-                          </div>
+                      <div class="admin-progress">                    
                       </div>
                   </div>
-                  <small class="admin-text-muted">Last 24 Hours</small>
+                  <small class="admin-text-muted">All Time</small>
               </div>
               <!--end of income-->
           </div>
