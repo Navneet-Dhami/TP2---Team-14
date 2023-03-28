@@ -16,7 +16,7 @@
 <body>
   <section class="nav-space">
     <nav class="navigation">
-      <img class="logo" src=\media\lightLogo.png/>
+      <img class="logo" src=/media/lightLogo.png/>
         <a href="#" class="dropdown">
             <span class="list"></span>
             <span class="list"></span>
@@ -120,12 +120,12 @@
                     <td th:text="${order.product.name}"></td>
                     <td><span>£<span th:text="${order.totalAmount}"></span></span></td>
                     <td th:text="${order.quantity}"></td>
-                    <td th:text="${order.orderStatus}"></td>
+                    <td class="admin-order-status" th:text="${order.orderStatus}" ></td>
                     <td>
                       <form th:action="@{/admin/order/updateStatus/{id}(id=${order.id})}" method="post">
                         <input type="hidden" name="id" th:value="${order.id}" />
                         <select class="form-control" name="orderStatus">
-                          <option th:value="PENDING" th:text="Pending" th:selected="${order.orderStatus == 'PENDING'}"></option>
+                          <option class="admin-pending" th:value="PENDING" th:text="Pending" th:selected="${order.orderStatus == 'PENDING'}"></option>
                           <option th:value="SHIPPED" th:text="Shipped" th:selected="${order.orderStatus == 'SHIPPED'}"></option>
                           <option th:value="DELIVERED" th:text="Delivered" th:selected="${order.orderStatus == 'DELIVERED'}"></option>
                           <option th:value="CANCELLED" th:text="Cancelled" th:selected="${order.orderStatus == 'CANCELLED'}"></option>
