@@ -11,5 +11,5 @@ You will also need to create a database called 'soundwaves' on your localhost ve
 
 <h3> Running our project </h3> 
 To run our project, you will need to run the following file (Soundwaves\Soundwaves\src\main\java\SoundwavesProject\Soundwaves\SoundwavesApplication.java).
-After successfully running the file, you will then need to 
+After successfully running the file, you will then need to enter the following link into your preffered browser (http://localhost:8080/). 
 
