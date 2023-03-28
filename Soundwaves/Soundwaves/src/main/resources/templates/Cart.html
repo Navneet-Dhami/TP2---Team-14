@@ -110,14 +110,17 @@
 			<button type="submit" class="form-control">Update Cart</button>
 		  </form>
 	  
-		  <div class="total" th:if="${not #lists.isEmpty(cart)}">
-			<h5>Total Amount:</h5>
-			<span>£<span th:text="${amount}"></span></span>
+		  <div class="sideBar">
+			<div class="total" th:if="${not #lists.isEmpty(cart)}">
+			  <h5>Total Amount:</h5>
+			  <span>£<span th:text="${amount}"></span></span>
+			</div>
+		
+			<div class="total" th:if="${not #lists.isEmpty(cart)}">
+			  <a th:href="@{/checkout}" class="btn btn-success">Checkout</a>
+			</div>
 		  </div>
-	  
-		  <div class="total" th:if="${not #lists.isEmpty(cart)}">
-			<a th:href="@{/checkout}" class="btn btn-success">Checkout</a>
-		  </div>
+  
 	  
 		  <div class="empty-cart" th:if="${#lists.isEmpty(cart)}">
 			<p>Your cart is currently empty.</p>
