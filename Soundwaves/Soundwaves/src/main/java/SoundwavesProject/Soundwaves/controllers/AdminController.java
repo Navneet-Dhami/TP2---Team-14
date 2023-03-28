@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -124,6 +125,17 @@ public class AdminController {
     public String adminCancelledOrders(Model model) { 
         model.addAttribute("orders", orderService.getOrders());
         return "admin/adminCancelledOrders";
+    }
+
+    @GetMapping("/searchOrder")
+    public String searchOrder(@Param("keyword") String keyword, Model model) {
+        System.out.println("keyword: " + keyword);
+
+        List<Order> searchResult = orderService.searchKeyword(keyword);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("searchResult", searchResult);
+        model.addAttribute("pageTitle", "Search Results For " + keyword);
+        return "admin/adminOrderSearch";
     }
 
 
