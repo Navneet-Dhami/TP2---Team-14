@@ -103,15 +103,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="order : ${orders}" th:class="${order.orderStatus}">
-                    <div th:if="${order.orderStatus == order.orderStatus.CANCELLED}"> 
+                  <tr th:each="order : ${orders}" th:class="${order.orderStatus}" th:if="${order.orderStatus == order.orderStatus.CANCELLED}">
                       <td th:text="${order.user.id}"></td>
                       <td th:text="${order.user.email}"></td>
                       <td th:text="${order.id}"></td>
                       <td th:text="${order.product.name}"></td>
                       <td><span>£<span th:text="${order.totalAmount}"></span></span></td>
                       <td th:text="${order.quantity}"></td>
-                      <td th:text="${order.orderStatus}"></td>
+                      <td class="admin-order-status" th:text="${order.orderStatus}"></td>
                       <td>
                         <form th:action="@{/admin/order/updateStatus/{id}(id=${order.id})}" method="post">
                           <input type="hidden" name="id" th:value="${order.id}" />
@@ -127,7 +126,6 @@
                       <td>
                         <a href="" th:href="@{/admin/order/remove/{id}(id=${order.id})}"> Remove </a>
                       </td>
-                    </div>
                   </tr>
                   
                 </tbody>
@@ -136,64 +134,40 @@
             </div>
       </main>
 <!--end of main section-->
-      <div class="admin-right">
-          <div class="admin-top">
-              <button id="admin-menu-btn">
-                  <span class="material-symbols-rounded">menu</span>
-              </button>
-              <div class="admin-profile">
-                  <div class="admin-info">
-                      <p>Hey There</p> <!--could put the admins username here-->
-                      <small class="admin-text-muted">Admin</small>
-                  </div>
-                  <div class="admin-profile-img">
-                      <span class="material-symbols-rounded">verified_user</span>
-                  </div>
-              </div>
+<div class="admin-right">
+  <div class="admin-top">
+      <button id="admin-menu-btn">
+          <span class="material-symbols-rounded">menu</span>
+      </button>
+      <div class="admin-profile">
+          <div class="admin-info">
+              <p>Hey There</p> <!--could put the admins username here-->
+              <small class="admin-text-muted">Admin</small>
           </div>
-          <!--end of the top part-->
-          <div class="admin-recent-updates">
-              <h2>Recent Updates</h2>
-              <div class="admin-updates">
-                <div class="admin-update">
-                  <div class="admin-profile">
-                      <span class="material-symbols-rounded">person</span>
-                  </div>
-                  <div class="admin-message">
-                    <p>
-                      <b>Mary</b> received her order.
-                    </p>
-                    <small class="admin-text-muted">2 Minutes Ago</small>
-                  </div>
-                </div>
-                <div class="admin-update">
-                  <div class="admin-profile">
-                      <span class="material-symbols-rounded">person</span>
-                  </div>
-                  <div class="admin-message">
-                    <p>
-                      <b>Luke</b> sumbitted his order.
-                    </p>
-                    <small class="admin-text-muted">5 Minutes Ago</small>
-                  </div>
-                </div>
-                <div class="admin-update">
-                  <div class="admin-profile">
-                      <span class="material-symbols-rounded">person</span>
-                  </div>
-                  <div class="admin-message">
-                    <p>
-                      <b>Dan</b> received his order.
-                    </p>
-                    <small class="admin-text-muted">10 Minutes Ago</small>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="admin-profile-img">
+              <span class="material-symbols-rounded">verified_user</span>
+          </div>
       </div>
-
-
   </div>
+  <!--end of the top part-->
+  <div class="admin-recent-updates">
+      <h2>Recent Updates</h2>
+      <div class="admin-updates">
+        <div th:each="updates : ${updates}" class="admin-update">
+          <div class="admin-profile">
+              <span class="material-symbols-rounded">person</span>
+          </div>
+          <div class="admin-message">
+            <p>
+              <b><span th:text="${updates.message}"></span></b>
+            </p>
+            <small class="admin-text-muted" th:text="${T(java.time.Duration).between(updates.createdAt, T(java.time.LocalDateTime).now()).toMinutes()} + ' minutes ago'"></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 <footer class="site-footer">
   <div class="fcontainer">
