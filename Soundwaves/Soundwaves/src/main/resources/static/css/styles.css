@@ -3,6 +3,95 @@
 
 /* Feysal's changes: */
 
+.nav h1 {
+    position: relative;
+    padding-top: 20px;
+  }
+
+  #wav1,
+  #wav2,
+  #wav3 {
+    display: inline-block;
+  }
+
+  #wav1 {
+    animation: wave1 1s ease-in-out infinite;
+  }
+
+  #wav2 {
+    animation: wave2 1s ease-in-out infinite;
+  }
+
+  #wav3 {
+    animation: wave3 1s ease-in-out infinite;
+  }
+
+  #wav1 {
+    animation-delay: -0.15s;
+  }
+
+  #wav2 {
+    animation-delay: -0.1s;
+  }
+
+  #wav3 {
+    animation-delay: -0.05s;
+  }
+
+  @keyframes wave1 {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(1.5px);
+    }
+    50% {
+      transform: translateY(-1.5px);
+    }
+    75% {
+      transform: translateY(1.5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes wave2 {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(2px);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+    75% {
+      transform: translateY(2px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes wave3 {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(2.5px);
+    }
+    50% {
+      transform: translateY(-2.5px);
+    }
+    75% {
+      transform: translateY(2.5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
 #banner{
     margin: auto;
     display: grid;
@@ -1262,10 +1351,10 @@ th {
     display: inline-block;
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 3px;
+    border-radius: none;
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    background-color: var(--p2-colour);
+    transition: all 0.3s ease;
+    background-color:  #333333;
   }
   
   .empty-cart {
