@@ -124,8 +124,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr th:each="order : ${orders}">
-                        <div th:if="${order.orderStatus == order.orderStatus.PENDING}"> 
+                    <tr th:each="order : ${orders}" th:class="${order.orderStatus}" th:if="${order.orderStatus == order.orderStatus.PENDING}">
                             <td th:text="${order.user.id}"></td>
                             <td th:text="${order.user.email}"></td>
                             <td th:text="${order.dateOrdered}"></td>
@@ -133,8 +132,7 @@
                             <td th:text="${order.productName}"></td>
                             <td th:text="${order.quantity}"></td>
                             <td th:text="${order.totalAmount}"></td>
-                            <td th:text="${order.orderStatus}"></td>
-                        </div>
+                            <td class="admin-order-status" th:text="${order.orderStatus}"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -156,8 +154,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr th:each="order : ${orders}">
-                        <div th:if="${order.orderStatus == order.orderStatus.SHIPPED or order.orderStatus == order.orderStatus.DELIVERED or order.orderStatus == order.orderStatus.CANCELLED}"> 
+                    <tr th:each="order : ${orders}" th:class="${order.orderStatus}" th:if="${order.orderStatus == order.orderStatus.SHIPPED or order.orderStatus == order.orderStatus.DELIVERED or order.orderStatus == order.orderStatus.CANCELLED}"> 
                             <td th:text="${order.user.id}"></td>
                             <td th:text="${order.user.email}"></td>
                             <td th:text="${order.dateOrdered}"></td>
@@ -165,8 +162,7 @@
                             <td th:text="${order.productName}"></td>
                             <td th:text="${order.quantity}"></td>
                             <td th:text="${order.totalAmount}"></td>
-                            <td th:text="${order.orderStatus}"></td>
-                        </div>
+                            <td class="admin-order-status" th:text="${order.orderStatus}"></td>
                     </tr>
                   </tbody>
                 </table>

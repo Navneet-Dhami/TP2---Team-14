@@ -125,7 +125,7 @@
                       <form th:action="@{/admin/order/updateStatus/{id}(id=${order.id})}" method="post">
                         <input type="hidden" name="id" th:value="${order.id}" />
                         <select class="form-control" name="orderStatus">
-                          <option class="admin-pending" th:value="PENDING" th:text="Pending" th:selected="${order.orderStatus == 'PENDING'}"></option>
+                          <option th:value="PENDING" th:text="Pending" th:selected="${order.orderStatus == 'PENDING'}"></option>
                           <option th:value="SHIPPED" th:text="Shipped" th:selected="${order.orderStatus == 'SHIPPED'}"></option>
                           <option th:value="DELIVERED" th:text="Delivered" th:selected="${order.orderStatus == 'DELIVERED'}"></option>
                           <option th:value="CANCELLED" th:text="Cancelled" th:selected="${order.orderStatus == 'CANCELLED'}"></option>

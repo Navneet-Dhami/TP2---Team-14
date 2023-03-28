@@ -133,7 +133,7 @@
             </div>
       </main>
 <!--end of main section-->
-      <div class="admin-right">
+<div class="admin-right">
           <div class="admin-top">
               <button id="admin-menu-btn">
                   <span class="material-symbols-rounded">menu</span>
@@ -148,33 +148,25 @@
                   </div>
               </div>
           </div>
-        
-            <!--end of the top part-->
-          <div class="admin-updates">
-                    <h3>Recent Updates</h3>
-                    <div class="admin-update">
-                    <div th:each="updates : ${updates}" class="admin-update">
-                        <div class="admin-profile">
-                            <span class="material-symbols-rounded">person</span>
-                        </div>
-                        <div class="admin-message">
-                            <p>
-                                <b><span th:text="${updates.message}"></span></b>
-                            </p>
-                            <small class="admin-text-muted" th:text="${T(java.time.Duration).between(updates.createdAt, T(java.time.LocalDateTime).now()).toMinutes()} + ' minutes ago'"></small>
-
-                        </div>
-                    </div>
+          <!--end of the top part-->
+          <div class="admin-recent-updates">
+              <h2>Recent Updates</h2>
+              <div  class="admin-updates">
+                <div th:each="updates : ${updates}" class="admin-update">
+                  <div class="admin-profile">
+                      <span class="material-symbols-rounded">person</span>
                   </div>
-             
-             
-             
+                  <div class="admin-message">
+                    <p>
+                      <b><span th:text="${updates.message}"></span></b>
+                    </p>
+                    <small class="admin-text-muted" th:text="${T(java.time.Duration).between(updates.createdAt, T(java.time.LocalDateTime).now()).toMinutes()} + ' minutes ago'"></small>
+                  </div>
+                </div>
               </div>
             </div>
-   
+          </div>
         </div>
-
-  
 </body>
 <footer class="site-footer">
 <div class="fcontainer">
@@ -225,138 +217,4 @@ Aston University, Birmingham B1</p></li>
 </div>
 </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <body>
-    <section class="nav-space">
-    <nav class="navigation">
-      <img class="logo" src=\media\lightLogo.png/>
-        <a href="#" class="dropdown">
-            <span class="list"></span>
-            <span class="list"></span>
-            <span class="list"></span>
-            <span class="list"></span>
-        </a>
-        <div class="navigation-links">
-            <ul>
-                <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
-                <li><a th:href="@{/index}">Home</a></li>
-                <li><a th:href="@{/products}">Products</a></li>
-                <li><a th:href="@{/contact}">Contact us</a></li>
-                <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" value="Logout!" />
-                </form>
-            </ul>
-        </div>
-    </nav>
-    </section>
-
-    <div class="nav">
-        <h1>Admin Home</h1>
-    </div>
-
-  <div class="card-container">
-    <div class="card-body1">
-      <h4 class="card-title">Products</h4>
-      <p class="card-text">Modify products here</p>
-      <a href="#" th:href="@{/admin/products}" class="card-link btn btn-primary">Modify</a>
-  </div>
-
-  <div class="card-body1">
-      <h4 class="card-title">Users</h4>
-      <p class="card-text">View all users</p>
-      <a href="#" th:href="@{/admin/adminUserView}" class="card-link btn btn-primary">View</a>
-  </div>
-
-  <div class="card-body1">
-    <h4 class="card-title">Feedback</h4>
-    <p class="card-text">View customer feedback</p>
-    <a href="#" th:href="@{/admin/feedback}" class="card-link btn btn-primary">View</a>
-</div>
-
-  <div class="card-body1">
-    <h4 class="card-title">Orders</h4>
-    <p class="card-text">Modify orders here</p>
-    <a href="#" th:href="@{/admin/order}" class="card-link btn btn-primary">Modify</a>
-</div>
-
-  <div class="card-body1">
-    <h4 class="card-title">Report</h4>
-    <p class="card-text">View Inventory Report</p>
-    <a href="#" th:href="@{/admin/adminReport}" class="card-link btn btn-primary">Generate</a>
-  </div>
-  </div>
-
-
-  
-
-</body>
-
-<footer class="site-footer">
-    <div class="fcontainer">
-      <div class="row">
-        <div class="fcol">
-          <h6>About</h6>
-          <p class="text-justify">We are a group of 10 university students who have come together to make this e-commerce website!
-This website has been made for those who love music! We offer products such as
-headphones, speakers and much more.</p>
-        </div>
-
-        <div class="fcol">
-          <h6>Links</h6>
-          <ul class="footer-links">
-            <li><a th:href="@{/products}">Products</a></li>
-            <li><a th:href="@{/aboutus}">About Us</a></li>
-            <li><a th:href="@{/contact}">Contact Us</a></li>
-            <li><a th:href="@{/login}">Login</a></li>
-            <li><a th:href="@{/cart}">View Cart</a></li>
-          </ul>
-        </div>
-
-        <div class="fcol">
-          <h6>Contact Us</h6>
-          <ul class="footer-links">
-            <li><p>If you have any queries or any unanswered questions - please contact us on:</p></li>
-            <li><strong>Phone Number:</strong> 07362837201</p></li>
-            <li><strong>Email:</strong> SoundwavesLTD@hotmail.co.uk</p></li>
-            <li><strong>Store Address:</strong> 
-Aston University, Birmingham B1</p></li>
-          </ul>
-        </div>
-
-      </div>
-      <hr>
-    </div>
-
-
-    <div class="fcontainer">
-      <div class="row">
-        <div class="fcol1">
-          <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
-       <a href="#">Soundwaves</a>.
-          </p>
-        </div>
-
-        
-      </div>
-    </div>
-</footer> -->
-
 </html>
