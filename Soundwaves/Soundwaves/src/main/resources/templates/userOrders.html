@@ -75,18 +75,36 @@
     <div class="nav">
         <h1> Viewing Orders </h1>
     </div>
+    <br>
+    <div class="admin-recent-orders">
+<table>
+  <thead>
+    <tr>
+    <th>Product Name:</th>
+    <th>Product Quantity:</th>
+    <th>Total Amount:</th>
+    <th>Purchase Date:</th>
+    <th>Order Status:</th>
+    </tr>
+  </thead>
 
-    <div th:each="order : ${orders}">
-        <p> Product Name: <span th:text="${order.productName}"></span></p>
-        <p> Product Quantity: <span th:text="${order.quantity}"></span></p>
-        <p> Total Amount: <span th:text="${order.totalAmount}"></span></p>
-        <p> Purchase Date: <span th:text="${order.dateOrdered}"></span></p>
-        <p> Order Status: <span th:text="${order.orderStatus}"></span></p>
-        <br>
-    </div>
+  <tbody>
+    <tr th:each="order : ${orders}">
+    <td th:text="${order.productName}"></td>
+    <td th:text="${order.quantity}"></td>
+    <td th:text="${order.totalAmount}"></td>
+    <td th:text="${order.dateOrdered}"></td>
+    <td th:text="${order.orderStatus}"></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+   
+        
 
 </body>
-
+<br>
 <footer class="site-footer">
     <div class="fcontainer">
       <div class="row">
