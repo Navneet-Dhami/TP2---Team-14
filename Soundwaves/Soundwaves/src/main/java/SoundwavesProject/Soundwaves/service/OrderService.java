@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import SoundwavesProject.Soundwaves.model.Order;
 import SoundwavesProject.Soundwaves.model.Order.OrderStatus;
 import SoundwavesProject.Soundwaves.repository.OrderRepository;
-import SoundwavesProject.Soundwaves.repository.OrderSearchRepository;
 
 @Service
 public class OrderService implements OrderServiceInterface {
@@ -19,9 +18,6 @@ public class OrderService implements OrderServiceInterface {
     OrderRepository orderRepository;
 
     @Autowired UpdatesService updatesService;
-
-    @Autowired
-    OrderSearchRepository orderSearchRepository;
 
     @Override
     public void createOrder(Order order) {
@@ -72,11 +68,6 @@ public class OrderService implements OrderServiceInterface {
         return totalSales;
     }
     
-    public List<Order> searchKeyword(String keyword)
-    {
-        return orderSearchRepository.search(keyword);
-    }
-
     
     
 }
