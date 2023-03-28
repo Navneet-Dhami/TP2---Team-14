@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
   <script type="text/javascript" th:src="@{/js/script.js}" defer></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <title> Admin Products </title>
+  <title> Admin Product Search </title>
 </head>
 
 <body>
@@ -79,9 +79,6 @@
       <main class="admin-main">
           <h1 class="admin-h1">Products</h1>
           
-          <form class="search-bar" th:action="@{/searchProduct}" method="get">
-            <label> Please Enter the product name </label> <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
-          </form>
       
 
           <!--start of tables-->
@@ -102,7 +99,7 @@
                 </thead>
                 <tbody>
                   <!--temp info to see how it should look below but the final will have the code above instead-->
-                  <tr th:each="product, iStat : ${products}">
+                  <tr th:each="product, iStat : ${searchResult}">
                     <th scope="row" th:text="${iStat.index + 1}"></th>
                     <td th:text="${product.name}"></td>
                     <td th:text="${product.category.categoryName}"></td>
@@ -114,7 +111,6 @@
                   </tr>
                 </tbody>
               </table>
-              <a href="#">Show All</a>
               <a th:href="@{/admin/addproduct}" class="btn btn-primary">Add Product</a>
             </div>
       </main>

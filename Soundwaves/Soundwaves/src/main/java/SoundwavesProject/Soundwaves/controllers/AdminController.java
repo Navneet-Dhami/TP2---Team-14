@@ -138,6 +138,16 @@ public class AdminController {
         return "admin/adminOrderSearch";
     }
 
+    @GetMapping("/searchProduct")
+    public String searchProduct(@Param("keyword") String keyword, Model model) {
+        System.out.println("keyword: " + keyword);
+        List<Product> searchResult = productService.searchKeyword(keyword);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("searchResult", searchResult);
+        model.addAttribute("pageTitle", "Search Results For " + keyword);
+        return "admin/adminProductSearch";
+    }
+
 
     @GetMapping("/admin/user/remove/{id}") 
     public String removeProduct(@PathVariable int id) { 
