@@ -15,15 +15,18 @@
   }
 
   #wav1 {
-    animation: wave1 1s ease-in-out infinite;
+    animation: wave1 1s ease-in-out;
+    animation-iteration-count: 2;
   }
 
   #wav2 {
-    animation: wave2 1s ease-in-out infinite;
+    animation: wave2 1s ease-in-out;
+    animation-iteration-count: 2;
   }
 
   #wav3 {
-    animation: wave3 1s ease-in-out infinite;
+    animation: wave3 1s ease-in-out;
+    animation-iteration-count: 2;
   }
 
   #wav1 {
