@@ -167,6 +167,16 @@ flex-direction: row;
 align-items: center; */
 }
 
+.category-container{
+    margin-left: 4rem;
+    background: var(--p1-colour);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: .5s ease;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+}
+
 .categories {
 display: grid;
 grid-template-columns: repeat(5, 1fr);
@@ -192,7 +202,7 @@ transition: 0.5s ease;
 
 .category:hover {
 transition: 0.5s ease;
-transform: scale(1.5);
+transform: scale(1.1);
 }
 
 a[href="/products/category/1"] .category:hover {
@@ -584,7 +594,10 @@ ul.list-group img{
 .card{
     flex-basis: calc(33.33% - 10px);
     margin-right: 10px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 400px; 
+    overflow: hidden;
 }
 
 
@@ -1005,6 +1018,8 @@ form .register_text{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+
 .info{
     margin: 20px;
     padding: 22px;
@@ -1343,7 +1358,7 @@ th {
      right: 0;
      width: 200px;
      height: 300px;
-     border: 3px solid #1D1E42;
+     border: 3px solid var(--p5-colour);
 }
 
  
@@ -1354,7 +1369,6 @@ th {
     border-radius: none;
     text-decoration: none;
     transition: all 0.3s ease;
-    background-color:  #333333;
   }
   
   .empty-cart {
@@ -1543,13 +1557,25 @@ th {
     grid-row-start:4 ;
     grid-row-end: 5;
 }
-/* .addBtns{
-    grid-column-start: 1;
-    grid-column-end: 1 ;
-    grid-row-start: 4;
-    grid-row-end: 4 ;
-    justify-content: right;
-} */
+
+.btn-card{
+   
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 262px;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+
+    border-radius: 0%;
+    padding: 12px;
+    color: var(--p1-colour);
+    background-color: var(--s-colour);
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    transition-duration: 0.4s;
+}
 /* .priceTag{
     grid-column-start: ;
     grid-column-end: ;

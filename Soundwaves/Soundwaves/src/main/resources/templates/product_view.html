@@ -54,11 +54,10 @@
                 <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
                 <div class="priceTag">
                     <h4>£ <span th:text="${product.price}"></span></h4>
-                    <div class="addBtns">
-                        <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart"
-                        th:if="${product.stock > 0}">Add to Cart</a>
-                    <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
-                    </div>
+                   
+                      <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart" th:if="${product.stock > 0}">Add to Cart</a>
+                      <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
+                    
                 </div>
                 <div class="viewStock">
                     <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming

@@ -1,5 +1,6 @@
 package SoundwavesProject.Soundwaves.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +16,6 @@ public class Product{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name="product_id")
     private Long id;
     private String name;
 
@@ -27,39 +27,7 @@ public class Product{
     private String description;
     private int quantity;
     private String img;
-    private int minimum;
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public Category getCategory() {
-        return this.category;
-    }
-
-    public double getPrice() {
-        return this.price;
-    }
-
-    public int getStock() {
-        return this.stock;
-    }
-
-    public String getDesc() {
-        return this.description;
-    }
-
-    public int getQuantity() {
-        return this.quantity;
-    }
-
-    public String getImg() {
-        return this.img;
-    }
+  
 
     public Product() {
     }

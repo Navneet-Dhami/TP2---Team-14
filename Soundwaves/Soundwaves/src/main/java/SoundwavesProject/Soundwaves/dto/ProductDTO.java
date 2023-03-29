@@ -14,7 +14,7 @@ public class ProductDTO {
     private String description;
     private int quantity;
     private String img;
-    private int minimum;
+   
 
 
 }

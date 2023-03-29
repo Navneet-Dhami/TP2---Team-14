@@ -75,6 +75,23 @@
             <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
         </form>
 
+        <div class="category-container" style="box-shadow: none;">
+            <div class="container2">
+                <div class="nav"><h2>Categories</h2></div>    
+            </div>
+            <div class="col-sm-3"> 
+              <div class="categories">
+                <a href="" th:each="category, iStat : ${categories}" th:href="@{/products/category/{id}(id=${category.id})}">
+                  <div class="category">
+                      <img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}" />
+                      
+                    <p th:text="${category.categoryName}"></p>
+                  </div>
+                </a>
+              </div>
+            </div>
+        </div>
+     
         <div class="pro-container">
             <div class="card" style="margin-top: 20px" th:each="product : ${products}">
                 <a th:href="@{/productView/{id}(id=${product.id})}">
@@ -86,7 +103,8 @@
                         <div class="card-body">
                             <h5 class="card-title" th:text="${product.name}"></h5>
                             <h4>£ <span th:text="${product.price}"></span></h4>
-                            <p th:text="${product.description}" ></p>
+                            <p th:text="${product.description.length() &gt; 50 ? product.description.substring(0, 50) + '...' : product.description}"></p>
+                            <br>
                             <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming weeks.</div>
                             <div th:if="${product.stock > 0 and product.stock <= 10}" class="stock-status low-stock">Low stock</div>
                             <div th:if="${product.stock >= 25}" class="stock-status high-stock">In stock</div>

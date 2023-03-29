@@ -65,7 +65,7 @@
             </div>
             <div class="admin-addproduct-input-box">
                 <label class="admin-addproduct-label" for="description">Product Description</label>
-                <textarea class="admin-addproduct-textarea" rows="5" th:field="*{description}" name="description" id="description"></textarea>
+                <textarea class="admin-addproduct-textarea" rows="20" th:field="*{description}" name="description" id="description"></textarea>
             </div>
             <div class="admin-addproduct-custom-file admin-addproduct-input-box">
                 <label class="custom-file-label admin-addproduct-label" for="media">Product Image</label>
@@ -73,7 +73,7 @@
                 
             </div>
             <div class="admin-addproduct-input-box">
-                <!-- <img src="#" id="imgPreview" height="100px" width="100px" th:src="@{${'/media/' + productDTO.img}}" style="margin-top: 20px" alt=" "> -->
+             
             </div>
             <div class="admin-addproduct-input-box">
             <input type="hidden" name="imgName" th:value="${productDTO.img}">
@@ -82,26 +82,7 @@
         </form>
     </div>
 </div>
-    <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var r = new FileReader();
-                r.onload = function(e) {
-                    $('#imgPreview').attr('src', e.target.result).width(100).height(100);
-                }
-                r.readAsDataURL(input.files[0])
-            }
-        }
-        $('#media').change(function() {
-            readURL(this);
-        });
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
-    </script>
-
-
+   
 </body>
 
 <footer class="site-footer">
