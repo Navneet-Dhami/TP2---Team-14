@@ -49,7 +49,16 @@
         </div>
       
         <div class="temp-figure">
+          <div class="img-cont">
             <img th:src="@{${'/media/' + product.img}}" class="figure-img img-fluid rounded" th:alt="${product.name}">
+          </div>
+          <style>
+            .temp-figure .img-cont img {
+              size: 640px;
+              height:640px;
+              width:640px;
+            }
+          </style>
             <!-- <div class="productName">
                 <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
                 <div class="priceTag">
@@ -69,8 +78,10 @@
             
         </div>
         <div class="productName">
+          <div class="fig-cap">
           <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
-          <br>
+        </div>
+        <br>
           <div class="priceTag">
               <h4>£ <span th:text="${product.price}"></span></h4>
              
@@ -94,9 +105,50 @@
               </p>
             </div>
             <br>
+            <div class="big-adds">
             <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart" th:if="${product.stock > 0}">Add to Cart</a>
             <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
+          </div>
+          <style>
+            .big-adds {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              }
+            .fig-cap {
+              display: flex;
+              justify-content: center;
+            }
+            .leaveRating{
+              display: flex;
+              justify-content: center;
+            }
+          </style>
             <br>
+            <div class="viewProductsTable">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">Rating</th>
+                          <th scope="col">User</th>
+                          <th scope="col">Review</th>
+                          <th scope="col">Date</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr th:each="reviews : ${review}">
+                          <td th:text="${reviews.rating}"></td>
+                          <td th:text="${reviews.user.firstname}"></td>
+                          <td th:text="${reviews.review}"></td>
+                          <td th:text="${reviews.date}"></td>
+                      </tr>
+                  </tbody>
+              </table>
+              
+              
+          </div>
+          <br>
+            
             <div class="leaveRating">
               <div sec:authorize="isAuthenticated()">
               <form th:action="@{/productView/{id}/review(id=${product.id})}" th:object="${addReview}" method="post">
@@ -116,7 +168,7 @@
         
         
             
-              <div class="leaveRating">
+              <div class="logintocomment">
                 <!-- If you are not logged in this displays a clickable h1 to the login -->
         <div sec:authorize="isAnonymous()">
             <h1><a th:href="@{/login}" class="btn btn-primary">Login to comment!</a></h1>
@@ -129,7 +181,7 @@
               
           </div>
         </div>
-      <div class="leaveRating">
+      <!-- <div class="leaveRating">
         <div sec:authorize="isAuthenticated()">
         <form th:action="@{/productView/{id}/review(id=${product.id})}" th:object="${addReview}" method="post">
             <div>
@@ -143,7 +195,7 @@
             <button type="submit">Submit</button>
         </form>
         </div>
-        </div>
+        </div> -->
         
         
     <!-- <div class="leaveRating"> -->
@@ -169,28 +221,7 @@
     </div>
     
     </div> -->
-    <div class="viewProductsTable">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Rating</th>
-                    <th scope="col">User</th>
-                    <th scope="col">Review</th>
-                    <th scope="col">Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="reviews : ${review}">
-                    <td th:text="${reviews.rating}"></td>
-                    <td th:text="${reviews.user.firstname}"></td>
-                    <td th:text="${reviews.review}"></td>
-                    <td th:text="${reviews.date}"></td>
-                </tr>
-            </tbody>
-        </table>
-        
-        
-    </div>
+    
     </div>
 
 </body>

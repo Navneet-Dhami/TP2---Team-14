@@ -1510,23 +1510,23 @@ th {
     margin: 0 auto;
     gap: 1.8rem;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1fr);
     padding: 5px;
     box-sizing: border-box;
 }
 
 .temp-heading{
     /* margin-top: ; */
-    grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 5;
     grid-row-start: 0;
     grid-row-end: 1;
     text-align: center;
     justify-content: center;
 }
 .temp-figure{
-    grid-column-start: 1;
-    grid-column-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
     align-items: center;
@@ -1534,13 +1534,18 @@ th {
 }
 .productName{
     grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-end: -1;
     grid-row-start: 1;
     grid-row-end: 1;
-    text-align: center;
+    align-items: center;
     /* justify-content: space-between; */
     display: inline-block;
     
+}
+.priceTag{
+    text-align: center;
+    justify-content: center;
+
 }
 .viewStock{
     text-align: center;
@@ -1552,20 +1557,20 @@ th {
     
 } 
 
-/* .pTag{ */
-    /* grid-column-start: 3;
-    grid-column-end: 5;
+.pTag{
+     grid-column-start: 3;
+    grid-column-end: 3;
     grid-row-start: 2;
-    grid-row-end: 2; */
-    /* text-align:center;
-    justify-content: center; */
-    
-/* }
+    grid-row-end: 2;
+    text-align: center;
+    justify-content: center;
+}
+
 .viewProductsTable{
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 2;
-    grid-row-end: 3;
+    grid-row-end: 2;
     background: var(--p2-colour);
     width: 90%;
     border-radius: 2rem;
@@ -1576,10 +1581,14 @@ th {
 
 .leaveRating{
     grid-column-start: 3;
-    grid-column-end:5;
-    grid-row-start: 2;
-    grid-row-end: 2;
-} */
+    grid-column-end:3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+
+.logintocomment{
+
+}
 
 /* .temp-search{
     align-items: center;
@@ -1616,11 +1625,7 @@ th {
     transition: .3s;
     transition-duration: 0.4s;
 } */
-/* .priceTag{
-    grid-column-start: ;
-    grid-column-end: ;
 
-} */
 /* .productName{
     grid-column-start: 1;
     grid-column-end: 2;
@@ -2046,12 +2051,12 @@ text-decoration: none;
 
 /* media queries for general admin pages */  
 
-@media screen and (max-width: 1200px){
+/* @media screen and (max-width: 1200px){
     .admin-container{
         
     }
 }
-    
+     */
 
 /* For screens smaller than 768px */
 /* Media query for screens with a maximum width of 768px */  
