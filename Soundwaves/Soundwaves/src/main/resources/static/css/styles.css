@@ -1509,15 +1509,15 @@ th {
     width: 96%;
     margin: 0 auto;
     gap: 1.8rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     padding: 5px;
     box-sizing: border-box;
 }
 
 .temp-heading{
     /* margin-top: ; */
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 0;
     grid-row-end: 1;
@@ -1526,46 +1526,69 @@ th {
 }
 .temp-figure{
     grid-column-start: 1;
-    grid-column-end: 3;
+    grid-column-end: 1;
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 1;
     align-items: center;
     justify-content: center;
 }
-.pTag{
-    
-    grid-column-start:3;
+.productName{
+    grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 1;
-    grid-row-end: 2;
-    text-align:center;
-    justify-content: center;
+    grid-row-end: 1;
+    text-align: center;
+    /* justify-content: space-between; */
+    display: inline-block;
     
 }
+.viewStock{
+    text-align: center;
+    justify-content: center;
+    /* grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2; */
+    
+} 
+
+/* .pTag{ */
+    /* grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2; */
+    /* text-align:center;
+    justify-content: center; */
+    
+/* }
+.viewProductsTable{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background: var(--p2-colour);
+    width: 90%;
+    border-radius: 2rem;
+    padding: 1.8rem;
+    box-shadow: 0 1rem 2rem var(--p2-colour);
+    transition: all 300ms ease;  
+}
+
+.leaveRating{
+    grid-column-start: 3;
+    grid-column-end:5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+} */
+
 /* .temp-search{
     align-items: center;
     justify-content: center;
     grid-column-start: 2;
     grid-column-end: 2;
 } */
-/* .viewStock{
-    text-align: center;
-    grid-column-start: ;
-    grid-column-end: ;
-    
-} */
-/* .viewProductsTable{
-    background: var(--p2-colour);
-    width: 90%;
-    border-radius: 2rem;
-    padding: 1.8rem;
-    box-shadow: 0 1rem 2rem var(--p2-colour);
-    transition: all 300ms ease;
-    grid-column-start:3 ;
-    grid-column-end: 3 ;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
+/* */
+/* 
 
 
 .leaveRating{
