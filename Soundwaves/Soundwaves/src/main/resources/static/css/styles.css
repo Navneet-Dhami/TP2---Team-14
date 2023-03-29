@@ -1510,24 +1510,51 @@ th {
     margin: 0 auto;
     gap: 1.8rem;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     padding: 5px;
     box-sizing: border-box;
 }
 
-.temp-search{
+.temp-heading{
+    /* margin-top: ; */
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 0;
+    grid-row-end: 1;
+    text-align: center;
+    justify-content: center;
+}
+.temp-figure{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-items: center;
+    justify-content: center;
+}
+.pTag{
+    
+    grid-column-start:3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align:center;
+    justify-content: center;
+    
+}
+/* .temp-search{
     align-items: center;
     justify-content: center;
     grid-column-start: 2;
     grid-column-end: 2;
-}
+} */
 /* .viewStock{
     text-align: center;
     grid-column-start: ;
     grid-column-end: ;
     
 } */
-.viewProductsTable{
+/* .viewProductsTable{
     background: var(--p2-colour);
     width: 90%;
     border-radius: 2rem;
@@ -1539,29 +1566,16 @@ th {
     grid-row-start: 2;
     grid-row-end: 3;
 }
-.temp-figure{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    align-items: center;
-    justify-content: center;
-}
-.pTag{
-    text-align:center;
-    grid-column-start: 2;
-    grid-column-end: 3 ;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
+
+
 .leaveRating{
     grid-column-start:2 ;
     grid-column-end:3;
     grid-row-start:4 ;
     grid-row-end: 5;
-}
+} */
 
-.btn-card{
+/* .btn-card{
    
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -1578,29 +1592,22 @@ th {
     cursor: pointer;
     transition: .3s;
     transition-duration: 0.4s;
-}
+} */
 /* .priceTag{
     grid-column-start: ;
     grid-column-end: ;
 
 } */
-.productName{
+/* .productName{
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 4;
     grid-row-end: 4;
     text-align: center;
-}
-.temp-heading{
-    /* margin-top: ; */
-    grid-column-start: 2;
-    grid-column-end: 2;
-    /* grid-row-start: ;
-    grid-row-end: ; */
-    text-align: center;
-}
+} */
 
-/* ADMIN Order Status CSS */
+
+/* ADMIN Order Status CSS - ishika */
 
 tr.PENDING .admin-order-status {
     color: rgb(0, 81, 255);
@@ -1837,7 +1844,7 @@ tr.PENDING .admin-order-status {
     box-shadow: none;
 }
 
-.admin-main .admin-insights > div span { /* can add different colours for individual circles if needed */
+.admin-main .admin-insights > div .admin-circle { /* can add different colours for individual circles if needed */
     background: var(--p5-colour);
     padding: 0.5rem;
     border-radius: 50%;
