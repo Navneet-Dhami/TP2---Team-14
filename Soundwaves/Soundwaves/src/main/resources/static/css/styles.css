@@ -1486,6 +1486,90 @@ th {
     transition: all 300ms ease;
 }
 
+/* Product Page CSS - ayub */
+.temp-container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.temp-search{
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+/* .viewStock{
+    text-align: center;
+    grid-column-start: ;
+    grid-column-end: ;
+    
+} */
+.viewProductsTable{
+    background: var(--p2-colour);
+    width: 90%;
+    border-radius: 2rem;
+    padding: 1.8rem;
+    box-shadow: 0 1rem 2rem var(--p2-colour);
+    transition: all 300ms ease;
+    grid-column-start:3 ;
+    grid-column-end: 3 ;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.temp-figure{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-items: center;
+    justify-content: center;
+}
+.pTag{
+    text-align:center;
+    grid-column-start: 2;
+    grid-column-end: 3 ;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.leaveRating{
+    grid-column-start:2 ;
+    grid-column-end:3;
+    grid-row-start:4 ;
+    grid-row-end: 5;
+}
+/* .addBtns{
+    grid-column-start: 1;
+    grid-column-end: 1 ;
+    grid-row-start: 4;
+    grid-row-end: 4 ;
+    justify-content: right;
+} */
+/* .priceTag{
+    grid-column-start: ;
+    grid-column-end: ;
+
+} */
+.productName{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    text-align: center;
+}
+.temp-heading{
+    /* margin-top: ; */
+    grid-column-start: 2;
+    grid-column-end: 2;
+    /* grid-row-start: ;
+    grid-row-end: ; */
+    text-align: center;
+}
 
 /* ADMIN Order Status CSS */
 
