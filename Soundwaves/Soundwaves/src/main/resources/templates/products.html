@@ -104,9 +104,9 @@
                             <h4>£ <span th:text="${product.price}"></span></h4>
                             <p th:text="${product.description.length() &gt; 50 ? product.description.substring(0, 50) + '...' : product.description}"></p>
                             <br>
-                            <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming weeks.</div>
+                            <div th:if="${product.stock == 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming weeks.</div>
                             <div th:if="${product.stock > 0 and product.stock <= 10}" class="stock-status low-stock">Low stock</div>
-                            <div th:if="${product.stock >= 25}" class="stock-status high-stock">In stock</div>
+                            <div th:if="${product.stock > 10}" class="stock-status high-stock">In stock</div>
                             <br>
                             <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart" th:if="${product.stock > 0}">Add to Cart</a>
                             <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
@@ -115,6 +115,7 @@
                 </div>
             </div>
         </div>
+        
 
         <style>
             .card:hover{
