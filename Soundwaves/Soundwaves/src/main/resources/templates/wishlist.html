@@ -63,7 +63,7 @@
     </section>
     <main class="admin-main">
         <div class="admin-recent-orders user-table">
-          <h1 class="user-page-h1">Wishlist</h1>
+          <h1 th:if="${not #lists.isEmpty(wishlists)}" class="user-page-h1" >Wishlist</h1>
             <br>
           <table th:if="${not #lists.isEmpty(wishlists)}">
             <thead>
