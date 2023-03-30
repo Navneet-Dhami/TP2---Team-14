@@ -25,14 +25,50 @@
         </a>
         <div class="navigation-links">
             <ul>
-                <li><a th:href="@{/admin/adminHome}">Admin-Home</a></li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <div sec:authorize="hasAnyAuthority('ADMIN')">
+                            <a th:href="@{/admin/adminHome}">Admin</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a th:href="@{/index}">Home</a></li>
                 <li><a th:href="@{/products}">Products</a></li>
                 <li><a th:href="@{/contact}">Contact us</a></li>
+                <li><a th:href="@{/aboutus}">About us</a></li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <a th:href="@{/wishlist}">Wishlist</a>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <a th:href="@{/cart}">Cart</a>
+                    </div>
+                </li>
+                <li style="padding-top: 15px;">
+                    <div sec:authorize="isAuthenticated()"> 
+                        <span th:text="${cartNo}">0</span>
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAnonymous()"> 
+                        <a th:href="@{/login}">Login</a>
+                    </div>
+                </li>
+                <li> 
+                    <div sec:authorize="isAuthenticated()"> 
+                      <a th:href="@{/userPage}">My Account</a> 
+                    </div>
+                </li>
+                <li>
+                    <div sec:authorize="isAuthenticated()"> 
+                        <form th:action="@{/logout}" method="post"> 
+                            <input class="log-out" type="submit" value="Logout" />
+                        </form>  
+                    </div>
+                </li>
                 <li> <i class="fa fa-sun-o" style="font-size:25px" id="darkmode"></i></li>
-                <form th:action="@{/logout}" method="post">
-                    <input class="log-out" type="submit" value="Logout!" />
-                </form>
             </ul>
         </div>
     </nav>
@@ -58,6 +94,17 @@
               height:640px;
               width:640px;
             }
+            .img-cont{
+              overflow: hidden;
+            }
+            .img-cont:hover{
+              transform: scale(1.0);
+            }
+            .temp-figure .img-cont img:hover{
+              transform: scale(1.2);
+              transition: .9s ease;
+            }
+
           </style>
             <!-- <div class="productName">
                 <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
@@ -79,23 +126,23 @@
         </div>
         <div class="productName">
           <div class="fig-cap">
-          <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
-        </div>
-        <br>
-          <div class="priceTag">
-              <h4>£ <span th:text="${product.price}"></span></h4>
-             
-              
+            <figcaption class="figure-caption text-end product_view_name" th:text="${product.name}"></figcaption>
           </div>
           <br>
-          <div class="viewStock">
-            <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming
-                weeks.</div>
-            <div th:if="${product.stock > 0 and product.stock <= 10}" class="stock-status low-stock">Low stock</div>
-            <div th:if="${product.stock > 10}" class="stock-status high-stock">In stock</div>
-        </div>
-        <br>
-        <br>
+          <div class="product_view_stock_price">
+            
+              <div class="priceTag">
+                  <h4>£ <span th:text="${product.price}"></span></h4>
+              </div>
+              <br>
+              <div class="viewStock">
+                <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming
+                    weeks.</div>
+                <div th:if="${product.stock > 0 and product.stock <= 10}" class="stock-status low-stock">Low stock</div>
+                <div th:if="${product.stock > 10}" class="stock-status high-stock">In stock</div>
+            </div>
+          </div>
+          <br>
           <div class="pTag">
             <p class="pTagDesc" th:text="${product.description}"></p>
             <p>Rebuilt from the sound up. AirPods Pro have been reengineered for even richer audio experiences. Next-level Active Noise Cancellation and Adaptive Transparency reduce more external noise. Spatial Audio takes immersion to a remarkably personal level. Touch control now lets you adjust volume with a swipe. And a leap in power delivers 6 hours of battery life from a single charge.
@@ -112,7 +159,7 @@
           <style>
             .big-adds {
               display: flex;
-              justify-content: space-around;
+              justify-content: space-evenly;
               align-items: center;
               }
             .fig-cap {
@@ -124,6 +171,7 @@
               justify-content: center;
             }
           </style>
+            <br>
             <br>
             <div class="viewProductsTable">
               <table class="table">
@@ -148,7 +196,7 @@
               
           </div>
           <br>
-            
+            <br>
             <div class="leaveRating">
               <div sec:authorize="isAuthenticated()">
               <form th:action="@{/productView/{id}/review(id=${product.id})}" th:object="${addReview}" method="post">
@@ -160,6 +208,7 @@
                       <label>Review:</label>
                       <textarea th:field="*{review}" required></textarea>
                   </div>
+                  <span></span>
                   <button type="submit">Submit</button>
               </form>
               </div>
@@ -225,7 +274,7 @@
     </div>
 
 </body>
-
+<br>
 <footer class="site-footer">
   <div class="fcontainer">
     <div class="row">

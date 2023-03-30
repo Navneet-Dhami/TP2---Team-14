@@ -1503,7 +1503,7 @@ th {
     transition: all 300ms ease;
 }
 
-/* Product Page CSS - ayub */
+/* Product Page CSS - ayub, ishika & feysal */
 .temp-container{
     display: grid;
     width: 96%;
@@ -1523,6 +1523,7 @@ th {
     grid-row-end: 1;
     text-align: center;
     justify-content: center;
+    
 }
 .temp-figure{
     grid-column-start: 2;
@@ -1532,20 +1533,30 @@ th {
     align-items: center;
     justify-content: center;
 }
+.product_view_name{
+    text-align: left;
+    font-weight: 800;
+    font-size: 1.8rem;
+}
 .productName{
     grid-column-start: 3;
     grid-column-end: -1;
     grid-row-start: 1;
     grid-row-end: 1;
     align-items: center;
-    /* justify-content: space-between; */
-    display: inline-block;
+    justify-content: space-evenly;
     
+}
+.product_view_stock_price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .priceTag{
     text-align: center;
     justify-content: center;
-
+    font-weight: bold;
+    padding-right: 41px;
 }
 .viewStock{
     text-align: center;
@@ -1554,7 +1565,7 @@ th {
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 2; */
-    
+    font-weight: bold;
 } 
 
 .pTag{
@@ -1586,9 +1597,78 @@ th {
     grid-row-end: 3;
 }
 
-.logintocomment{
-
+.leaveRating form{
+    /* display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    font-weight: bold;
+    font-size: initial; */
+    display: grid;
+    font-weight: bold;
+    font-size: initial;
+    width: 93%;
+    grid-template-columns: repeat(2,1fr);
+    background: var(--p2-colour);
+    border-radius: 2rem;
+    padding: 15px;
+    grid-gap: 10px;
+    box-shadow: 0 1rem 2rem var(--p2-colour);
 }
+
+.leaveRating form button{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: none;
+    border-radius: 1rem;
+}
+
+.leaveRating form button:hover{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 1rem 2rem var(--p2-colour);;
+}
+
+.leaveRating form div{
+    display: grid;
+    
+}
+
+.leaveRating form div textarea{
+    border: none;
+    border-radius: 5px;
+    width: 634px;
+    height:80px;
+}
+.leaveRating form div input{
+    border: none;
+    border-radius: 5px;
+}
+
+.temp-container .big-adds a{
+    width: 100px;
+    padding: 8px 10px;
+    font-size: 15px; 
+    border: 0px;
+    background: var(--p2-colour);
+    color: var(--s-colour);
+    cursor: pointer;
+    border-radius: 2rem;
+    outline: none;
+    box-shadow: 0 1rem 2rem var(--p2-colour);
+    transition: all 300ms ease;
+  }
+
+.temp-container .big-adds a:hover{
+    background: var(--p4-colour);
+    color: white;
+    box-shadow: 0 2rem 3rem var(--p2-colour);
+    transition: all 300ms ease;
+    transform: translateY(-5px);
+}
+
 
 /* .temp-search{
     align-items: center;
