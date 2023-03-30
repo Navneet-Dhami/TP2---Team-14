@@ -71,8 +71,35 @@
         </div>
     </nav>
     </section>
-
-    <div th:each="user : ${users}">
+<!--start of tables-->
+<main class="admin-main">
+<div class="admin-recent-orders user-table">
+  <h1 class="user-page-h1">Welcome, <!--<span th:text="${user.username}"></span>--></h1>
+    <br>
+  <table >
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Firstname</th>
+        <th>Surname</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${users}">
+          <td th:text="${user.username}"></td>
+          <td th:text="${user.email}"></td>
+          <td th:text="${user.firstname}"></td>
+          <td th:text="${user.surname}"></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <a th:href="@{/userOrders}" class="userPage-link"> View All Orders </a>
+</div>
+</main>
+    <!-- <div th:each="user : ${users}">
         <div class="nav">
             <h1> Welcome, <span th:text="${user.username}"></span> </h1>
             <br>
@@ -85,7 +112,7 @@
         <p class="account-p"> Surname: <span th:text="${user.surname}"></span></p>
         <br>
         <p class="account-p"><a th:href="@{/userOrders}" class="userPage-link"> View All Orders </a></p>
-    </div>
+    </div> -->
     
     
 

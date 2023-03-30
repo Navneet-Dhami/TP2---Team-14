@@ -61,8 +61,36 @@
         </div>
 	  </nav>
     </section>
-  	
-      <div class="wishlist">
+    <main class="admin-main">
+        <div class="admin-recent-orders user-table">
+          <h1 class="user-page-h1">Wishlist</h1>
+            <br>
+          <table th:if="${not #lists.isEmpty(wishlists)}">
+            <thead>
+              <tr>
+                <th>Product</th>
+				<th>Description</th>
+				<th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="wishlist, iStat : ${wishlists}">
+                <td><div class="product-info">
+                    <span th:text="${wishlist.product.name}"></span>
+                    <br>
+                    <img src="" height="100px" width="100px" th:src="@{${'/media/' + wishlist.product.img}}" />
+                </div></td>
+                  <td th:text="${wishlist.product.description}"></td>
+                  <td><a class="wishlist-remove-link" th:href="@{/wishlist/remove/{id}(id=${wishlist.id})}">Remove </a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </main>
+        <div class="empty-cart" th:if="${#lists.isEmpty(wishlists)}">
+			<p>Your Wishlist is currently empty.</p>
+		  </div>
+      <!-- <div class="wishlist">
 		
 		
 		<table th:if="${not #lists.isEmpty(wishlists)}">
@@ -94,7 +122,7 @@
         <div class="empty-cart" th:if="${#lists.isEmpty(wishlists)}">
 			<p>Your Wishlist is currently empty.</p>
 		  </div>
-	</div>
+	</div> -->
 </body>
 
 </html>
