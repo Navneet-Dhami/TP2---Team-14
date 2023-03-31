@@ -165,14 +165,6 @@ public class AdminController {
         return "admin/adminProductSearch";
     }
 
-
-    @GetMapping("/admin/user/remove/{id}") 
-    public String removeProduct(@PathVariable int id) { 
-        userService.removeUser(id);
-        return "redirect:/admin/adminUserView";
-    }
-
-
     @GetMapping("/admin/addproduct")
     public String addProduct(Model model){
         model.addAttribute("productDTO", new ProductDTO());

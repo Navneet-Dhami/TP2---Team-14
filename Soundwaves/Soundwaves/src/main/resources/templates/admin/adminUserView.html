@@ -96,7 +96,6 @@
                     <th>Surname</th>
                     <th>Username</th>
                     <th>Role</th>
-                    <th>Remove</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -108,7 +107,6 @@
                     <td th:text="${user.surname}"></td> 
                     <td th:text="${user.username}"></td> 
                     <td th:text="${user.role}"></td> 
-                    <td><a th:href="@{/admin/user/remove/{id}(id=${user.id})}"> Remove </a></td>
                   </tr>
                   
                 </tbody>
