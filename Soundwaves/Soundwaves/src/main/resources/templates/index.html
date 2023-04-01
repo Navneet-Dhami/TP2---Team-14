@@ -106,7 +106,7 @@
     </div>
     <div class="col-sm-3"> 
       <div class="categories">
-        <a href="" th:each="category, iStat : ${categories}" th:href="@{/products/category/{id}(id=${category.id})}">
+        <a href="" th:each="category, categoryNo : ${categories}" th:href="@{/products/category/{id}(id=${category.id})}">
           <div class="category">
               <img src="" height="100px" width="100px" th:src="@{${'/media/' + category.imageUrl}}" />
               

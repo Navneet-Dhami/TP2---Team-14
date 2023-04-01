@@ -122,24 +122,32 @@ public class AdminController {
 
     @GetMapping("/admin/adminPendingOrders")
     public String adminPendingOrders(Model model) { 
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         model.addAttribute("orders", orderService.getOrders());
         return "admin/adminPendingOrders";
     }
 
     @GetMapping("/admin/adminShippedOrders")
     public String adminShippedOrders(Model model) { 
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         model.addAttribute("orders", orderService.getOrders());
         return "admin/adminShippedOrders";
     }
 
     @GetMapping("/admin/adminDeliveredOrders")
     public String adminDeliveredOrders(Model model) { 
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         model.addAttribute("orders", orderService.getOrders());
         return "admin/adminDeliveredOrders";
     }
 
     @GetMapping("/admin/adminCancelledOrders")
     public String adminCancelledOrders(Model model) { 
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         model.addAttribute("orders", orderService.getOrders());
         return "admin/adminCancelledOrders";
     }
@@ -149,6 +157,8 @@ public class AdminController {
         System.out.println("keyword: " + keyword);
 
         List<Order> searchResult = orderService.searchKeyword(keyword);
+        List<Updates> updates = updatesService.getRecentUpdates();
+        model.addAttribute("updates", updates);
         model.addAttribute("keyword", keyword);
         model.addAttribute("searchResult", searchResult);
         model.addAttribute("pageTitle", "Search Results For " + keyword);

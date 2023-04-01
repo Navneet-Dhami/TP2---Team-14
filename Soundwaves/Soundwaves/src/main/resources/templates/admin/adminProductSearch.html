@@ -99,8 +99,8 @@
                 </thead>
                 <tbody>
                   <!--temp info to see how it should look below but the final will have the code above instead-->
-                  <tr th:each="product, iStat : ${searchResult}">
-                    <th scope="row" th:text="${iStat.index + 1}"></th>
+                  <tr th:each="product, productNo : ${searchResult}">
+                    <th scope="row" th:text="${productNo.index + 1}"></th>
                     <td th:text="${product.name}"></td>
                     <td th:text="${product.category.categoryName}"></td>
                     <td th:text="${product.description}"></td>

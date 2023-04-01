@@ -100,8 +100,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="user, iStat : ${users}">
-                    <th scope="row" th:text="${iStat.index + 1}"></th>
+                  <tr th:each="user, userNo : ${users}">
+                    <th scope="row" th:text="${userNo.index + 1}"></th>
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.firstname}"></td>    
                     <td th:text="${user.surname}"></td> 

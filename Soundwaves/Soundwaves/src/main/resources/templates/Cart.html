@@ -80,7 +80,7 @@
 				</tr>
 			  </thead>
 			  <tbody>
-				<tr th:each="item, iStat : ${cart}">
+				<tr th:each="item, cartNo : ${cart}">
 				  <td>
 
 					
@@ -102,7 +102,7 @@
 					£<span th:text="${item.price * item.quantity}"></span>
 				  </td>
 				  <td>
-					<a th:href="@{/cart/rmvItems/{index}(index=${iStat.index})}" class="btn btn-outline-danger">Remove</a>
+					<a th:href="@{/cart/rmvItems/{index}(index=${cartNo.index})}" class="btn btn-outline-danger">Remove</a>
 				  </td>
 				</tr>
 			  </tbody>		  

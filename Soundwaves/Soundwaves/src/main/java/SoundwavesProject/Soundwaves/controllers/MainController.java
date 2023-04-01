@@ -309,12 +309,8 @@ public class MainController {
 
     int userId = ((SoundWavesUserDetails) authentication.getPrincipal()).getUserId();
 
-    Optional<Product> optionalProduct = productService.getProductById(id);
-    if (!optionalProduct.isPresent()) {
-        return "error-page";
-    }
-
-    Product product = optionalProduct.get();
+    Optional<Product> productId = productService.getProductById(id);
+    Product product = productId.get();
     User user = userService.getUserById(userId).get();
     Wishlist wishlistItem = new Wishlist(user, product);
     wishlistService.addToWishlist(wishlistItem);
@@ -338,10 +334,10 @@ public class MainController {
     Optional<User> user = userService.getUserById(userId);
 
    
-    List<Product> cartItems = AllData.cart;
+    List<Product> itemsInCart = AllData.cart;
 
 
-    double totalAmount = cartItems.stream()
+    double totalAmount = itemsInCart .stream()
             .mapToDouble(item -> item.getPrice() * item.getQuantity())
             .sum();
 
@@ -353,11 +349,11 @@ public class MainController {
     order.setTotalAmount(totalAmount);
 
 
-    for (Product item : cartItems) {
+    for (Product item : itemsInCart ) {
         int quantity = item.getQuantity();
-        int newStock = item.getStock() - quantity;
+        int updatedStock = item.getStock() - quantity;
        
-        item.setStock(newStock);
+        item.setStock(updatedStock);
         productRepository.save(item);
 
         Order orderDetail = new Order();
