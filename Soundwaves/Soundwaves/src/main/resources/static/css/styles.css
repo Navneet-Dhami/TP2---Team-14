@@ -2430,7 +2430,166 @@ text-decoration: none;
 }
 
 /* end of admin add product */
+@media  (max-width: 768px) {
+    .admin-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    }
+    
+    .admin-aside {
+    display: none;
+    }
+    
+    .admin-aside .admin-x {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--s-colour);
+    }
+    
+    .admin-main {
+    margin-top: 3rem;
+    }
+    
+    .admin-insights {
+    grid-template-columns: repeat(2, 1fr);
+    }
+    }
+    
+    @media  (max-width: 480px) {
+    .admin-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    }
+    
+    .admin-main {
+    margin-top: 2rem;
+    }
+    
+    .admin-h1 {
+    font-size: 1.5rem;
+    }
+    
+    .admin-insights {
+    grid-template-columns: 1fr;
+    }
+    
+    
+    #admin-body{
+    margin:0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--p1-colour);
+    overflow-x: hidden;
+    color: var(--s-colour);
 
+}
+
+.admin-container{
+display: grid;
+width: 96%;
+margin: 0 auto;
+gap: 1.8rem;
+grid-template-columns: 14rem auto 23rem;
+}
+
+.admin-side-links{
+color: var(--s-colour);
+text-decoration: none;
+}
+.admin-img{
+display: block;
+width: 100%;
+}
+
+.admin-h1{
+font-weight: 800;
+font-size: 1.8rem;
+}
+
+.admin-h2{
+font-size: 1.4rem;
+}
+
+.admin-h3{
+font-size: 0.87rem;
+}
+
+.admin-h4{
+font-size: 0.8rem;
+}
+
+.admin-h5{
+font-size: 0.77rem;
+}
+
+.admin-small{
+font-size: 0.75rem;
+}
+.admin-profile-photo{
+width: 2.8rem;
+height: 2.8rem;
+border-radius: 50;
+overflow: hidden;
+}
+
+.admin-text-muted {
+font-weight: 500;
+color: var(--s-colour);
+}
+
+.admin-p{
+color: var(--s-colour);
+
+}
+
+.admin-bold{
+color: var(--s-colour);
+font-weight: bold;
+}
+
+.admin-aside{
+height: 100vh;
+}
+
+.admin-aside .admin-top{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-top: 1.4rem;
+}
+
+.admin-aside .admin-logo{
+display: flex;
+align-items: center;
+gap: 0.1rem;
+}
+
+.admin-aside .admin-logo h2 {
+margin-right: 1rem;
+margin-top: 0.9rem;
+}
+
+.admin-aside .admin-x{
+display: none;
+}
+
+    }
 /*End of admin styling - ishika*/
 
 
