@@ -1,8 +1,3 @@
-
-/* Homepage*/
-
-/* Feysal's changes: */
-
 .nav h1 {
     position: relative;
     padding-top: 20px;
@@ -129,7 +124,7 @@ justify-items: center;
     }
     
     .button5 {
-    background-color: #333333; /* Green */
+    background-color: #333333;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -165,10 +160,6 @@ grid-template-columns: repeat(1, 1fr);
 grid-gap: 15px;
 margin: 50px;
 background-color: var(--p2--colour);
-/*
-display: flex;
-flex-direction: row;
-align-items: center; */
 }
 
 .category-container{
@@ -230,13 +221,6 @@ a .category:hover p{
     transition: .3s ease;
 }
 
-/*
-.category:hover img {
-    transition: 0.5s ease;
-    transform: scale(1.5);
-} */
-
-/* Carbon */
 .carbon {
 width: 90%;
 height: 350px;
@@ -395,29 +379,6 @@ padding: 100px 0 0 30px;
     
 }
 
-
-
-
-
-/*Footer, Feysal's changes: */
-/*
-.footer-main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size: 13px;
-    transition: .2s;
-}
-
-.footer-main .col {
-    padding: 10px;
-    
-    display: flex;
-   /* flex-direction: column;
-    */ /*align-items: flex-start;
-}
-*/
-
 .fcol{
     flex: 1;
     margin-right: 20px;
@@ -430,11 +391,11 @@ padding: 100px 0 0 30px;
 
 .site-footer
 {
-background-color:/*#26272b*/ var(--p2-colour);
+background-color: var(--p2-colour);
 padding:45px 0 20px;
 font-size:15px;
 line-height:24px;
-color:/*#737373*/ var(--s-colour);
+color: var(--s-colour);
 width: 100%;
 position: relative;
    left: 0;
@@ -442,7 +403,7 @@ position: relative;
 }
 .site-footer hr
 {
-border-top-color:/*#bbb*/var(--p5-colour);
+border-top-color: var(--p5-colour);
 opacity:0.5
 }
 .site-footer hr.small
@@ -451,7 +412,7 @@ margin:20px 0
 }
 .site-footer h6
 {
-color:/*#fff*/var(--s-colour);
+color: var(--s-colour);
 font-size:16px;
 text-transform:uppercase;
 margin-top:5px;
@@ -477,11 +438,11 @@ display:block
 }
 .footer-links a
 {
-color:/*#737373*/ var(--s-colour)
+color: var(--s-colour)
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
-color:/*#F4B301*/var(--p5-colour);
+color: var(--p5-colour);
 text-decoration:none;
 }
 .footer-links.inline li
@@ -500,7 +461,7 @@ line-height:40px;
 margin-left:6px;
 margin-right:0;
 border-radius:100%;
-background-color:/*#33353d*/ var(--p2-colour)
+background-color: var(--p2-colour)
 }
 .copyright-text
 {
@@ -598,7 +559,7 @@ background-color:#ea4c89
 
 
 
-/* Index, Feysal's changes: */
+
 .list-group{
     list-style: none;
     display: flex;
@@ -627,7 +588,7 @@ ul.list-group img{
     }
 }
 
-/* Products page, Feysal's changes:*/
+
 
 .col-sm-9{
     display: flex;
@@ -691,13 +652,13 @@ ul.list-group img{
 
   .pro-container{
       display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));/* 4 columns */
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 grid-gap: 10px;
 margin-bottom: 50px;
 margin-top: 50px;
   }
 
-/* Navigation */
+
 .navigation{
     box-sizing: border-box;
     display: flex;
@@ -706,10 +667,7 @@ margin-top: 50px;
     background-color: var(--p2-colour);
     height: 7vh;
     transition: .5s ease;
-   /* position: sticky;
-    width: 100%;
-    z-index: 999;
-    top: 0; */
+
 }
 
 .nav-space{
@@ -720,7 +678,7 @@ margin-top: 50px;
 }
 
 .logo{
-    /*font-size: x-large;*/
+ 
     margin: 0.5rem;
     height: 7vh;
     
@@ -806,7 +764,7 @@ margin-top: 50px;
 
 }
 
-/* Login Page */
+
 
 .container3 { max-width: 1200px;
     margin: 50px;
@@ -834,17 +792,12 @@ margin-top: 50px;
     align-items: center;
     justify-content: center;
     background: var(--p2-colour);
-   /* border-radius: 20px;
-  /*  margin-top: 200px;
-    margin-left: 500px;
-    margin-right: 500px;
-    margin-bottom: 200px; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   
   .Login form{
     width: 100%;
-    max-width: 400px; /* adjust as needed */
+    max-width: 400px; 
     padding: 30px;
     box-sizing: border-box;
   }
@@ -914,13 +867,8 @@ form .email_password{
    text-align: center;
 }
 
-/* Register Page */
+
 .Register{
-        /*position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    */
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -937,11 +885,8 @@ form .email_password{
 }
 
 .Register form{
-    /*padding: 0 30px;
-    box-sizing: border-box;
-    color: var(--p4-colour); */
     width: 100%;
-    max-width: 400px; /* adjust as needed */
+    max-width: 400px; 
     padding: 30px;
     box-sizing: border-box;
 }
@@ -1003,14 +948,12 @@ form .register_text{
     transition: .7s;
 }
 
-/* Contact Us CSS */
+
 
 .contactus{
     
     width: 500px;
     padding: 50px;
-    /*margin: 100px auto;
-   /* border-radius: 30px; */
     position: relative;
     background: var(--p2-colour) ;
     border-radius: 30px;
@@ -1037,7 +980,6 @@ form .register_text{
     background: var(--p1-colour);
     border: 0;
     outline: none;
-   /* border-radius: 30px; */
     resize: none;
 
 }
@@ -1091,8 +1033,6 @@ form .register_text{
     width: 25px;
     height: 25px;
 }
-
-/* Feysal's changes to Contacts: */
 
 .map-container{
     border-radius: 30px;
@@ -1166,7 +1106,7 @@ width: 100%;
 height: 100%;
 }
 
-/* About Us CSS */
+
 
 *{
     margin: 0%;
@@ -1302,58 +1242,11 @@ height: 100%;
 
 
 
-/* Cart page */
-/* * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-} */
 body {
 	background: var(--p1-colour);
     transition: .5s ease;
 
 }
-/* .wrapper {
-	max-width: 1000px;
-	margin: 0 auto;
-}
-.wrapper h1 {
-	padding: 20px 0;
-	text-align: center;
-	text-transform: uppercase;
-}
-  */
-
-/* .list-items{
-    display: flex;
-    list-style: none;
-    width: 50%;
-    justify-content: space-around;
-
-}
-.link {
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-    font-size: 13px;
-    transition: 0.4s;
-  }
-.link:hover {
-    color: #4bb19b;
-  }
-
-.menu-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-}
-
-.menu-item{
-    margin: 2rem;
-    cursor: pointer;
-    font-weight: 600;
-} */
 
 
 
@@ -1382,7 +1275,7 @@ table {
 
 th,
 td {
-    /* text-align: left; */
+
     padding: 0.5rem;
 }
 
@@ -1428,76 +1321,6 @@ th {
 	text-align: center;
     font-size: x-large;
 }
-  
-
-/* .btn-area {
-	height: 2.5rem;
-	width: 7rem;
-	margin-left: 1rem;
-	display: flex;
-	flex-direction: row;
-	align-self: flex-end;
-	justify-content: center;
-	padding: 10px 25px;
-	background-color: #3a71a9;
-	color: white;
-	cursor: pointer;
-	border-radius: 5px;
-} */
-/* .btn-area:hover {
-	background-color: #76bfb6;
-	color: #fff;
-	font-weight: 600;
-}
-.unit input {
-	width: 40px;
-	padding: 5px;
-	text-align: center;
-}
-.btn-area i {
-	margin-right: 5px;
-}
-.right-bar {
-	 display: flex;
-	 flex-direction: column;
-	 justify-content: space-around;
-	 	margin-left: 20px;
-	padding: 20px;
-	width: 25%;
-	border-radius: 5px;
-	background: #fff;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-.right-bar hr {
-	margin-bottom: 25px;
-}
-.right-bar p {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 30px;
-	font-size: 20px;
-}
-.right-bar a {
-	background-color: #76bfb6;
-	color: #fff;
-	text-decoration: none;
-	display: block;
-	text-align: center;
-	height: 40px;
-	line-height: 40px;
-	font-weight: 900;
-}
-.right-bar i {
-	margin-right: 15px;
-}
-
-.right-bar a:hover {
-	background-color: #3972a7 
-}
-     */
-
-
-/* Admin CSS */
 
 
 .table {
@@ -1513,16 +1336,7 @@ th {
     margin-right: auto;
     width: 8em;
 }
-/*
-.indexRow{
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em;
-    padding: 5px 5px;
-    box-sizing: border-box;
-}
-*/
+
 .row{
     width: 100%;
     padding: 12px 20px;
@@ -1530,7 +1344,7 @@ th {
     box-sizing: border-box;
 }
 
-/* Account page CSS - ayub & ishika */
+
 .account-h4{
     font-size:large;
     text-align: center;
@@ -1569,7 +1383,7 @@ th {
     margin-right: 2.5rem;
 }
 
-/* Product Page CSS - ayub, ishika & feysal */
+
 .temp-container{
     display: grid;
     width: 96%;
@@ -1582,7 +1396,6 @@ th {
 }
 
 .temp-heading{
-    /* margin-top: ; */
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row-start: 0;
@@ -1627,10 +1440,6 @@ th {
 .viewStock{
     text-align: center;
     justify-content: center;
-    /* grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    grid-row-end: 2; */
     font-weight: bold;
 } 
 
@@ -1664,11 +1473,6 @@ th {
 }
 
 .leaveRating form{
-    /* display: flex;
-    align-items: flex-end;
-    flex-direction: row;
-    font-weight: bold;
-    font-size: initial; */
     display: grid;
     font-weight: bold;
     font-size: initial;
@@ -1736,14 +1540,6 @@ th {
 }
 
 
-/* .temp-search{
-    align-items: center;
-    justify-content: center;
-    grid-column-start: 2;
-    grid-column-end: 2;
-} */
-/* */
-/* 
 
 
 .leaveRating{
@@ -1752,36 +1548,6 @@ th {
     grid-row-start:4 ;
     grid-row-end: 5;
 } */
-
-/* .btn-card{
-   
-
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 262px;
-    margin: auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- 
-
-    border-radius: 0%;
-    padding: 12px;
-    color: var(--p1-colour);
-    background-color: var(--s-colour);
-    text-align: center;
-    cursor: pointer;
-    transition: .3s;
-    transition-duration: 0.4s;
-} */
-
-/* .productName{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 4;
-    grid-row-end: 4;
-    text-align: center;
-} */
-
-
-/* ADMIN Order Status CSS - ishika */
 
 tr.PENDING .admin-order-status {
     color: rgb(0, 81, 255);
@@ -1800,16 +1566,6 @@ tr.PENDING .admin-order-status {
   }
   
   
-/*
-.card:hover {
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
-    border-radius: 20px;
-}
-*/
-
-/* END OF ADMIN HOME CSS */
-
-/* Admin Pages - Ishika */
 
 #admin-body{
     margin:0;
@@ -1918,7 +1674,7 @@ tr.PENDING .admin-order-status {
     display: none;   
 }
 
-/* ADMIN SIDEBAR PART OF ADMIN PAGES - Ishika */
+
 
 .admin-aside .admin-side{
     display: flex;
@@ -1926,7 +1682,6 @@ tr.PENDING .admin-order-status {
     height: 86vh;
     position: relative;
     top: 3rem;
-    /* margin-left: -0.8rem; */
 }
 
 .admin-aside h3{
@@ -1979,7 +1734,7 @@ tr.PENDING .admin-order-status {
     
     
 }
-/* admin main section */
+
 .admin-main{
     margin-top: 1.4rem;
 }
@@ -2018,7 +1773,7 @@ tr.PENDING .admin-order-status {
     box-shadow: none;
 }
 
-.admin-main .admin-insights > div .admin-circle { /* can add different colours for individual circles if needed */
+.admin-main .admin-insights > div .admin-circle { 
     background: var(--p5-colour);
     padding: 0.5rem;
     border-radius: 50%;
@@ -2089,7 +1844,7 @@ tr.PENDING .admin-order-status {
     display: block;
 }
 
-/* admin tables */
+
 .admin-main .admin-recent-orders {
     margin-top: 2rem;
   }
@@ -2108,13 +1863,9 @@ tr.PENDING .admin-order-status {
     transition: all 300ms ease;
   }
   .admin-main .admin-recent-orders form {
-    /* background: var(--p2-colour); */
     width: 100%;
     text-align: center;
     justify-content: space-between;
-    /* border-radius: 2rem; */
-    /* padding: 1.8rem; 
-    /* box-shadow: 0 1rem 2rem var(--p2-colour); */
     transition: all 300ms ease;
   }
   
@@ -2143,7 +1894,7 @@ color: var(--p5-colour);
 text-decoration: none;
 }
 
-/* end of admin tables & start of top right section of admin pages */
+
 .admin-right {
     margin-top: 1.4rem;
     background: var(--color-light);
@@ -2166,7 +1917,7 @@ text-decoration: none;
     text-align: right;
 }
 
-/* end of top right section of admin pages & start of recent updates */
+
 
 .admin-right .admin-recent-updates {
     margin-top: 1rem;
@@ -2194,119 +1945,9 @@ text-decoration: none;
     gap: 1rem;
     margin-bottom: 1rem;
 }
-
-/* media queries for general admin pages */  
-
-/* @media screen and (max-width: 1200px){
-    .admin-container{
-        
-    }
-}
-     */
-
-/* For screens smaller than 768px */
-/* Media query for screens with a maximum width of 768px */  
-  
-
-/* @media screen and (max-width: 768px){
-    .admin-container{
-        width: 100%;
-        grid-template-columns: 1fr;
-    }
-
-    .admin-aside{
-        position: fixed;
-        display: none; 
-        left: 0;
-        width: 18rem;
-        z-index: 3;
-        left: -100%;
-        height: 100vh;
-        padding-right: 1.8rem;
-        box-shadow: 0 1rem 2rem var(--p2-colour);
-        animation: showAdminNav 350ms ease forwards;
-    }
-
-    .admin-aside .admin-side .admin-logo{
-        margin-left: 1rem;
-    }
-
-    .admin-aside .admin-side h2{
-        display: inline;
-    }
-
-    .admin-aside .admin-side h3{
-        display: inline;
-    }
-
-    .admin-aside .admin-side a{
-        width: 100%;
-        height: 3.3rem;
-    }
-
-    .admin-aside .admin-x{
-        display: inline-block;
-        cursor: pointer;
-    }
-
-    .admin-main{
-        margin-top: 8rem;
-        padding: 0 1rem;
-    }
-
-    .admin-main .admin-insights > div{
-        width: 100%;
-    }
-    .admin-main .admin-recent-orders{
-        position: relative;
-        margin: 3rem 0 0 0;
-        width: 100%;
-    }
-
-    .admin-main .admin-recent-orders table{
-        width: 100%;
-        margin: 0;
-    }
-
-    .admin-right{
-        width: 94%;
-        margin: 0 auto 4rem;
-    }
-
-    .admin-right .admin-top{
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 0 0.8rem;
-        align-items: center;
-        height: 4.6rem;
-        margin: 0;
-        z-index: 2;
-        width: 100%;
-    }
-    .admin-right .top button{
-        position: absolute;
-        left: 1rem;
-        display: inline-block;
-        background: transparent;
-        cursor: pointer;
-        font-size: 2rem;
-    }
-
-    .admin-right .admin-top button span{
-        font-size: 2rem;
-    } */
-
-  
-/* end of general admin pages styling */
-/* admin add product page */
+ 
 
 .admin-addproduct-container{
-    /* display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-     */
     max-width: 500px;
     width: 100%;
     background: var(--p2-colour);
@@ -2381,8 +2022,6 @@ text-decoration: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    /* border-color:0px;
-    outline:0px;  */
     width: 100%;
     height: 100%;
     border: 0px;
@@ -2429,7 +2068,6 @@ text-decoration: none;
     }
 }
 
-/* end of admin add product */
 @media  (max-width: 768px) {
     .admin-container {
     grid-template-columns: 1fr;
@@ -2590,10 +2228,6 @@ display: none;
 }
 
     }
-/*End of admin styling - ishika*/
-
-
-/*Dark Mode */
 
 #darkmode{
 color: var(--s-colour);
@@ -2605,10 +2239,10 @@ cursor: pointer;
     
     
 :root{
-    --p-colour: #E7D5AD; /*Nav-select*/
-    --p1-colour:#f2f2f2; /*Background*/
-    --s-colour: #3A3B3D; /* text*/
-    --p2-colour: #ccc;   /*Footer + Navbar*/
+    --p-colour: #E7D5AD;
+    --p1-colour:#f2f2f2; 
+    --s-colour: #3A3B3D; 
+    --p2-colour: #ccc;   
     --p3-colour: #F6F6F9;
     --p4-colour: #3A3B3D;
     --p5-colour: #271A52; 
