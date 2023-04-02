@@ -80,24 +80,7 @@
           <div class="img-cont">
             <img th:src="@{${'/media/' + product.img}}" class="figure-img img-fluid rounded" th:alt="${product.name}">
           </div>
-          <style>
-            .temp-figure .img-cont img {
-              size: 640px;
-              height:640px;
-              width:640px;
-            }
-            .img-cont{
-              overflow: hidden;
-            }
-            .img-cont:hover{
-              transform: scale(1.0);
-            }
-            .temp-figure .img-cont img:hover{
-              transform: scale(1.2);
-              transition: .9s ease;
-            }
 
-          </style>
             <!-- <div class="productName">
                 <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
                 <div class="priceTag">
@@ -148,21 +131,6 @@
             <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart" th:if="${product.stock > 0}">Add to Cart</a>
             <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
           </div>
-          <style>
-            .big-adds {
-              display: flex;
-              justify-content: space-evenly;
-              align-items: center;
-              }
-            .fig-cap {
-              display: flex;
-              justify-content: center;
-            }
-            .leaveRating{
-              display: flex;
-              justify-content: center;
-            }
-          </style>
             <br>
             <br>
             <div class="viewProductsTable">
