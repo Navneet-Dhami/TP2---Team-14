@@ -79,25 +79,7 @@
         <div class="temp-figure">
           <div class="img-cont">
             <img th:src="@{${'/media/' + product.img}}" class="figure-img img-fluid rounded" th:alt="${product.name}">
-          </div>
-
-            <!-- <div class="productName">
-                <figcaption class="figure-caption text-end" th:text="${product.name}"></figcaption>
-                <div class="priceTag">
-                    <h4>£ <span th:text="${product.price}"></span></h4>
-                   
-                      <a id="adds" href="" th:href="@{/addCart/{id}(id = ${product.id})}" class="btn btn-primary add-to-cart" th:if="${product.stock > 0}">Add to Cart</a>
-                      <a id="adds" href="" th:href="@{/addToWishlist/{id}(id = ${product.id})}" class="btn btn-primary">Add to Wish</a>
-                    
-                </div>
-                <div class="viewStock">
-                    <div th:if="${product.stock <= 0}" class="stock-status out-of-stock">Out of stock: Please check back in the coming
-                        weeks.</div>
-                    <div th:if="${product.stock > 0 and product.stock <= 10}" class="stock-status low-stock">Low stock</div>
-                    <div th:if="${product.stock > 10}" class="stock-status high-stock">In stock</div>
-                </div>
-            </div> -->
-            
+          </div> 
         </div>
         <div class="productName">
           <div class="fig-cap">
@@ -178,11 +160,11 @@
         
             
               <div class="logintocomment">
-                <!-- If you are not logged in this displays a clickable h1 to the login -->
+               
         <div sec:authorize="isAnonymous()">
             <h1><a th:href="@{/login}" class="btn btn-primary">Login to comment!</a></h1>
         </div>
-                <!-- If logged in you can add a review here -->
+             
         
 
 
@@ -190,46 +172,7 @@
               
           </div>
         </div>
-      <!-- <div class="leaveRating">
-        <div sec:authorize="isAuthenticated()">
-        <form th:action="@{/productView/{id}/review(id=${product.id})}" th:object="${addReview}" method="post">
-            <div>
-                <label>Star Rating:</label>
-                <input type="number" th:field="*{rating}" min="1" max="5" required>
-            </div>
-            <div>
-                <label>Review:</label>
-                <textarea th:field="*{review}" required></textarea>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-        </div>
-        </div> -->
-        
-        
-    <!-- <div class="leaveRating"> -->
-        <!-- If you are not logged in this displays a clickable h1 to the login -->
-<!-- <div sec:authorize="isAnonymous()">
-    <h1><a th:href="@{/login}" class="btn btn-primary">Login to comment!</a></h1>
-</div> -->
-        <!-- If logged in you can add a review here -->
-<!-- <div class="leaveRating">
-    <div sec:authorize="isAuthenticated()">
-    <form th:action="@{/productView/{id}/review(id=${product.id})}" th:object="${addReview}" method="post">
-        <div>
-            <label>Star Rating:</label>
-            <input type="number" th:field="*{rating}" min="1" max="5" required>
-        </div>
-        <div>
-            <label>Review:</label>
-            <textarea th:field="*{review}" required></textarea>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-    </div>
-    </div>
-    
-    </div> -->
+      
     
     </div>
 

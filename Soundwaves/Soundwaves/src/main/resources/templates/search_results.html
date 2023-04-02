@@ -64,18 +64,18 @@
         </div>
     </nav>
 </section>
-    <!-- THIS SHOWS STUFF -Bill :D -->
+    
     <form class="search-bar" th:action="@{/search}" method="get">
         <br>
         <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
     </form>
     <div>
-        <!-- THIS SHOWS STUFF -Bill :D -->
+        
         <br>
         <div class="nav"><h2>Search Results for '[[${keyword}]]'</h2></div>
         <br>
     </div>
-    <!-- THIS SHOWS STUFF -Bill :D -->
+    
     <div class="row">
         <div class="col-sm-9">
             <div class="card" style="margin-top: 20px" th:each="product : ${searchResult}">

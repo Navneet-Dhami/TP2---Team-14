@@ -98,7 +98,7 @@
 <div class="container" style="margin-top: 30px; box-shadow: none;">
     <div class="container2">
         <div class="nav"><h2>Categories</h2></div>
-        <!-- THIS SHOWS STUFF -Bill :D -->
+       
     <form class="search-bar" th:action="@{/search}" method="get">
         <br>
         <input type="search" class="form-control" name="keyword" th:value="${search}" placeholder="Search Here" size="50">
@@ -117,11 +117,11 @@
     </div>
 </div>
 
-<!-- Trending Products Functionality -->
+
 <div class="nav">
   <h2>Trending</h2>
 </div>
-<!-- This filters the functions based on ratings or orders -->
+
 <form th:action="@{/}" th:object="${changeFilter}" method="post">
   <label for="filter">Filter by:</label>
   <select id="filter" name="filter" th:field="*{filter}" onchange="this.form.submit()">
@@ -129,7 +129,7 @@
     <option value="orders">Orders</option>
   </select>
 </form>
-<!-- Display of the Trending Products -->
+
 <div class="row">
   <div class="col-sm-9">
     <div class="card" style="margin-top: 20px" th:each="product : ${trendingProducts}">
