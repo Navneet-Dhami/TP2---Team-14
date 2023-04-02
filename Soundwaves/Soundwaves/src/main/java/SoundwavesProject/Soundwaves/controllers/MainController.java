@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-// import SoundwavesProject.Soundwaves.dto.OrderDTO;
+
 import SoundwavesProject.Soundwaves.global.AllData;
 import SoundwavesProject.Soundwaves.model.Feedback;
 import SoundwavesProject.Soundwaves.model.Order;
@@ -27,7 +27,7 @@ import SoundwavesProject.Soundwaves.model.Product;
 import SoundwavesProject.Soundwaves.model.Review;
 import SoundwavesProject.Soundwaves.model.SoundWavesUserDetails;
 import SoundwavesProject.Soundwaves.model.TrendingModel;
-// import SoundwavesProject.Soundwaves.model.Order;
+
 import SoundwavesProject.Soundwaves.model.User;
 import SoundwavesProject.Soundwaves.model.Wishlist;
 import SoundwavesProject.Soundwaves.model.Order.OrderStatus;
@@ -42,7 +42,7 @@ import SoundwavesProject.Soundwaves.service.UpdatesService;
 import SoundwavesProject.Soundwaves.service.TrendingProductsService;
 import SoundwavesProject.Soundwaves.service.UserService;
 import SoundwavesProject.Soundwaves.service.WishlistService;
-//import SoundwavesProject.Soundwaves.service.OrderService;
+
 import SoundwavesProject.Soundwaves.service.categoriesService;
 import jakarta.servlet.http.HttpSession;
 
