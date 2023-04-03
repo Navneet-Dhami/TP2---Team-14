@@ -42,6 +42,10 @@ public class Review {
         return this.rating;
     }
 
+    public LocalDate getDate() {
+        return this.date;
+    }
+
     public void setUser(User user) {
         this.user = user;
     }
