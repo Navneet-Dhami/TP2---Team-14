@@ -2028,6 +2028,8 @@ grid-gap: 10px;
 .ordercat a{
 margin: 18px;
 text-decoration: none;
+border-radius: 2rem;
+border: 1px;
 }
 
 .ordercat a{
